@@ -1,7 +1,13 @@
-import React from 'react'
+// imports
+import React from "react";
+import Home from "./pages/Home"
 
+// start Coding
 export default function App() {
   return (
-    <div>App</div>
-  )
+    <>
+      <Home />
+    </>
+  );
 }
+// finished
