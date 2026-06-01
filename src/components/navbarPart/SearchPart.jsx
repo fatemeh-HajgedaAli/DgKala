@@ -2,13 +2,14 @@ import React from "react";
 import mainLogo from "../../assets/pictures/DigiLogos/logo dj.svg";
 import { BsSearch, BsBell, BsCart2, BsDoorOpen } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import NavbarmenuBoxes from "./NavbarmenuBoxes";
 
 export default function SearchPart({ placeholder }) {
   return (
     <>
       {/* rightPart */}
-      <div className=" flex flex-row justify-between items-center">
-        <div className=" flex flex-row justify-start">
+      <div className=" flex flex-row justify-between items-center invisible lg:visible">
+        <div className=" flex flex-row justify-start ">
           {/* Logo */}
           <img src={mainLogo} alt="DigiKalaLogo" className="w-40 mr-3 mt-1" />
           {/* SearchBox */}
@@ -37,6 +38,24 @@ export default function SearchPart({ placeholder }) {
             <Link> | ثبت‌نام</Link>
           </div>
           <BsCart2 className="border-r-1 h-8 pr-3 text-4xl mt-0.5 border-slate-300" />
+        </div>
+      </div>
+      {/* phone search  Box */}
+      <div className="relative flex flex-row bottom-12 item-center gap-4">
+        <NavbarmenuBoxes />
+      </div>
+      <div>
+        <div className="relative flex item-center visible lg:invisible -top-10">
+          <input
+            type="text"
+            placeholder={placeholder}
+            className=" bg-white text-slate-400 w-150 
+            rounded-3xl font-bold border-slate-300 border-1
+            px-25 py-2 mr-4 text-l"
+          />
+          {/* icon */}
+          <BsSearch className="absolute text-slate-400 top-4 right-10 text-2xl  " />
+          <BsBell className="mt-1 border-1 border-slate-300 shadow-xl/10 rounded-full p-5 text-6xl mr-5" />
         </div>
       </div>
     </>

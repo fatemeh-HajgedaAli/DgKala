@@ -8,7 +8,7 @@ export default function TopBanner() {
   return (
     <>
       {/* mainNavbar */}
-      <div className="shadow-xl/10 h-40 border-b-2 border-slate-300 ">
+      <div className="lg:shadow-xl/10 lg:h-40 lg:border-b-2 lg:border-slate-300 ">
         <div>
           <img src={TopBannerPic} alt="Top Banner" />
         </div>
