@@ -17,8 +17,21 @@ const boxItems = [
 export default function NavbarmenuBoxes({ title, image }) {
   return (
     <>
-      <div className="w-12 h-12 bg-yellow-100 text-center lg:invisible">
-        <div>{}</div>
+      <div
+        className="flex flex-row gap-2 justify-center text-center mr-2
+      lg:invisible cursor-pointer"
+      >
+        {boxItems.map((item) => (
+          <div
+            key={item.id}
+            className="w-20 h-18 text-center justify-items-center
+            border-slate-300 
+            border-1 rounded-lg"
+          >
+            <img src={item.image} alt={item.title} className="flex w-10  " />
+            <span className="text-sm">{item.title}</span>
+          </div>
+        ))}
       </div>
     </>
   );

@@ -54,8 +54,11 @@ export default function SearchPart({ placeholder }) {
             px-25 py-2 mr-4 text-l"
           />
           {/* icon */}
-          <BsSearch className="absolute text-slate-400 top-4 right-10 text-2xl  " />
-          <BsBell className="mt-1 border-1 border-slate-300 shadow-xl/10 rounded-full p-5 text-6xl mr-5" />
+          <BsSearch className="text-slate-400 top-4 text-2xl  " />
+          <BsBell
+            className="mt-1 border-1 border-slate-300 shadow-xl/10
+           rounded-full p-5 text-6xl mr-5"
+          />
         </div>
       </div>
     </>
