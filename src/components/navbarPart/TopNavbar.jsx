@@ -8,16 +8,18 @@ export default function TopBanner() {
   return (
     <>
       {/* mainNavbar */}
-      <div className="lg:shadow-xl/10 lg:h-40 lg:border-b-2 lg:border-slate-300 ">
-        <div>
-          <img src={TopBannerPic} alt="Top Banner" />
-        </div>
-        <div>
-          <SearchPart placeholder="جستجو" />
-        </div>
-        <div>
-          <NavbarMenu />
-        </div>
+      <div>
+        <img
+          src={TopBannerPic}
+          alt="Top Banner"
+          className="absolute z-50"
+        />
+      </div>
+      <div>
+        <SearchPart placeholder="جستجو" />
+      </div>
+      <div>
+        <NavbarMenu />
       </div>
     </>
   );

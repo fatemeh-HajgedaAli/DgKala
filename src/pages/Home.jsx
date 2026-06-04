@@ -1,10 +1,12 @@
 import React from "react";
-import TopBanner from "../components/navbarPart/TopNavbar";
+import TopNavbar from "../components/navbarPart/TopNavbar";
+import StoryHeader from "../components/header/StoryHeader";
 
 export default function Home() {
   return (
     <>
-      <TopBanner />
+      <TopNavbar />
+      <StoryHeader />
     </>
   );
 }
