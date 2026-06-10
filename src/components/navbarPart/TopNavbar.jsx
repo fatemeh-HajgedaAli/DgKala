@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TopBannerPic from "/topNavbar.gif";
 import SearchPart from "./SearchPart";
-import NavbarMenu from "./NavbarMenu";
+
 
 // start
 export default function TopBanner() {
@@ -12,15 +12,13 @@ export default function TopBanner() {
         <img
           src={TopBannerPic}
           alt="Top Banner"
-          className="absolute z-50"
+          className="fixed z-50 top-0"
         />
       </div>
       <div>
         <SearchPart placeholder="جستجو" />
       </div>
-      <div>
-        <NavbarMenu />
-      </div>
+     
     </>
   );
 }

@@ -1,1 +1,42 @@
 @import "tailwindcss";
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/fonts/fonts/ttf/Vazirmatn-Light.ttf") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/fonts/fonts/ttf/Vazirmatn-Regular.ttf") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/fonts/fonts/ttf/Vazirmatn-Bold.ttf") format("woff2");
+  font-weight: 700;
+}
+@theme {
+  --default-font-family: "Vazirmatn", sans-serif;
+}
+@utility hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+}
+/* .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+} */
+body {
+  overflow-x: hidden;
+}
+/* find style bugs */
+/* * {
+  outline: 1px solid red;
+} */
