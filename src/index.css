@@ -37,6 +37,6 @@ body {
   overflow-x: hidden;
 }
 /* find style bugs */
-* {
+/* * {
   outline: 1px solid red;
-}
+} */

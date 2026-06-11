@@ -28,9 +28,13 @@ export default function HeroSliderSm() {
     return () => clearInterval(timer);
   }, []);
   return (
-    <div className="relative flex overflow-hidden w-full  h-screen lg:hidden">
+    <div
+      className="relative flex overflow-hidden w-full 
+     h-full lg:hidden "
+    >
       <div
-        className="flex h-[200px] gap-2 transition-transform duration-300 ml-6 "
+        className="flex h-[100px] gap-2 transition-transform 
+        duration-300 ml-10 "
         style={{
           transform: `translateX(${index * 100}%)`,
         }}
@@ -39,7 +43,7 @@ export default function HeroSliderSm() {
           <img
             key={item.id}
             src={item.image}
-            className="w-full h-full flex-shrink-0 border-xl rounded-3xl object-cover mt-5 "
+            className="w-full h-full flex-shrink-0 border-xl rounded-2xl object-cover mt-5 "
             alt="poster"
           />
         ))}
