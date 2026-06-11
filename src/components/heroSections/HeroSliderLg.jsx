@@ -20,7 +20,7 @@ const posterData = [
   { id: 7, title: "poster", image: poster7 },
   { id: 8, title: "poster", image: poster8 },
 ];
-export default function HeroSlider() {
+export default function HeroSliderLg() {
   const [counter, SetCounter] = useState(0);
   const [showBtns, setShowBtns] = useState(false);
   const myRef = useRef(null);
