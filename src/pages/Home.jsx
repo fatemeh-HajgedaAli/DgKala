@@ -1,10 +1,10 @@
 import React from "react";
-import TopNavbar from "../features/navbar/TopNavbar";
+import Navbar from "../features/navbar/Navbar";
 
 export default function Home() {
   return (
     <>
-      <TopNavbar />
+      <Navbar />
     </>
   );
 }
