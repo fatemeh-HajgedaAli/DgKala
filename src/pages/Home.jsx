@@ -4,6 +4,7 @@ import StoryHeader from "../features/story/StoryHeader";
 import HeroSliderSm from "../features/hero/HeroSliderSm";
 import HeroSliderLg from "../features/hero/HeroSliderLg";
 import HeroStory from "../features/hero/HeroStory";
+import AmazingCarousal from "../features/offers/AmazingCarousel";
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <HeroSliderSm />
       <HeroSliderLg/>
       <HeroStory/>
+      {/* offers */}
+    <AmazingCarousal/>
     </>
   );
 }
