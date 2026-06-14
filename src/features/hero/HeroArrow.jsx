@@ -6,7 +6,7 @@ export default function StoryArrow({ direction, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`absolute z-10 h-full w-[100px] bg-white ${
+      className={` z-10 h-full w-[100px]  bg-white ${
         isLeft ? "left-0" : "right-0"
       }`}
     >
@@ -16,7 +16,7 @@ export default function StoryArrow({ direction, onClick }) {
         className={`
           w-10 h-10 rounded-full border-1 text-2xl bg-white text-slate-300 
           -mt-10 p-3 hover:text-slate-500 
-          ${isLeft ? "-mr-15 " : "mr-35 rotate-180"}
+          ${isLeft ? "mr-20 " : "mr-36  rotate-180"}
         `}
       />
     </button>
