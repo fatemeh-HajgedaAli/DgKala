@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 export default function useOfferSlider(length, delay = 3000) {
   const [index, setIndex] = useState(0);
 
-
   const next = () => {
     setIndex((prev) => (prev === length - 1 ? 0 : prev + 1));
   };

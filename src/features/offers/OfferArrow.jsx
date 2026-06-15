@@ -6,18 +6,27 @@ export default function OfferArrow({ direction, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={` z-10 h-full w-[100px]  bg-white ${
-        isLeft ? "left-0" : "right-0"
-      }`}
+      className={`
+        absolute
+        top-1/2
+        -translate-y-1/2
+        z-20
+        w-10
+        h-10
+        rounded-full
+        border-1
+        border-gray-400
+        bg-white
+        shadow-md
+        flex
+        items-center
+        justify-center
+        
+       ${isLeft ? "left-8" : "right-1/6"}
+      `}
     >
-      {/* rotate SVG  */}
-
       <FaChevronLeft
-        className={`
-          w-10 h-10 rounded-full border-1 text-2xl bg-white text-slate-300 
-          -mt-10 p-3 hover:text-slate-500 
-          ${isLeft ? "mr-20 " : "mr-3  rotate-180"}
-        `}
+        className={`text-slate-500 ${!isLeft ? "rotate-180" : ""}`}
       />
     </button>
   );
