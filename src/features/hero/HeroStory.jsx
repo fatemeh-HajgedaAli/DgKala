@@ -1,4 +1,4 @@
-// Hero-story
+// Hero-icons-story
 import React from "react";
 import { heroStoryData } from "./heroData";
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -7,7 +7,7 @@ export default function HeroStory() {
     <>
       <div
         className="relative flex  bottom-5
-          overflow-hidden top-1 mb-2 bg-white "
+          overflow-hidden top-5  bg-white "
       >
         <div
           className="flex flex-nowrapp justify-center

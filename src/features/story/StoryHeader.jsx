@@ -13,7 +13,7 @@ export default function StoryHeader() {
   };
 
   return (
-    <div className="relative hidden lg:flex items-center bg-white py-5 overflow-hidden">
+    <div className="relative hidden lg:flex items-center  bg-white py-5 overflow-hidden">
       {/* LEFT ARROW */}
       <StoryArrow direction="left" onClick={() => slide("left")} />
 
