@@ -7,7 +7,6 @@ import HeroStory from "../features/hero/HeroStory";
 import AmazingCarousal from "../features/offers/AmazingCarousel";
 import BannerDiscription from "../features/products/BannerDiscription";
 
-
 export default function Home() {
   return (
     <>
@@ -20,7 +19,7 @@ export default function Home() {
       {/* offers */}
       <AmazingCarousal />
       {/* descriptionBanner */}
-  <BannerDiscription/>
+      <BannerDiscription />
     </>
   );
 }

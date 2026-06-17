@@ -32,7 +32,10 @@ export default function AmazingCarousal() {
   }, []);
 
   return (
-    <div className="relative flex h-[350px] bg-rose-600 rounded-r-3xl overflow-hidden top-10 mr-30">
+    <div
+      className="relative flex h-[280px] lg:h-[350px] bg-rose-600 
+    lg:rounded-r-3xl overflow-hidden top-10 mr-0"
+    >
       <OffersText />
 
       {showRight && (
@@ -42,13 +45,12 @@ export default function AmazingCarousal() {
       <div
         ref={sliderRef}
         onScroll={updateButtons}
-        className="flex overflow-x-auto no-scrollbar gap-5 p-4 w-full mr-50"
+        className="flex overflow-x-auto no-scrollbar gap-5 p-4 w-full lg:mr-[200px]"
       >
-        <OfferSlider />
+        <OfferSlider className="flex items-center" />
       </div>
 
       <OfferArrow direction="left" onClick={() => slide("left")} />
- 
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function OfferTimer({ duration }) {
   const hours = Math.floor(totalSeconds / 3600) % 24;
 
   return (
-    <div className="flex gap-1 items-center mr-10">
+    <div className="flex gap-1 items-center mr-2 lg:mr-10 ">
       <div className="bg-white p-2 rounded">{format(seconds)}</div>
       <span className="text-white">:</span>
       <div className="bg-white p-2 rounded">{format(minutes)}</div>

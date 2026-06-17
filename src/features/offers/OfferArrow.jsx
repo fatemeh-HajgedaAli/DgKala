@@ -22,7 +22,7 @@ export default function OfferArrow({ direction, onClick }) {
         items-center
         justify-center
         
-       ${isLeft ? "left-8" : "right-1/6"}
+       ${isLeft ? "left-2 lg:left-8" : "right-1 lg:right-1/6"}
       `}
     >
       <FaChevronLeft
