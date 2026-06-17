@@ -10,7 +10,8 @@ import { Link } from "react-router";
 export default function OffersText() {
   return (
     <>
-      <div className="absolute flex flex-row lg:flex-col items-center lg:gap-2 mr-5 mt-5">
+      <div className="absolute flex flex-row lg:flex-col
+       items-center lg:gap-2 mr-5 mt-5">
         <img
           src={Logo1}
           alt="AmazingLogo"
@@ -23,21 +24,21 @@ export default function OffersText() {
           alt="%Logo"
           className="flex lg:hidden mr-0 w-10 -mt-2"
         />
-        <img src={Logo3} alt="rowAmazing Logo" className="mr-1 w-30" />
+        <img src={Logo3} alt="rowAmazing Logo" className="mr-1 w-30 lg:hidden" />
 
         <OfferTimer  duration={10 * 24 * 60 * 60 * 1000} />
         {/* amaizingLogo */}
         <img
           src={Logo2}
           alt="AmazingLogo"
-          className="hidden lg:flex mr-10 w-30"
+          className="hidden lg:flex mr-5 w-20 "
         />
         {/* more option */}
-        <div className="flex items-center text-white  lg:-mt-2  lg:mr-15">
+        <div className="flex items-center text-white  lg:-mt-2  lg:mr-10">
           <Link
             to="/products"
             type="button"
-            className="text-sm hidden lg:flex "
+            className="text-sm ml-5  hidden lg:flex "
           >
             مشاهده همه
           </Link>
