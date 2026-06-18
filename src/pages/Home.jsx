@@ -6,6 +6,7 @@ import HeroSliderLg from "../features/hero/HeroSliderLg";
 import HeroStory from "../features/hero/HeroStory";
 import AmazingCarousal from "../features/offers/AmazingCarousel";
 import BannerDiscription from "../features/products/BannerDiscription";
+import BrandsPart from "../features/brands/BrandsPart";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <AmazingCarousal />
       {/* descriptionBanner */}
       <BannerDiscription />
+      {/* brandsPart */}
+      <BrandsPart/>
     </>
   );
 }
