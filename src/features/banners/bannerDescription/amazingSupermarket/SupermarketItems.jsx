@@ -1,5 +1,5 @@
 import React from "react";
-import { amazingData } from "../../../../data/amazing.Data";
+import { amazingData } from "../../../../data/amazing.data";
 export default function SupermarketItems() {
   return (
     <>

@@ -21,7 +21,7 @@ import product20 from "../assets/images/products2/arayesh.png";
 
 // productData
 
-export const categoriesData = [
+export const productsCategoriesData = [
   { id: 1, image: product1, title: "کتاب، لوازم تحریر و هنر" },
   { id: 2, image: product2, title: "کارت هدیه و گیفت کارت" },
   { id: 3, image: product3, title: "خودرو و موتورسیکلت" },

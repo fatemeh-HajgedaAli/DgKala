@@ -12,9 +12,10 @@ import BannerDiscription from "../features/banners/bannerDescription/BannerDiscr
 //  brandsPart
 import BrandsPart from "../features/brands/BrandsPart";
 // ShopingByCategories
-import ShopingByCategories from "../features/products/ShopingByCategories";
+import ShopingByCategories from "../features/products/productCategories/ShopingByCategories";
 // banners
 import PosterDescription from "../features/banners/posterDescription/PosterDescription";
+import MainSuggestionProducts from "../features/products/suggestionProducts/MainSuggestionProducts";
 
 export default function Home() {
   return (
@@ -33,8 +34,11 @@ export default function Home() {
       <ShopingByCategories />
       {/* posterDescription */}
       <PosterDescription />
+    
       {/* brandsPart */}
       <BrandsPart />
+        {/* suggestionProducts */}
+      <MainSuggestionProducts />
     </>
   );
 }

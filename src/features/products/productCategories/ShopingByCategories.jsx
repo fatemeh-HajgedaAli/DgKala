@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import ProductsItems from "./productCategories/ProductsItems";
-import Button from "../../components/shared/Button";
+import ProductsItems from "./ProductsItems";
+import Button from "../../../components/shared/Button";
 
 export default function ShopingByCategories() {
   const sliderRef = useRef(null);

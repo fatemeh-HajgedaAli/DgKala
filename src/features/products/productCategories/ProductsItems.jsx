@@ -1,9 +1,9 @@
-import { categoriesData } from "../../../data/productsCategories";
+import { productsCategoriesData } from "../../../data/productsCategories.data";
 
 export default function ProductsItems() {
   return (
     <>
-      {categoriesData.map((products) => (
+      {productsCategoriesData.map((products) => (
         <div
           className="lg:flex flex-col items-center w-[120px] shrink-0"
           key={products.id}
