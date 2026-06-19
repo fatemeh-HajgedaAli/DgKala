@@ -1,5 +1,5 @@
 import React from "react";
-import { topdata } from "./description.Data";
+import { topdata } from "../../../data/description.Data";
 
 export default function TopCards() {
   return (

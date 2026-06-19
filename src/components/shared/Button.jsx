@@ -1,6 +1,6 @@
 // left/right Arrow
 import { FaChevronLeft } from "react-icons/fa6";
-export default function Botton({ direction, onClick }) {
+export default function Button({ direction, onClick }) {
   const isLeft = direction === "left";
 
   return (

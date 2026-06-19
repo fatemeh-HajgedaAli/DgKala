@@ -1,22 +1,22 @@
 // Posterimages
-import poster1 from "../../assets/images/hero/1.gif";
-import poster2 from "../../assets/images/hero/2.webp";
-import poster3 from "../../assets/images/hero/3.webp";
-import poster4 from "../../assets/images/hero/4.webp";
-import poster5 from "../../assets/images/hero/5.webp";
-import poster6 from "../../assets/images/hero/6.webp";
-import poster7 from "../../assets/images/hero/7.webp";
-import poster8 from "../../assets/images/hero/8.webp";
+import poster1 from "../assets/images/hero/1.gif";
+import poster2 from "../assets/images/hero/2.webp";
+import poster3 from "../assets/images/hero/3.webp";
+import poster4 from "../assets/images/hero/4.webp";
+import poster5 from "../assets/images/hero/5.webp";
+import poster6 from "../assets/images/hero/6.webp";
+import poster7 from "../assets/images/hero/7.webp";
+import poster8 from "../assets/images/hero/8.webp";
 // heroStory
-import pic1 from "../../assets/images/icons/bil.png";
-import pic2 from "../../assets/images/icons/digikala.png";
-import pic3 from "../../assets/images/icons/digiklub.png";
-import pic4 from "../../assets/images/icons/digiplus.png";
-import pic5 from "../../assets/images/icons/gold.jpg";
-import pic6 from "../../assets/images/icons/haraji.png";
-import pic7 from "../../assets/images/icons/mobile.png";
-import pic8 from "../../assets/images/icons/resive.png";
-import pic9 from "../../assets/images/icons/supermarket.png";
+import pic1 from "../assets/images/icons/bil.png";
+import pic2 from "../assets/images/icons/digikala.png";
+import pic3 from "../assets/images/icons/digiklub.png";
+import pic4 from "../assets/images/icons/digiplus.png";
+import pic5 from "../assets/images/icons/gold.jpg";
+import pic6 from "../assets/images/icons/haraji.png";
+import pic7 from "../assets/images/icons/mobile.png";
+import pic8 from "../assets/images/icons/resive.png";
+import pic9 from "../assets/images/icons/supermarket.png";
 // posterData
 export const heroPosterData = [
   { id: 1, title: "poster", image: poster1 },

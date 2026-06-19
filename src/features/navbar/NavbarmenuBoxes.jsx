@@ -1,7 +1,7 @@
 // datas
 import MobileNavbarExtras from "./MobileNavbarExtras";
 import { CiLocationOn } from "react-icons/ci";
-import { boxItems } from "./navbar.data";
+import { boxItems } from "../../data/navbar.data";
 
 export default function NavbarmenuBoxes() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { brandsData } from "./brands.data";
+import { brandsData } from "../../data/brands.data";
 
 export default function SliderBrands() {
   return (

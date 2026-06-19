@@ -1,10 +1,10 @@
 // boxItems pictures
-import pic1 from "../../assets/images/boxMenu/services.png";
-import pic2 from "../../assets/images/boxMenu/DigiKala.png";
-import pic3 from "../../assets/images/boxMenu/Gold.png";
-import pic4 from "../../assets/images/boxMenu/style.png";
-import pic5 from "../../assets/images/boxMenu/market.png";
-import pic6 from "../../assets/images/boxMenu/cart.png";
+import pic1 from "../assets/images/boxMenu/services.png";
+import pic2 from "../assets/images/boxMenu/DigiKala.png";
+import pic3 from "../assets/images/boxMenu/Gold.png";
+import pic4 from "../assets/images/boxMenu/style.png";
+import pic5 from "../assets/images/boxMenu/market.png";
+import pic6 from "../assets/images/boxMenu/cart.png";
 // menuItems icons
 import { CgMenu } from "react-icons/cg";
 import { AiOutlineGold } from "react-icons/ai";

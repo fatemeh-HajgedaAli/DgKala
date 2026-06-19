@@ -1,6 +1,6 @@
 // makes map for items
 import StoryItem from "./StoryItem";
-import { storyData } from "./story.data";
+import { storyData } from "../../data/story.data";
 
 export default function StorySlider({ sliderRef }) {
   return (

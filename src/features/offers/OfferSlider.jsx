@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { amazingData } from "./offersData";
+import { amazingData } from "../../data/offersData";
 import OfferItems from "./OfferItems";
-import useOfferSlider from "./useOffersSlider";
+import useOfferSlider from "../../hooks/useOffersSlider";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { Link } from "react-router";
 
