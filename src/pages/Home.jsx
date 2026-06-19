@@ -1,17 +1,20 @@
 import React from "react";
 import Navbar from "../features/navbar/Navbar";
 import StoryHeader from "../features/story/StoryHeader";
-      {/* hero */}
+//  hero
 import HeroSliderSm from "../features/hero/HeroSliderSm";
 import HeroSliderLg from "../features/hero/HeroSliderLg";
 import HeroStory from "../features/hero/HeroStory";
- {/* offers */}
+// offers
 import AmazingCarousal from "../features/offers/AmazingCarousel";
-import BannerDiscription from "../features/products/BannerDiscription";
-{/* brandsPart */}
+// banners
+import BannerDiscription from "../features/banners/bannerDescription/BannerDiscription";
+//  brandsPart
 import BrandsPart from "../features/brands/BrandsPart";
- {/*ShopingByCategories */}
+// ShopingByCategories
 import ShopingByCategories from "../features/products/ShopingByCategories";
+// banners
+import PosterDescription from "../features/banners/posterDescription/PosterDescription";
 
 export default function Home() {
   return (
@@ -27,10 +30,11 @@ export default function Home() {
       {/* descriptionBanner */}
       <BannerDiscription />
       {/*ShopingByCategories */}
-      <ShopingByCategories/>
+      <ShopingByCategories />
+      {/* posterDescription */}
+      <PosterDescription />
       {/* brandsPart */}
-      <BrandsPart/>
-
+      <BrandsPart />
     </>
   );
 }
