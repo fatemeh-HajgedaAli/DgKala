@@ -5,15 +5,15 @@ export default function ProductsItems() {
     <>
       {categoriesData.map((products) => (
         <div
-          className="flex flex-col items-center w-[120px] shrink-0 mr-10"
+          className="lg:flex flex-col items-center w-[120px] shrink-0"
           key={products.id}
         >
           <img
             src={products.image}
             alt={products.title}
-            className="w-30 h-30"
+            className="w-27 h-27"
           />
-          <p>{products.title}</p>
+          <p className="text-center font-bold text-sm">{products.title}</p>
         </div>
       ))}
     </>
