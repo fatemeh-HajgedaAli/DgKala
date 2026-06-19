@@ -4,17 +4,16 @@ export default function ProductsItems() {
   return (
     <>
       {categoriesData.map((products) => (
-<<<<<<< HEAD
-        <div className="lg:flex flex-col shrink-0" key={products.id}>
-=======
-        <div className="flex shrink-0" key={products.id}>
->>>>>>> main
+        <div
+          className="flex flex-col items-center w-[120px] shrink-0 mr-10"
+          key={products.id}
+        >
           <img
             src={products.image}
             alt={products.title}
             className="w-30 h-30"
           />
-          <p className="">{products.title}</p>
+          <p>{products.title}</p>
         </div>
       ))}
     </>
