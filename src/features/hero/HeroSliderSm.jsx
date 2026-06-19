@@ -1,7 +1,7 @@
 // Hero-Mobile
 import React from "react";
 import { useState, useEffect } from "react";
-import { heroPosterData } from "./heroData";
+import { heroPosterData } from "../../data/heroData";
 export default function HeroSliderSm() {
   const [index, setIndex] = useState(0);
 

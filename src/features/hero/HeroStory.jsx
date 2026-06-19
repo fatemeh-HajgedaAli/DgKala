@@ -1,6 +1,6 @@
 // Hero-icons-story
 import React from "react";
-import { heroStoryData } from "./heroData";
+import { heroStoryData } from "../../data/heroData";
 import { FiMoreHorizontal } from "react-icons/fi";
 export default function HeroStory() {
   return (

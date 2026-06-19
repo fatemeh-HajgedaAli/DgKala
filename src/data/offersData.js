@@ -1,15 +1,15 @@
 // data
 // AmazingCarousel pic
-import pic1 from "../../assets/images/offers/apple-watch.jpg";
-import pic2 from "../../assets/images/offers/bag.jpg";
-import pic3 from "../../assets/images/offers/lamp.jpg";
-import pic4 from "../../assets/images/offers/mozer.jpg";
-import pic5 from "../../assets/images/offers/shoe.jpg";
-import pic6 from "../../assets/images/offers/zaferoon.webp";
-import pic7 from "../../assets/images/offers/mast.webp";
-import pic8 from "../../assets/images/offers/vitamins.webp";
-import pic9 from "../../assets/images/offers/nuts.webp";
-import pic10 from "../../assets/images/offers/cooki.webp";
+import pic1 from "../assets/images/offers/apple-watch.jpg";
+import pic2 from "../assets/images/offers/bag.jpg";
+import pic3 from "../assets/images/offers/lamp.jpg";
+import pic4 from "../assets/images/offers/mozer.jpg";
+import pic5 from "../assets/images/offers/shoe.jpg";
+import pic6 from "../assets/images/offers/zaferoon.webp";
+import pic7 from "../assets/images/offers/mast.webp";
+import pic8 from "../assets/images/offers/vitamins.webp";
+import pic9 from "../assets/images/offers/nuts.webp";
+import pic10 from "../assets/images/offers/cooki.webp";
 
 //  AmazingCarousel Data
 export const amazingData = [

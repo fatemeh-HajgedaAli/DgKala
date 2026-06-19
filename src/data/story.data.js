@@ -1,17 +1,17 @@
 // story-header Image
-import pic1 from "../../assets/images/story/bi-hasheh.jpg";
-import pic2 from "../../assets/images/story/strees.jpg";
-import pic3 from "../../assets/images/story/cheragh.jpg";
-import pic4 from "../../assets/images/story/cute.jpg";
-import pic5 from "../../assets/images/story/haft-kareh.jpg";
-import pic6 from "../../assets/images/story/estand.jpg";
-import pic7 from "../../assets/images/story/hands-free.jpg";
-import pic8 from "../../assets/images/story/kabl.jpg";
-import pic9 from "../../assets/images/story/mokamel.jpg";
-import pic10 from "../../assets/images/story/mug.jpg";
-import pic11 from "../../assets/images/story/new-microphone.jpg";
-import pic12 from "../../assets/images/story/pirahansefid.jpg";
-import pic13 from "../../assets/images/story/strees.jpg";
+import pic1 from "../assets/images/story/bi-hasheh.jpg";
+import pic2 from "../assets/images/story/strees.jpg";
+import pic3 from "../assets/images/story/cheragh.jpg";
+import pic4 from "../assets/images/story/cute.jpg";
+import pic5 from "../assets/images/story/haft-kareh.jpg";
+import pic6 from "../assets/images/story/estand.jpg";
+import pic7 from "../assets/images/story/hands-free.jpg";
+import pic8 from "../assets/images/story/kabl.jpg";
+import pic9 from "../assets/images/story/mokamel.jpg";
+import pic10 from "../assets/images/story/mug.jpg";
+import pic11 from "../assets/images/story/new-microphone.jpg";
+import pic12 from "../assets/images/story/pirahansefid.jpg";
+import pic13 from "../assets/images/story/strees.jpg";
 
 // storyData
 export const storyData = [

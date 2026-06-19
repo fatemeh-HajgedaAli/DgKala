@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useHeroSlider from "./useHeroSlider";
+import useHeroSlider from "../../hooks/useHeroSlider";
 import HeroArrow from "./HeroArrow";
-import { heroPosterData } from "./heroData";
+import { heroPosterData } from "../../data/heroData";
 
 export default function HeroSliderLg() {
   const [showBtns, setShowBtns] = useState(false);

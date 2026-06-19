@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // data
-import { menuItems } from "./navbar.data";
+import { menuItems } from "../../data/navbar.data";
 
 const MotionLink = motion(Link);
 

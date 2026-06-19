@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { bottemData } from "./navbar.data";
+import { bottemData } from "../../data/navbar.data";
 
 const MotionLink = motion.create(Link);
 

@@ -4,7 +4,11 @@ export default function ProductsItems() {
   return (
     <>
       {categoriesData.map((products) => (
+<<<<<<< HEAD
         <div className="lg:flex flex-col shrink-0" key={products.id}>
+=======
+        <div className="flex shrink-0" key={products.id}>
+>>>>>>> main
           <img
             src={products.image}
             alt={products.title}
