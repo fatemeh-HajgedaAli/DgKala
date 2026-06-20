@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { amazingData } from "../../data/offersData";
 import OfferItems from "./OfferItems";
-import useOfferSlider from "../../hooks/useOffersSlider";
+import useMainSlider from "../../hooks/useMainSlider";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { Link } from "react-router";
 
 export default function OfferSlider({ sliderRef, handleScroll }) {
-  const { index, next, prev } = useOfferSlider(amazingData.length);
+  const { index, next, prev } = useMainSlider(amazingData.length);
 
   return (
     <>
@@ -15,6 +15,7 @@ export default function OfferSlider({ sliderRef, handleScroll }) {
         {amazingData.map((item) => (
           <OfferItems key={item.id} item={item} />
         ))}
+
         {/* more btn/card */}
         <div
           className="w-[100px] h-[150px] mt-15 lg:mt-5

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import  { useRef, useState, useEffect } from "react";
 
 import SliderBrands from "./SliderBrands";
 import BrandsArrow from "./BrandsArrow";
@@ -7,7 +7,6 @@ import BrandsTitle from "./BrandsTitle";
 // start
 export default function BrandsPart() {
   const sliderRef = useRef(null);
-
   const [showLeft, setShowLeft] = useState(true);
   const [showRight, setShowRight] = useState(false);
 

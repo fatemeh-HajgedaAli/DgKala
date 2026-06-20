@@ -13,15 +13,15 @@ import BannerDiscription from "../features/banners/bannerDescription/BannerDiscr
 import BrandsPart from "../features/brands/BrandsPart";
 // ShopingByCategories
 import ShopingByCategories from "../features/products/productCategories/ShopingByCategories";
-// banners
-import MainSuggestionProducts from "../features/products/suggestionProducts/MainSuggestionProducts";
 
+// suggestionsCard
+import SuggestionProducts1 from "../features/products/suggestionProducts/SuggestionProducts1";
+import SuggestionProducts2 from "../features/products/suggestionProducts/SuggestionProducts2";
 // posterDescription
 import PosterDescriptionBottom from "../features/banners/posterDescription/PosterDescriptionBottom";
-
 import PosterDescriptionTop from "../features/banners/posterDescription/PosterDescriptionTop";
-
-
+// bestSelling
+import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
 
 // start
 export default function Home() {
@@ -40,15 +40,17 @@ export default function Home() {
       {/*ShopingByCategories */}
       <ShopingByCategories />
       {/* posterDescription */}
-     <PosterDescriptionTop/>
-    
+      <PosterDescriptionTop />
       {/* brandsPart */}
       <BrandsPart />
-         {/* posterDescription */}
-     <PosterDescriptionBottom/>
-    
-        {/* suggestionProducts */}
-      <MainSuggestionProducts />
+      {/* posterDescription */}
+      <PosterDescriptionBottom />
+      {/* suggestionProducts */}
+      <SuggestionProducts1 />
+      {/* bestSelling */}
+      <MainBestSelling />
+      {/* suggestionProducts */}
+      <SuggestionProducts2 />
     </>
   );
 }

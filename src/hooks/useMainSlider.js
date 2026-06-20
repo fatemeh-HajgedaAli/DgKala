@@ -1,7 +1,7 @@
-// slider Hook
+//main slider Hook
 import { useState, useRef, useEffect } from "react";
 
-export default function useOfferSlider(length, delay = 3000) {
+export default function useMainSlider(length, delay = 3000) {
   const [index, setIndex] = useState(0);
 
   const next = () => {
