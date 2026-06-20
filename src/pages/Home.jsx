@@ -14,9 +14,16 @@ import BrandsPart from "../features/brands/BrandsPart";
 // ShopingByCategories
 import ShopingByCategories from "../features/products/productCategories/ShopingByCategories";
 // banners
-import PosterDescription from "../features/banners/posterDescription/PosterDescription";
 import MainSuggestionProducts from "../features/products/suggestionProducts/MainSuggestionProducts";
 
+// posterDescription
+import PosterDescriptionBottom from "../features/banners/posterDescription/PosterDescriptionBottom";
+
+import PosterDescriptionTop from "../features/banners/posterDescription/PosterDescriptionTop";
+
+
+
+// start
 export default function Home() {
   return (
     <>
@@ -33,10 +40,13 @@ export default function Home() {
       {/*ShopingByCategories */}
       <ShopingByCategories />
       {/* posterDescription */}
-      <PosterDescription />
+     <PosterDescriptionTop/>
     
       {/* brandsPart */}
       <BrandsPart />
+         {/* posterDescription */}
+     <PosterDescriptionBottom/>
+    
         {/* suggestionProducts */}
       <MainSuggestionProducts />
     </>
