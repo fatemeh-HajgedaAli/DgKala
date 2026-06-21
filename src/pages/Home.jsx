@@ -23,12 +23,15 @@ import PosterDescriptionTop from "../features/banners/posterDescription/PosterDe
 // bestSelling
 import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
 import SelectedDiscountProducts from "../features/products/selectedDiscount/SelectedDiscountProducts";
+import TrendingProducts from "../features/products/designTrendingProducts/TrendingProducts";
 
 // start
 export default function Home() {
   return (
     <>
+      {/* Navbar */}
       <Navbar />
+      {/* story-Part */}
       <StoryHeader />
       {/* hero */}
       <HeroSliderSm />
@@ -36,24 +39,26 @@ export default function Home() {
       <HeroStory />
       {/* offers */}
       <AmazingCarousal />
-      {/* descriptionBanner */}
+      {/* description-Banner */}
       <BannerDiscription />
-      {/*ShopingByCategories */}
+      {/*Shoping-By-Categories */}
       <ShopingByCategories />
-      {/* posterDescription */}
+      {/* poster-Description */}
       <PosterDescriptionTop />
-      {/* brandsPart */}
+      {/* brands-Part */}
       <BrandsPart />
-      {/* posterDescription */}
+      {/* poster-Description */}
       <PosterDescriptionBottom />
-      {/* suggestionProducts */}
+      {/* suggestion-Products */}
       <SuggestionProducts1 />
-      {/* bestSelling */}
+      {/* best-Selling */}
       <MainBestSelling />
-      {/* suggestionProducts */}
+      {/* suggestion-Products */}
       <SuggestionProducts2 />
-      {/* SelectedDiscountProducts */}
-      <SelectedDiscountProducts/>
+      {/* Selected-Discount-Products */}
+      <SelectedDiscountProducts />
+      {/* trending-products */}
+      <TrendingProducts />
     </>
   );
 }
