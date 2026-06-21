@@ -33,7 +33,8 @@ export default function MainBestSelling() {
   // start JSX
   return (
     <>
-      <div className="  relative hidden lg:block bg-white  mx-5  mt-5   border border-gray-200  rounded-2xl   p-5">
+      <div className="  relative hidden lg:block bg-white 
+       mx-5  mt-5   border border-gray-200  rounded-2xl   p-5">
         <div className="flex items-center justify-between mb-8">
           <div className="w-20"> {/* for center items */}</div>
           <p className="flex items-center gap-2 text-2xl font-medium">

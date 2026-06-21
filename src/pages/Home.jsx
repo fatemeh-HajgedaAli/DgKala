@@ -22,6 +22,7 @@ import PosterDescriptionBottom from "../features/banners/posterDescription/Poste
 import PosterDescriptionTop from "../features/banners/posterDescription/PosterDescriptionTop";
 // bestSelling
 import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
+import SelectedDiscountProducts from "../features/products/selectedDiscount/SelectedDiscountProducts";
 
 // start
 export default function Home() {
@@ -51,6 +52,8 @@ export default function Home() {
       <MainBestSelling />
       {/* suggestionProducts */}
       <SuggestionProducts2 />
+      {/* SelectedDiscountProducts */}
+      <SelectedDiscountProducts/>
     </>
   );
 }
