@@ -1,13 +1,15 @@
 // imports
-import React from "react";
-import Home from "./pages/Home"
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import NewsDetail from "./pages/NewsDetail";
 
-// start Coding
 export default function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/news/:id" element={<NewsDetail />} />
+      <Route path="*" element={<h1>Page Not Found</h1>} />
+    </Routes>
   );
 }
 // finished

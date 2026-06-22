@@ -24,6 +24,7 @@ import PosterDescriptionTop from "../features/banners/posterDescription/PosterDe
 import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
 import SelectedDiscountProducts from "../features/products/selectedDiscount/SelectedDiscountProducts";
 import TrendingProducts from "../features/products/designTrendingProducts/TrendingProducts";
+import Reading from "../features/readingPart/Reading";
 
 // start
 export default function Home() {
@@ -59,6 +60,8 @@ export default function Home() {
       <SelectedDiscountProducts />
       {/* trending-products */}
       <TrendingProducts />
+      {/* news */}
+      <Reading />
     </>
   );
 }
