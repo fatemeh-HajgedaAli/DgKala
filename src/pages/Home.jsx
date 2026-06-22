@@ -25,6 +25,7 @@ import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
 import SelectedDiscountProducts from "../features/products/selectedDiscount/SelectedDiscountProducts";
 import TrendingProducts from "../features/products/designTrendingProducts/TrendingProducts";
 import Reading from "../features/readingPart/Reading";
+import Footer from "../features/footer/Footer";
 
 // start
 export default function Home() {
@@ -62,6 +63,8 @@ export default function Home() {
       <TrendingProducts />
       {/* news */}
       <Reading />
+      {/* footer */}
+      <Footer />
     </>
   );
 }
