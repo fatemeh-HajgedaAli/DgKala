@@ -1,18 +1,33 @@
-import React from "react";
-import { topdata } from "../../../data/description.data";
+// DESCRIPTION - BANNER
 
+import React from "react";
+import { topdata} from "../../../data/description.data";
+// START
 export default function TopCards() {
   return (
-    <div className="relative hidden lg:flex flex-row gap-5  mx-30 my-15 ">
+    <div
+      className="
+        grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex
+        gap-4 
+        px-3 sm:px-5 lg:px-20
+        mt-25 lg:mt-15
+      "
+    >
       {topdata.map((item) => (
-        <div key={item.id} className="shrink-0 ">
+        <div key={item.id} className="w-full">
           <img
             src={item.image}
             alt={item.title}
-            className="w-[300px] h-auto rounded-xl border-1 border-gray-100 shadow-xl"
+            className="
+              w-full
+              h-[120px] sm:h-[140px] md:h-[160px] lg:h-auto
+              object-cover
+              rounded-xl
+            "
           />
         </div>
       ))}
     </div>
   );
 }
+// FINISH

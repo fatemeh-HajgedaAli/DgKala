@@ -4,7 +4,10 @@ import { FaChevronLeft } from "react-icons/fa6";
 export default function suggestionProducts1() {
   return (
     <>
-      <div className="flex flex-row mt-10 py-5 mx-5  ">
+      <div
+        className="flex overflow-x-auto
+           gap-2 px-3 hide-scrollbar flex flex-row py-5 mx-5  "
+      >
         {/* cards */}
         {productsData1.map((categories) => (
           <div
@@ -37,7 +40,7 @@ export default function suggestionProducts1() {
             {/* btn */}
             <div
               className="flex flex-row text-sm items-center
-             text-sky-600 gap-1 mr-35 mb-2 mt-3 "
+             text-sky-600 gap-1 mr-35 mb-2 mt-3"
             >
               <Link to="/">مشاهده</Link>
               <FaChevronLeft />

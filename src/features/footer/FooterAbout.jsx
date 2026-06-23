@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { digikalaAboutText } from "../../data/digikalaAbout";
-
+// icons
+import { MdKeyboardArrowLeft } from "react-icons/md";
+// brands
 import brand1 from "../../assets/logos/footer-brand.webp";
 import brand2 from "../../assets/logos/kasbokar-brand.webp";
 import brand3 from "../../assets/logos/rezi-brand.webp";
@@ -26,9 +28,20 @@ export default function FooterAbout() {
       {/* Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="mt-3 text-blue-600 hover:text-blue-800 transition font-medium"
+        className=" flex flex-row items-center mt-3 text-gray-400 
+        hover:text-gray-700 lg:text-blue-600 transition font-medium"
       >
-        {open ? "بستن" : "بیشتر"}
+        {open ? (
+          <>
+            <span>بستن</span>
+            <MdKeyboardArrowLeft />
+          </>
+        ) : (
+          <>
+            <span>مشاهده بیشتر</span>
+            <MdKeyboardArrowLeft />
+          </>
+        )}
       </button>
 
       {/* Brand section  */}

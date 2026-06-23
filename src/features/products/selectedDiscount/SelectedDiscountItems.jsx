@@ -3,35 +3,45 @@ export default function SelectedDiscountItems({ item }) {
   const finalPrice = item.price - (item.price * item.discount) / 100;
 
   return (
-    <>
-      <div className="flex flex-col items-center">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-[100px] h-[100px] lg:w-[150px] lg:h-[150px] mt-5 "
-        />
+    <div className="flex flex-col items-center p-3">
+      {/* image */}
+      <img
+        src={item.image}
+        alt={item.title}
+        className="
+          w-[100px] h-[100px]
+          sm:w-[120px] sm:h-[120px]
+          lg:w-[150px] lg:h-[150px]
+          object-contain
+        "
+      />
 
-        <div
-          className="flex flex-row ml-5 -mt-5 gap-3
-         justify-items-center lg:mt-2 lg:mb-2"
+      {/* price section */}
+      <div className="flex items-center justify-between w-full mt-3">
+        {/* discount badge */}
+        <span
+          className="
+            bg-red-600 text-white
+            text-xs lg:text-sm
+            px-2 py-1
+            rounded-full
+            font-medium
+          "
         >
-          <span
-            className="text-white bg-red-700 text-sm 
-          border-red-700 border-1 rounded-full px-2
-          py-1 m-2 shadow-xl "
-          >
-            {item.discount.toLocaleString("fa-IR")}%
+          {item.discount.toLocaleString("fa-IR")}٪
+        </span>
+
+        {/* prices */}
+        <div className="flex flex-col items-end">
+          <span className="text-sm lg:text-base font-medium text-gray-900">
+            {finalPrice.toLocaleString("fa-IR")} تومان
           </span>
-          <div className="flex flex-col text-sm text-start">
-            <span className="text-gray-900 ">
-              {item.price.toLocaleString("fa-IR")}تومان
-            </span>
-            <span className="text-gray-300 line-through">
-              {finalPrice.toLocaleString("fa-IR")}
-            </span>
-          </div>
+
+          <span className="text-xs text-gray-400 line-through">
+            {item.price.toLocaleString("fa-IR")}
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,18 +1,33 @@
+// DESCRIPTION - BANNER
+
 import React from "react";
 import { bottomData } from "../../../data/description.data";
-
-export default function TopCards() {
+// START
+export default function bottomCards() {
   return (
-    <div className="flex flex-wrap mt-20 gap-5 mx-25 my-6 lg:flex-nowrap lg:overflow-x-auto lg:mt-15">
+    <div
+      className="
+       hidden grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex
+        gap-4 
+        px-3 sm:px-5 lg:px-20
+        mt-10 lg:mt-15
+      "
+    >
       {bottomData.map((item) => (
-        <div key={item.id} className="shrink-0 ">
+        <div key={item.id} className="w-full">
           <img
             src={item.image}
             alt={item.title}
-            className="w-[120px] lg:w-[300px] lg:h-auto rounded-xl"
+            className="
+              w-full
+              h-[120px] sm:h-[140px] md:h-[160px] lg:h-auto
+              object-cover
+              rounded-xl
+            "
           />
         </div>
       ))}
     </div>
   );
 }
+// FINISH

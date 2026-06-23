@@ -4,7 +4,10 @@ import { FaChevronLeft } from "react-icons/fa6";
 export default function suggestionProducts2() {
   return (
     <>
-      <div className="flex flex-row py-5 mx-5  ">
+      <div
+        className="flex overflow-x-auto
+           gap-2 px-3 hide-scrollbar flex flex-row py-5 mx-5  "
+      >
         {/* cards */}
         {productsData2.map((categories) => (
           <div
