@@ -1,85 +1,65 @@
 import { Link } from "react-router-dom";
-import { getFinalPrice } from "../../../utils/price";
-import { toFarsiNumber } from "../../../utils/number";
+import { getFinalPrice, formatPrice } from "../../../utils/price";
 
 export default function ProductCard({ item }) {
   const discount = item.discount || 0;
-  const image = item.images?.[0];
+  const image = item.images?.[0] || "/placeholder.png";
 
-  const finalPrice = getFinalPrice(item.price, discount);
+  const price = Number(item.price || 0);
+  const finalPrice = getFinalPrice(price, discount);
 
-  const rating = item.rating || 0;
+  const rating = Number(item.rating ?? 0);
   const fullStars = Math.floor(rating);
+
+  const inStock = (item.stock ?? 0) > 0;
 
   return (
     <Link
       to={`/product/${item.id}`}
-      className="
-        group flex flex-col
-        bg-white border border-gray-200
-        p-3 rounded-lg
-        transition-all duration-300
-        hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02]
-      "
+      className=" bg-white border-1 border-gray-200 p-3 mt-12 hover:shadow-xl transition"
     >
-      {/* BADGE + STOCK */}
-      <div className="flex justify-between items-center mb-2">
-        {discount > 0 ? (
-          <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full">
-            %{toFarsiNumber(discount)}
-          </span>
-        ) : (
-          <span />
-        )}
+      {/* badge + stock */}
+      <div className="flex justify-between mb-2">
+        <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full">
+          %{formatPrice(discount)}
+        </span>
 
         <span
           className={`text-xs px-2 py-1 rounded-full ${
-            item.stock > 0
-              ? "bg-green-100 text-green-700"
-              : "bg-gray-200 text-gray-500"
+            inStock ? "bg-green-100 text-green-700" : "bg-red-100 text-red-600"
           }`}
         >
-          {item.stock > 0 ? `موجود (${toFarsiNumber(item.stock)})` : "ناموجود"}
+          {inStock ? "موجود" : "ناموجود"}
         </span>
       </div>
 
-      {/* IMAGE */}
+      {/* image */}
       <img
         src={image}
-        alt={item.title}
-        className="h-44 w-full object-contain group-hover:scale-105 transition"
+        className="h-40 w-full object-contain group-hover:scale-105 transition"
       />
 
-      {/* TITLE */}
-      <h3 className="mt-3 text-sm font-bold line-clamp-2">{item.title}</h3>
+      {/* title */}
+      <h3 className="text-sm font-bold mt-2 line-clamp-2">{item.title}</h3>
 
-      {/* DESCRIPTION */}
-      <p className="text-xs text-gray-500 mt-2 line-clamp-2">
-        {item.description}
-      </p>
-
-      {/* ⭐ RATING */}
-      <div className="flex items-center gap-1 mt-2">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <span key={i} className="text-yellow-400 text-sm">
-            {i < fullStars ? "★" : "☆"}
-          </span>
-        ))}
-
-        <span className="text-xs text-gray-500 mr-1">
-          ({toFarsiNumber(rating)})
+      {/* rating */}
+      <div className="text-yellow-400 text-sm mt-1">
+        {"★".repeat(fullStars)}
+        {"☆".repeat(5 - fullStars)}
+        <span className="text-gray-500 text-xs mr-1">
+          ({formatPrice(rating)})
         </span>
       </div>
 
-      {/* PRICE */}
-      <div className="mt-auto pt-4">
-        <p className="text-gray-800 font-bold text-lg">
-          {toFarsiNumber(finalPrice)} تومان
-        </p>
+      {/* price */}
+      <div className="mt-2 space-y-1 float-left">
+        {/* final price */}
+        <p className="font-bold text-lg">{formatPrice(finalPrice)} تومان</p>
 
+        {/* original price */}
         {discount > 0 && (
-          <p className="text-gray-400 text-sm line-through">
-            {toFarsiNumber(item.price)}
+          <p className="text-sm text-gray-400 line-through">
+            {formatPrice(price)} تومان
           </p>
         )}
       </div>

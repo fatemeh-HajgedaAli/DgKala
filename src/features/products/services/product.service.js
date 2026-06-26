@@ -1,11 +1,19 @@
 import { productsDetailsData } from "../../../data/productsDetails.data";
 
-// ALL-PRODUCTS
+// ALL PRODUCTS (async مثل API واقعی)
 export const getAllProducts = () => {
-  return productsDetailsData;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(productsDetailsData);
+    }, 300);
+  });
 };
 
-// ONE-PRODUCT
+// SINGLE PRODUCT
 export const getProductById = (id) => {
-  return productsDetailsData.find((p) => p.id === Number(id));
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(productsDetailsData.find((p) => p.id === Number(id)));
+    }, 300);
+  });
 };

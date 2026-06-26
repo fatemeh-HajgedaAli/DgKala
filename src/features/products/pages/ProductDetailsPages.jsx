@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../services/product.service";
 
@@ -9,8 +10,21 @@ import ProductSpece from "../components/productDetails/ProductSpece";
 export default function ProductDetailsPages() {
   const { id } = useParams();
 
-  const product = getProductById(id);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const loadProduct = async () => {
+      setLoading(true);
+      const data = await getProductById(id);
+      setProduct(data);
+      setLoading(false);
+    };
+
+    loadProduct();
+  }, [id]);
+
+  if (loading) return <div>در حال بارگذاری...</div>;
   if (!product) return <div>محصول پیدا نشد</div>;
 
   return (

@@ -14,7 +14,7 @@ import { useSearch } from "../../context/SearchContext";
 export default function SearchPart({ placeholder = "جستجو" }) {
   const { search, setSearch } = useSearch();
   return (
-    <header className="w-full bg-white border-b border-slate-200 shadow-sm">
+    <header className=" w-full bg-white border-b border-slate-200 shadow-sm">
       {/* TOP BAR */}
       <div className="relative  lg:px-8">
         <NavbarmenuBoxes />

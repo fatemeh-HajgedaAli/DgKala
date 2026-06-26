@@ -59,6 +59,11 @@ import tissu from "../assets/images/gallary/tissu.webp";
 const common = {
   seller: "دیجی‌کالا",
   delivery: "ارسالی دیجی‌کالا",
+  sellerType: "digikala",
+  fastDelivery: true,
+  freeShipping: true,
+  digikalaStock: true,
+  isSuperMarket: false,
 };
 
 export const productsDetailsData = [
@@ -149,8 +154,14 @@ export const productsDetailsData = [
       material: "پلی‌کربنات",
       size: "28 inch",
       weight: "3.2kg",
+      fastDelivery: true,
+      freeShipping: true,
+      sellerType: "marketplace",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "آبی", "سفید", "طلایی", "سبز"],
   },
 
   {
@@ -170,8 +181,14 @@ export const productsDetailsData = [
     specifications: {
       capacity: "6L",
       material: "Steel",
+      fastDelivery: true,
+      freeShipping: true,
+      sellerType: "digikala",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای", "سفید"],
   },
 
   {
@@ -193,8 +210,10 @@ export const productsDetailsData = [
       volume: "50 میلی‌لیتر",
       skinType: "انواع پوست",
       spf: 50,
+        sellerType: "marketplace",
     },
     ...common,
+    colors: [],
   },
   {
     id: 7,
@@ -212,8 +231,14 @@ export const productsDetailsData = [
     features: ["ضد ضربه", "سبک", "دسترسی کامل"],
     specifications: {
       material: "TPU",
+      fastDelivery: true,
+      freeShipping: true,
+        sellerType: "marketplace",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای"],
   },
   {
     id: 8,
@@ -231,8 +256,14 @@ export const productsDetailsData = [
     features: ["ضد ضربه", "سبک", "دسترسی کامل"],
     specifications: {
       material: "TPU",
+      fastDelivery: true,
+      freeShipping: true,
+  sellerType: "marketplace",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای"],
   },
   {
     id: 9,
@@ -250,8 +281,14 @@ export const productsDetailsData = [
     features: ["ضد ضربه", "سبک", "دسترسی کامل"],
     specifications: {
       material: "TPU",
+      fastDelivery: true,
+      freeShipping: true,
+      sellerType: "digikala",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "سفید"],
   },
   {
     id: 10,
@@ -269,8 +306,14 @@ export const productsDetailsData = [
     features: ["ضد ضربه", "سبک", "دسترسی کامل"],
     specifications: {
       material: "TPU",
+      fastDelivery: true,
+      freeShipping: true,
+    sellerType: "marketplace",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای"],
   },
 
   {
@@ -292,6 +335,7 @@ export const productsDetailsData = [
       count: "14 sachet",
     },
     ...common,
+    colors: [],
   },
 
   {
@@ -313,6 +357,7 @@ export const productsDetailsData = [
       count: "30 Capsules",
     },
     ...common,
+    colors: [],
   },
 
   {
@@ -334,6 +379,7 @@ export const productsDetailsData = [
       count: "60 Tablets",
     },
     ...common,
+    colors: [],
   },
 
   {
@@ -356,6 +402,7 @@ export const productsDetailsData = [
       count: "90 Tablets",
     },
     ...common,
+    colors: [],
   },
   {
     id: 15,
@@ -376,6 +423,7 @@ export const productsDetailsData = [
       bluetooth: "5.2",
     },
     ...common,
+    colors: ["مشکی", "آبی", "سفید", "طلایی", "سبز"],
   },
 
   {
@@ -395,8 +443,10 @@ export const productsDetailsData = [
     specifications: {
       battery: "35h",
       bluetooth: "5.2",
+        sellerType: "marketplace",
     },
     ...common,
+    colors: ["مشکی", "سفید", "طلایی"],
   },
 
   {
@@ -416,8 +466,10 @@ export const productsDetailsData = [
     specifications: {
       battery: "20h",
       bluetooth: "5.3",
+        sellerType: "marketplace",
     },
     ...common,
+    colors: ["سفید", "سبز"],
   },
 
   {
@@ -439,6 +491,7 @@ export const productsDetailsData = [
       bluetooth: "5.3",
     },
     ...common,
+    colors: ["مشکی", "آبی", "سفید", "طلایی", "سبز"],
   },
 
   {
@@ -458,8 +511,14 @@ export const productsDetailsData = [
     specifications: {
       glass: "Mineral",
       strap: "Steel",
+      fastDelivery: true,
+      freeShipping: true,
+      sellerType: "digikala",
+      isSuperMarket: false,
+      digikalaStock: true,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای", "سفید", "صورتی", "قرمز"],
   },
 
   {
@@ -482,6 +541,7 @@ export const productsDetailsData = [
       fat: "82%",
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای"],
   },
 
   {
@@ -505,6 +565,7 @@ export const productsDetailsData = [
       spf: 50,
     },
     ...common,
+    colors: [],
   },
 
   {
@@ -525,6 +586,7 @@ export const productsDetailsData = [
       pieces: 45,
     },
     ...common,
+    colors: ["مشکی"],
   },
 
   {
@@ -545,6 +607,7 @@ export const productsDetailsData = [
       pieces: 45,
     },
     ...common,
+    colors: ["مشکی", "نقره‌ای", "سفید"],
   },
 
   {
@@ -565,6 +628,7 @@ export const productsDetailsData = [
       pieces: 45,
     },
     ...common,
+    colors: ["مشکی"],
   },
 
   {
@@ -762,6 +826,7 @@ export const productsDetailsData = [
     features: ["عمومی"],
     specifications: {},
     ...common,
+    colors: [],
   },
 
   {
@@ -780,6 +845,7 @@ export const productsDetailsData = [
     features: ["روزمره"],
     specifications: {},
     ...common,
+    colors: [],
   },
 
   {
@@ -807,7 +873,7 @@ export const productsDetailsData = [
     brand: "کاله",
     category: "food",
     price: 60000,
-    discount: 8,
+    discount: 0,
     rating: 4.5,
     reviewsCount: 180,
     stock: 40,
@@ -828,7 +894,7 @@ export const productsDetailsData = [
     brand: "پگاه",
     category: "food",
     price: 30000,
-    discount: 5,
+    discount:0,
     rating: 4.7,
     reviewsCount: 320,
     stock: 60,
@@ -849,7 +915,7 @@ export const productsDetailsData = [
     brand: "تن‌ریز",
     category: "home",
     price: 45000,
-    discount: 12,
+    discount: 0,
     rating: 4.4,
     reviewsCount: 95,
     stock: 80,
