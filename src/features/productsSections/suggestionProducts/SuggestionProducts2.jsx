@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import { productsData1 } from "../../../data/suggestionProducts.data";
+import { productsData2 } from "../../../data/suggestionProducts.data";
 import { FaChevronLeft } from "react-icons/fa6";
-export default function suggestionProducts1() {
+export default function suggestionProducts2() {
   return (
     <>
       <div
@@ -9,7 +9,7 @@ export default function suggestionProducts1() {
            gap-2 px-3 hide-scrollbar flex flex-row py-5 mx-5  "
       >
         {/* cards */}
-        {productsData1.map((categories) => (
+        {productsData2.map((categories) => (
           <div
             key={categories.id}
             className="bg-white px-2 items-center 
@@ -42,7 +42,7 @@ export default function suggestionProducts1() {
               className="flex flex-row text-sm items-center
              text-sky-600 gap-1 mr-35 mb-2 mt-3"
             >
-              <Link to="/">مشاهده</Link>
+              <Link to="/products">مشاهده</Link>
               <FaChevronLeft />
             </div>
           </div>

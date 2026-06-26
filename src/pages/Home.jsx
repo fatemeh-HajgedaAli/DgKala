@@ -17,7 +17,7 @@ import AmazingCarousal from "../features/offers/AmazingCarousel";
 import BannerDiscription from "../features/banners/bannerDescription/BannerDiscription";
 
 // categories / brands
-import ShopingByCategories from "../features/products/productCategories/ShopingByCategories";
+import ShopingByCategories from "../features/productsSections/productCategories/ShopingByCategories";
 import BrandsPart from "../features/brands/BrandsPart";
 
 // posters
@@ -25,18 +25,18 @@ import PosterDescriptionTop from "../features/banners/posterDescription/PosterDe
 import PosterDescriptionBottom from "../features/banners/posterDescription/PosterDescriptionBottom";
 
 // products
-import SuggestionProducts1 from "../features/products/suggestionProducts/SuggestionProducts1";
-import MainBestSelling from "../features/products/bestSelling/MainBestSelling";
-import SuggestionProducts2 from "../features/products/suggestionProducts/SuggestionProducts2";
-import SelectedDiscountProducts from "../features/products/selectedDiscount/SelectedDiscountProducts";
-import TrendingProducts from "../features/products/designTrendingProducts/TrendingProducts";
+import SuggestionProducts1 from "../features/productsSections/suggestionProducts/SuggestionProducts1";
+import MainBestSelling from "../features/productsSections/bestSelling/MainBestSelling";
+import SuggestionProducts2 from "../features/productsSections/suggestionProducts/SuggestionProducts2";
+import SelectedDiscountProducts from "../features/productsSections/selectedDiscount/SelectedDiscountProducts";
+import TrendingProducts from "../features/productsSections/designTrendingProducts/TrendingProducts";
 
 // reading
 import Reading from "../features/readingPart/Reading";
 
 // footer
 import Footer from "../features/footer/Footer";
-import TrendingProductsMobile from "../features/products/designTrendingProducts/TrendingProductsMobile";
+import TrendingProductsMobile from "../features/productsSections/designTrendingProducts/TrendingProductsMobile";
 
 export default function Home() {
   return (

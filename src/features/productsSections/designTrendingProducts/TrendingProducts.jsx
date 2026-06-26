@@ -1,4 +1,4 @@
-// main
+// main 
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router";
 import { FaFire } from "react-icons/fa";
@@ -46,7 +46,7 @@ export default function TrendingProducts() {
             داغ ترین چند ساعت گذشته{" "}
           </p>
           <button type="button" className="text-blue-400 text-sm font-medium">
-            <Link to="/">مشاهده همه</Link>
+            <Link to="/products">مشاهده همه</Link>
           </button>
         </div>
 

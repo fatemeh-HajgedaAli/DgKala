@@ -8,8 +8,11 @@ import { Link } from "react-router-dom";
 // component
 import NavbarmenuBoxes from "./NavbarmenuBoxes";
 import NavbarMenu from "./NavbarMenu";
+// search-context
+import { useSearch } from "../../context/SearchContext";
 
 export default function SearchPart({ placeholder = "جستجو" }) {
+  const { search, setSearch } = useSearch();
   return (
     <header className="w-full bg-white border-b border-slate-200 shadow-sm">
       {/* TOP BAR */}
@@ -24,6 +27,8 @@ export default function SearchPart({ placeholder = "جستجو" }) {
             <div className="relative w-full max-w-[500px]">
               <input
                 type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder={placeholder}
                 className="w-full h-[45px] bg-gray-100 rounded-xl px-10 text-sm text-slate-600 outline-none"
               />

@@ -8,7 +8,7 @@ export default function TrendingProductsMobile() {
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <button className="text-sky-500 text-sm">
-          <Link to="/">مشاهده همه</Link>
+          <Link to="/products">مشاهده همه</Link>
         </button>
 
         <p className="flex items-center gap-2 font-medium text-lg">
