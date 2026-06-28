@@ -1,14 +1,23 @@
-// ویژگی‌ها (specs)
+// details-feature
+// start
 export default function ProductSpece({ product }) {
+  // jsx
   return (
-    <div className="border p-4 rounded">
-      <h3 className="font-bold mb-2">مشخصات محصول</h3>
+    <div className="border-1 border-gray-300  rounded-sm p-5 shadow-sm mb-10 bg-gray-100">
+      <h2 className="font-bold text-xl mb-5">مشخصات محصول</h2>
 
-      <ul className="space-y-2 text-sm">
-        <li>شناسه: {product.id}</li>
-        <li>عنوان: {product.title}</li>
-        <li>قیمت: {product.price}</li>
-      </ul>
+      <div className="space-y-3">
+        {Object.entries(product.specifications).map(([key, value]) => (
+          <div
+            key={key}
+            className="flex justify-between border-b  border-gray-300 pb-2"
+          >
+            <span>{key}</span>
+            <span>{value}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+// finish

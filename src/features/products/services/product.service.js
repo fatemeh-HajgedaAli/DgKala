@@ -1,19 +1,26 @@
 import { productsDetailsData } from "../../../data/productsDetails.data";
 
-// ALL PRODUCTS (async مثل API واقعی)
-export const getAllProducts = () => {
+// ALL PRODUCTS
+export const getAllProducts = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(productsDetailsData);
-    }, 300);
+      resolve(productsDetailsData || []);
+    }, 200);
   });
 };
 
-// SINGLE PRODUCT
-export const getProductById = (id) => {
+// SINGLE PRODUCT (SAFE)
+export const getProductById = async (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(productsDetailsData.find((p) => p.id === Number(id)));
-    }, 300);
+      const product = productsDetailsData.find(
+        (p) => String(p.id) === String(id),
+      );
+
+      console.log("LOOKING FOR ID:", id);
+      console.log("FOUND:", product);
+
+      resolve(product || null);
+    }, 200);
   });
 };

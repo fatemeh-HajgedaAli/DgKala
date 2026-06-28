@@ -1,33 +1,33 @@
+// FILTERED-HOOK
 export function useFilteredProducts(products, filters, search) {
   return products
     .filter((p) => {
-      const matchSearch = p.title.toLowerCase().includes(search.toLowerCase());
+      const matchSearch =
+        !search || p.title?.toLowerCase().includes(search.toLowerCase());
 
       const matchCategory =
         filters.category === "all" || p.category === filters.category;
 
       const matchBrand = filters.brand === "all" || p.brand === filters.brand;
 
-      const matchStock = !filters.onlyInStock || p.stock > 0;
+      const matchStock = !filters.onlyInStock || p.inventory?.stock > 0;
 
       const matchPrice =
-        p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1];
+        p.pricing?.price >= filters.priceRange[0] &&
+        p.pricing?.price <= filters.priceRange[1];
 
-      const matchFast = !filters.onlyFastDelivery || p.fastDelivery;
+      const matchFast = !filters.onlyFastDelivery || p.shipping?.fastDelivery;
 
-      const matchShipping = !filters.onlyFreeShipping || p.freeShipping;
+      const matchShipping =
+        !filters.onlyFreeShipping || p.shipping?.freeShipping;
 
       const matchSeller =
-        filters.sellerType === "all" || p.sellerType === filters.sellerType;
-
-      const matchDigikalaStock = !filters.onlyDigikalaStock || p.digikalaStock;
-
-      const matchSuperMarket = !filters.onlySuperMarket || p.isSuperMarket;
+        filters.sellerType === "all" || p.seller?.type === filters.sellerType;
 
       const matchColor =
         filters.selectedColors.length === 0 ||
-        filters.selectedColors.some(
-          (color) => Array.isArray(p.colors) && p.colors.includes(color),
+        filters.selectedColors.some((color) =>
+          p.variants?.colors?.includes(color),
         );
 
       return (
@@ -39,19 +39,20 @@ export function useFilteredProducts(products, filters, search) {
         matchFast &&
         matchShipping &&
         matchSeller &&
-        matchDigikalaStock &&
-        matchSuperMarket &&
         matchColor
       );
     })
     .sort((a, b) => {
       switch (filters.sort) {
         case "price_low":
-          return a.price - b.price;
+          return (a.pricing?.price || 0) - (b.pricing?.price || 0);
+
         case "price_high":
-          return b.price - a.price;
+          return (b.pricing?.price || 0) - (a.pricing?.price || 0);
+
         case "rating":
-          return b.rating - a.rating;
+          return (b.rating?.value || 0) - (a.rating?.value || 0);
+
         default:
           return b.id - a.id;
       }

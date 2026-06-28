@@ -1,24 +1,27 @@
-import { getFinalPrice, formatPrice } from "../../../../utils/price";
+import { formatPrice } from "../../../../utils/price";
+import PriceCard from "./PriceCard";
+import SellerCard from "./SellerCard";
 
+// start
 export default function ProductAction({ product }) {
-  const price = Number(product?.price || 0);
-  const discount = Number(product?.discount || 0);
-
-  const finalPrice = getFinalPrice(price, discount);
-  console.log(product);
-  console.log(product.price);
-  console.log(product.discount);
+  // jsx
   return (
-    <div className="border p-4 rounded">
-      <p>{formatPrice(finalPrice)} تومان</p>
+    <>
+      <div
+        className="bg-white border-t-8 border-gray-200 lg:flex lg:flex-col lg:border-2 
+      lg:border-gray-300 lg:rounded-xl p-5 lg:shadow bg-gray-100"
+      >
+        <SellerCard product={product} />
+        <PriceCard product={product} />
 
-      {discount > 0 && (
-        <p className="line-through text-gray-400">{formatPrice(price)} تومان</p>
-      )}
-
-      <button className="bg-blue-500 text-white w-full mt-3 p-2 rounded">
-        افزودن به سبد خرید
-      </button>
-    </div>
+        <button
+          className="hidden lg:flex w-full mt-5 bg-green-600 rounded-xl
+         hover:bg-green-700 text-white text-sm py-3 justify-center"
+        >
+          افزودن به سبد خرید
+        </button>
+      </div>
+    </>
   );
 }
+// finish

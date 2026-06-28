@@ -29,7 +29,7 @@ export default function GalleryTitle({ filters, setFilters }) {
           ></div>
 
           {/* items */}
-          <div className="flex flex-wrap gap-2 mb-4 gap-4 justify-center mx-12  ">
+          <div className="flex flex-wrap gap-2 mb-10 gap-4 justify-center mx-12  ">
             {quickFilters.map((item, index) => (
               <button
                 key={item.category}

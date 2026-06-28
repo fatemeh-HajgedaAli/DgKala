@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
-import ProductDetailsPage from "./features/products/pages/ProductDetailsPages";
+import ProductDetailsPages from "./features/products/pages/ProductDetailsPages";
 import ProductsPage from "./features/products/pages/ProductsPage";
 import Cart from "./pages/Cart";
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
       <Route path="/news/:id" element={<NewsDetail />} />
 
       <Route path="/products" element={<ProductsPage />} />
-      <Route path="/product/:id" element={<ProductDetailsPage />} />
+      <Route path="/product/:id" element={<ProductDetailsPages />} />
       {/* Cart-part */}
       <Route path="/cart" element={<Cart />} />
       {/* error-part */}
