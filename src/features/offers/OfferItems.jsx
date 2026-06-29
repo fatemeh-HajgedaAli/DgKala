@@ -3,8 +3,10 @@ export default function OfferItems({ item }) {
   return (
     <>
       <div
-        className="lg:w-[200px] lg:h-[300px]  w-[200px] h-[210px] 
-      lg:nth-1:rounded-r-xl flex flex-col shrink-0 gap-3
+        className="lg:w-[200px] lg:h-[300px] 
+         w-[200px] h-[210px] 
+      lg:nth-1:rounded-r-xl flex flex-col 
+      shrink-0 gap-3 
     items-center bg-white mt-12 lg:mt-5
     "
       >

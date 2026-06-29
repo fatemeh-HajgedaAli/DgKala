@@ -41,8 +41,7 @@ import TrendingProductsMobile from "../features/productsSections/designTrendingP
 export default function Home() {
   return (
     <div className="bg-gray-50 overflow-x-hidden">
-      {/* NAVBAR */}
-      <Navbar />
+    
 
       {/* STORY HEADER (top row) */}
       <div className="px-3 mt-2">
@@ -122,10 +121,7 @@ export default function Home() {
         <Reading />
       </div>
 
-      {/* FOOTER */}
-      <div className="mt-10">
-        <Footer />
-      </div>
+      
     </div>
   );
 }

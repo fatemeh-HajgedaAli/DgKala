@@ -33,7 +33,7 @@ export default function NavbarMenu() {
                 <span>{item.title}</span>
 
                 <motion.div
-                  className="absolute bottom-[-16.5px] left-0 h-[3px] bg-red-600"
+                  className="absolute bottom-[-17.2px] left-0 h-[3px] bg-red-600"
                   variants={{
                     rest: { width: 0 },
                     hover: { width: "100%" },

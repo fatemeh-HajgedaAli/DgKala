@@ -33,20 +33,20 @@ export const menuItems = [
     id: 1,
     icon: CgMenu,
     title: "دسته‌بندی کالاها",
-    path: "/categories",
+    path: "/products",
   },
   {
     id: 2,
     icon: BiSolidOffer,
     title: "شگفت انگیزها",
-    path: "/categories",
+    path: "/products",
     divider: true,
   },
   {
     id: 3,
     icon: BsFillBasket2Fill,
     title: "سوپرمارکت",
-    path: "/categories",
+    path: "/products",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const menuItems = [
     id: 5,
     icon: FaFireFlameCurved,
     title: "پرفروش ترین ها",
-    path: "/categories",
+    path: "/products",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const menuItems = [
   {
     id: 7,
     title: "در دیجی کالا بفروشید!",
-    path: "/categories",
+    path: "/products",
   },
 ];
 // bottom menu

@@ -5,7 +5,10 @@ export default function ProductGallery({ product }) {
 
   if (!images.length) {
     return (
-      <div className="border rounded p-5 flex justify-center">
+      <div
+        className="border rounded p-5 flex 
+      justify-center"
+      >
         <img
           src="/placeholder.png"
           alt="placeholder"
@@ -14,13 +17,13 @@ export default function ProductGallery({ product }) {
       </div>
     );
   }
-// jsx
+  // jsx
   return (
-    <div>
+    <div className=" -mt-5">
       <img
         src={images[0]}
         alt={product.title}
-        className="w-full h-[420px] object-contain "
+        className=" w-full h-[420px] object-contain "
       />
 
       {images.length > 1 && (

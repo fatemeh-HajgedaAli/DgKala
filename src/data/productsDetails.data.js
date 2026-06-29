@@ -55,7 +55,9 @@ import kareh from "../assets/images/gallary/kareh.webp";
 import khameh from "../assets/images/gallary/khameh.webp";
 import milk from "../assets/images/gallary/milk.webp";
 import tissu from "../assets/images/gallary/tissu.webp";
+// datas
 
+// main Data
 export const productsDetailsData = [
   {
     id: 1,

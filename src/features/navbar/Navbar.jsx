@@ -5,7 +5,7 @@ import MobileBottomNavbar from "./MobileBottomNavbar";
 
 export default function Navbar() {
   return (
-    <header className="w-full">
+    <header className="sticky top-0 z-50 w-full bg-white ">
       {/* Top banner */}
       <div className="w-full">
         <img
@@ -15,14 +15,11 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Search section */}
       <div className="w-full">
         <SearchPart placeholder="جستجو" />
       </div>
-      {/* bottom Navbar */}
-      <div>
-        <MobileBottomNavbar />
-      </div>
+
+      <MobileBottomNavbar />
     </header>
   );
 }

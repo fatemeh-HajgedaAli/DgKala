@@ -58,7 +58,8 @@ export default function SearchPart({ placeholder = "جستجو" }) {
               <BsBell className="text-2xl" />
             </button>
 
-            <div className="flex items-center gap-2 border border-slate-300 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border border-slate-300 
+            rounded-xl px-3 py-2">
               <BsDoorOpen className="text-lg" />
               <Link className="text-sm">ورود</Link>
               <span className="text-slate-300">|</span>

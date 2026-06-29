@@ -1,14 +1,13 @@
-// MAIN GALLARY PAGE 
 import { useState, useEffect } from "react";
 import { useSearch } from "../../../context/SearchContext";
 import { useFilteredProducts } from "../hooks/useFilteredProducts";
-import { FaFilter } from "react-icons/fa";
 
 import GalleryTitle from "../components/GallaryTitle";
 import ProductsGrid from "../components/productsPage/ProductsGrid";
 import FiltersSidebar from "../components/filters/FiltersSidebar";
 
 import { getAllProducts } from "../services/product.service";
+import LoadingScreen from "../../../components/ui/LoadingScreen";
 
 export default function ProductsPage() {
   const { search } = useSearch();
@@ -28,13 +27,23 @@ export default function ProductsPage() {
     selectedColors: [],
     sort: "newest",
   });
+  // loading
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
+  const load = async () => {
+    setLoading(true);
+
+    const [data] = await Promise.all([getAllProducts(), delay(2000)]);
+
+    setProducts(data || []);
+    setLoading(false);
+  };
+  // fetch products
   useEffect(() => {
     let active = true;
 
     const load = async () => {
       setLoading(true);
-
       const data = await getAllProducts();
 
       if (active) {
@@ -50,40 +59,73 @@ export default function ProductsPage() {
     };
   }, []);
 
+  // scroll lock + layout shift fix
+  useEffect(() => {
+    if (isFilterOpen) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isFilterOpen]);
+
   const filteredProducts = useFilteredProducts(products, filters, search);
-console.log(products);
-console.log(filteredProducts);
+
   return (
-    <div className="p-5">
-      <div className="flex justify-between mb-5">
-        <button
-          onClick={() => setIsFilterOpen(true)}
-          className="rounded-full bg-gray-200 p-4"
-        >
-          <FaFilter />
-        </button>
-      </div>
+    <div className="p-5 relative min-h-screen">
+      {/* HEADER */}
 
-      <GalleryTitle filters={filters} setFilters={setFilters} />
+      {/* TITLE */}
+      <GalleryTitle
+        filters={filters}
+        setFilters={setFilters}
+        setIsFilterOpen={setIsFilterOpen}
+      />
 
-      {loading ? (
-        <p className="text-center">در حال بارگذاری...</p>
-      ) : (
-        <ProductsGrid products={filteredProducts} />
+      {/* PRODUCTS */}
+      <ProductsGrid products={filteredProducts} />
+
+      {/* FULL PAGE LOADING OVERLAY */}
+      {loading && (
+        <div className="fixed inset-0 z-50 bg-white/80 flex items-center justify-center">
+          <LoadingScreen />
+        </div>
       )}
 
-      {isFilterOpen && (
-        <div className="fixed inset-0 z-50 flex">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setIsFilterOpen(false)}
-          />
+      {/* DRAWER */}
+      <div
+        className={`fixed inset-0 z-50 transition-all duration-300 ${
+          isFilterOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      >
+        <div
+          onClick={() => setIsFilterOpen(false)}
+          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+            isFilterOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
 
-          <div className="w-80 bg-white p-5">
+        <div
+          className={`absolute left-0 top-0 h-full w-80 bg-white shadow-xl 
+        flex flex-col transform transition-transform duration-300 ease-in-out
+        ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}
+      `}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex-1 overflow-y-auto p-5">
             <FiltersSidebar filters={filters} setFilters={setFilters} />
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

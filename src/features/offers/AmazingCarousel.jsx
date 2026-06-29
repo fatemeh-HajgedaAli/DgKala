@@ -34,7 +34,7 @@ export default function AmazingCarousal() {
   return (
     <div
       className="relative flex h-[280px] lg:h-[350px] bg-rose-600 
-    lg:rounded-r-3xl overflow-hidden top-10  mr-0 lg:mr-30 "
+    lg:rounded-r-3xl  overflow-hidden top-10  mr-0 lg:mr-30 "
     >
       <OffersText />
 
@@ -45,7 +45,7 @@ export default function AmazingCarousal() {
       <div
         ref={sliderRef}
         onScroll={updateButtons}
-        className="flex overflow-x-auto no-scrollbar gap-5 p-4 w-full lg:mr-[200px]"
+        className="flex overflow-x-auto hide-scrollbar no-scrollbar gap-5 p-4 w-full lg:mr-[200px]"
       >
         <OfferSlider className="flex items-center" />
       </div>

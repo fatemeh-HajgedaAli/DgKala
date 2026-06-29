@@ -7,7 +7,7 @@ export default function PriceCard({ product }) {
   const hasDiscount = discountPercent > 0;
 
   return (
-    <div className="p-5">
+    <div className="p-5 mt-15">
       {/* final price */}
       <div className="mt-2 space-y-1 float-left">
         <p className="font-bold text-lg">{formatPrice(finalPrice)} تومان</p>
