@@ -1,47 +1,53 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
-const CartContext = createContext();
-
-const initialState = {
-  items: [],
+// load from localStorage
+const loadCart = () => {
+  try {
+    const data = localStorage.getItem("cart");
+    return data ? JSON.parse(data) : [];
+  } catch {
+    return [];
+  }
 };
 
-// actions
+const initialState = {
+  items: loadCart(),
+};
+
+// reducer
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART": {
-      const existing = state.items.find(
-        (item) => item.id === action.payload.id,
-      );
+      const product = action.payload;
+
+      const existing = state.items.find((i) => i.id === product.id);
 
       if (existing) {
         return {
           ...state,
-          items: state.items.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, qty: item.qty + 1 }
-              : item,
+          items: state.items.map((i) =>
+            i.id === product.id ? { ...i, qty: i.qty + 1 } : i,
           ),
         };
       }
 
       return {
         ...state,
-        items: [...state.items, { ...action.payload, qty: 1 }],
+        items: [
+          ...state.items,
+          {
+            ...product,
+            qty: 1,
+          },
+        ],
       };
     }
-
-    case "REMOVE_FROM_CART":
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
-      };
 
     case "INCREASE_QTY":
       return {
         ...state,
-        items: state.items.map((item) =>
-          item.id === action.payload ? { ...item, qty: item.qty + 1 } : item,
+        items: state.items.map((i) =>
+          i.id === action.payload ? { ...i, qty: i.qty + 1 } : i,
         ),
       };
 
@@ -49,10 +55,20 @@ function cartReducer(state, action) {
       return {
         ...state,
         items: state.items
-          .map((item) =>
-            item.id === action.payload ? { ...item, qty: item.qty - 1 } : item,
-          )
-          .filter((item) => item.qty > 0),
+          .map((i) => (i.id === action.payload ? { ...i, qty: i.qty - 1 } : i))
+          .filter((i) => i.qty > 0),
+      };
+
+    case "REMOVE_ITEM":
+      return {
+        ...state,
+        items: state.items.filter((i) => i.id !== action.payload),
+      };
+
+    case "CLEAR_CART":
+      return {
+        ...state,
+        items: [],
       };
 
     default:
@@ -60,8 +76,16 @@ function cartReducer(state, action) {
   }
 }
 
+// context
+const CartContext = createContext();
+
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  // save to localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.items));
+  }, [state.items]);
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>
@@ -70,4 +94,5 @@ export function CartProvider({ children }) {
   );
 }
 
+// hook
 export const useCart = () => useContext(CartContext);

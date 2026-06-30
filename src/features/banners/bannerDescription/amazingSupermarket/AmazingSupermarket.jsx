@@ -8,7 +8,8 @@ export default function AmazingSupermarket() {
   return (
     <>
       <div
-        className="hidden lg:flex bg-gray-200 gap-5 rounded-xl px-10 py-10 mx-15 items-center "
+        className="hidden lg:flex bg-gray-200 gap-5 rounded-xl 
+        px-10 py-10 mx-20 items-center mt-10 "
         style={{
           backgroundImage: `url(${FreshPattern})`,
           backgroundRepeat: "no-repeat",
@@ -17,8 +18,12 @@ export default function AmazingSupermarket() {
         <img src={Basket} alt="offerText" className="w-[50px]" />
 
         <img src={Logo} alt="offerText" className="w-[200px]" />
-        <span  className="flex gap-2 items-center justify-center 
-        text-sm text-white rounded-full w-[150px] h-[30px] bg-green-600 font-bold ml-30">تا ۵۰٪ تخفیف</span>
+        <span
+          className="flex gap-2 items-center justify-center 
+        text-sm text-white rounded-full w-[150px] h-[30px] bg-green-600 font-bold ml-30"
+        >
+          تا ۵۰٪ تخفیف
+        </span>
         <SupermarketItems className="" />
         <span
           className="flex gap-2 items-center justify-center 

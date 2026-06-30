@@ -8,7 +8,7 @@ export default function TopCards() {
     <div
       className="
         grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex
-        gap-4 
+        gap-5 
         px-3 sm:px-5 lg:px-20
         mt-25 lg:mt-15
       "

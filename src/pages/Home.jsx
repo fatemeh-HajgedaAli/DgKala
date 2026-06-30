@@ -54,18 +54,18 @@ export default function Home() {
         <HeroSliderLg />
 
         {/* HERO STORY OVERLAY  */}
-        <div className="relative mt-2 z-10">
+        <div className="relative -mt-40 z-10">
           <HeroStory />
         </div>
       </div>
 
       {/* OFFERS */}
-      <div className="mt-4">
+      <div className="mt-4 ">
         <AmazingCarousal />
       </div>
 
       {/* BANNER */}
-      <div className="mt-5 px-3">
+      <div className="mt-5 pr-10">
         <BannerDiscription />
       </div>
 

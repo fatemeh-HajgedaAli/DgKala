@@ -6,8 +6,8 @@ export default function HeroStory() {
   return (
     <>
       <div
-        className="relative flex  bottom-5
-          overflow-hidden top-5  bg-white "
+        className="relative flex  
+          overflow-hidden bg-white "
       >
         <div
           className="flex flex-nowrapp justify-center

@@ -10,9 +10,12 @@ import NavbarmenuBoxes from "./NavbarmenuBoxes";
 import NavbarMenu from "./NavbarMenu";
 // search-context
 import { useSearch } from "../../context/SearchContext";
+// navigate
+import { useNavigate } from "react-router-dom";
 
 export default function SearchPart({ placeholder = "جستجو" }) {
   const { search, setSearch } = useSearch();
+  const navigate = useNavigate();
   return (
     <header className=" w-full bg-white border-b border-slate-200 shadow-sm">
       {/* TOP BAR */}
@@ -58,15 +61,20 @@ export default function SearchPart({ placeholder = "جستجو" }) {
               <BsBell className="text-2xl" />
             </button>
 
-            <div className="flex items-center gap-2 border border-slate-300 
-            rounded-xl px-3 py-2">
+            <div
+              className="flex items-center gap-2 border border-slate-300 
+            rounded-xl px-3 py-2"
+            >
               <BsDoorOpen className="text-lg" />
               <Link className="text-sm">ورود</Link>
               <span className="text-slate-300">|</span>
               <Link className="text-sm">ثبت‌نام</Link>
             </div>
 
-            <button className="relative text-slate-300 hover:text-slate-600">
+            <button
+              onClick={() => navigate("/CartPage")}
+              className="relative text-slate-300 hover:text-slate-600"
+            >
               <BsCart2 className="text-4xl border-r-1 border-slate-600 pr-2" />
             </button>
           </div>

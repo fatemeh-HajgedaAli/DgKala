@@ -17,14 +17,16 @@ import { CiMenuKebab } from "react-icons/ci";
 import SmileLogo from "../../../assets/logos/smile-favicon.webp";
 import DetailsLink from "../components/productDetails/DetailsLink";
 import LoadingScreen from "../../../components/ui/LoadingScreen";
-
+// cartNavigate
+import { useNavigate } from "react-router-dom";
+// start
 export default function ProductDetailsPages() {
   const { id } = useParams();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     let isMounted = true;
 
@@ -55,7 +57,7 @@ export default function ProductDetailsPages() {
 
   // loading UI (Digikala style)
   if (loading) {
-    return <LoadingScreen/>
+    return <LoadingScreen />;
   }
   if (error) {
     return <div className="p-6 text-red-500">{error}</div>;
@@ -72,20 +74,20 @@ export default function ProductDetailsPages() {
         className="relative top-0 z-20 flex items-center 
       justify-between bg-white p-3 border-b border-gray-200 shadow-sm lg:hidden"
       >
-        <Link
-          to="/products"
+        <button
+          onClick={() => navigate("/products")}
           className="p-2 rounded-lg hover:bg-gray-100 transition"
         >
           <FaArrowRight />
-        </Link>
+        </button>
 
         <div className="flex items-center gap-3 text-xl">
-          <Link
-            to="/cart"
+          <button
+            onClick={() => navigate("/CartPage")}
             className="p-2 rounded-lg hover:bg-gray-100 transition"
           >
             <BsCart />
-          </Link>
+          </button>
 
           <button className="p-2 rounded-lg hover:bg-gray-100 transition">
             <CiMenuKebab />

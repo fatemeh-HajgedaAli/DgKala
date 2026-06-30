@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
 import ProductDetailsPages from "./features/products/pages/ProductDetailsPages";
 import ProductsPage from "./features/products/pages/ProductsPage";
-import Cart from "./pages/Cart";
+import CartPage from "./pages/CartPage";
 import ScrollToTop from "./components/ui/ScrollToTop";
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
           <Route path="products" element={<ProductsPage />} />
           <Route path="product/:id" element={<ProductDetailsPages />} />
 
-          <Route path="cart" element={<Cart />} />
+          <Route path="CartPage" element={<CartPage />} />
         </Route>
 
         <Route path="*" element={<h1>Page Not Found</h1>} />

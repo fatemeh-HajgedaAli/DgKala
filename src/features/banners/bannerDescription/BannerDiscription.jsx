@@ -6,9 +6,11 @@ import AmazingSupermarket from "../bannerDescription/amazingSupermarket/AmazingS
 export default function BannerDiscription() {
   return (
     <>
-      <TopCards />
-      <AmazingSupermarket />
-      <BottomCards />
+      <div >
+        <TopCards  />
+        <AmazingSupermarket />
+        <BottomCards />
+      </div>
     </>
   );
 }

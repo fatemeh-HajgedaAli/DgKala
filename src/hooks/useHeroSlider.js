@@ -30,9 +30,10 @@ export default function useHeroSlider(length, delay = 3000) {
   };
 
   useEffect(() => {
-    start();
-    return stop;
-  }, []);
+    const id = setInterval(next, delay);
+
+    return () => clearInterval(id);
+  }, [delay, length]);
 
   return {
     index,
