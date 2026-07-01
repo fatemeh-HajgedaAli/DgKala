@@ -1,6 +1,6 @@
 import React from "react";
 import TopBannerPic from "/topNavbar.gif";
-import SearchPart from "./SearchPart";
+import SearchPart from "./searchPart/SearchPart";
 import MobileBottomNavbar from "./MobileBottomNavbar";
 
 export default function Navbar() {
@@ -11,7 +11,7 @@ export default function Navbar() {
         <img
           src={TopBannerPic}
           alt="Top Banner"
-          className="w-full object-cover"
+          className="w-full  object-cover"
         />
       </div>
 

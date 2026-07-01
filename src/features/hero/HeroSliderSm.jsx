@@ -1,6 +1,6 @@
 // MOBILE-POSTERS
 import { useState, useEffect } from "react";
-import { heroPosterData } from "../../data/heroData";
+import { heroPosterData } from "../../data/componentData/heroData";
 // START
 export default function HeroSliderSm() {
   const [index, setIndex] = useState(0);

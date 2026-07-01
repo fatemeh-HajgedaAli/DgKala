@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { productsData1 } from "../../../data/suggestionProducts.data";
+import { productsData1 } from "../../../data/componentData/suggestionProducts.data";
 import { FaChevronLeft } from "react-icons/fa6";
 export default function suggestionProducts1() {
   return (

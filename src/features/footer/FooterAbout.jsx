@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { digikalaAboutText } from "../../data/digikalaAbout";
+import { digikalaAboutText } from "../../data/componentData/digikalaAbout";
 // icons
 import { MdKeyboardArrowLeft } from "react-icons/md";
 // brands

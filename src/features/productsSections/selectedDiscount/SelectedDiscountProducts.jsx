@@ -1,7 +1,7 @@
 // main
 import SelectedDiscountItems from "./SelectedDiscountItems";
 import { BiSolidDiscount } from "react-icons/bi";
-import { selectedDiscountData } from "../../../data/selectedDiscpount.data";
+import { selectedDiscountData } from "../../../data/componentData/selectedDiscpount.data";
 
 export default function SelectedDiscountProducts() {
   return (

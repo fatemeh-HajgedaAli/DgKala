@@ -1,4 +1,4 @@
-import { productsDetailsData } from "../../../data/productsDetails.data";
+import { productsDetailsData } from "../../../data/categoriesData/productsDetails.data";
 
 // ALL PRODUCTS
 export const getAllProducts = async () => {

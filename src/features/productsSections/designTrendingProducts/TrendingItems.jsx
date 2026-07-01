@@ -1,5 +1,5 @@
 // items
-import { trendingProductsData } from "../../../data/trendingProducts.data";
+import { trendingProductsData } from "../../../data/componentData/trendingProducts.data";
 
 export default function TrendingItems() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { amazingData } from "../../data/offersData";
+import { amazingData } from "../../data/componentData/offersData";
 import OfferItems from "./OfferItems";
 import useMainSlider from "../../hooks/useMainSlider";
 import { PiArrowCircleLeftThin } from "react-icons/pi";

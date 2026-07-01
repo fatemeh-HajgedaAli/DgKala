@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+// productPage
+import { useEffect, useState } from "react";
 import { useSearch } from "../../../context/SearchContext";
 import { useFilteredProducts } from "../hooks/useFilteredProducts";
 
 import GalleryTitle from "../components/GallaryTitle";
 import ProductsGrid from "../components/productsPage/ProductsGrid";
 import FiltersSidebar from "../components/filters/FiltersSidebar";
-
-import { getAllProducts } from "../services/product.service";
 import LoadingScreen from "../../../components/ui/LoadingScreen";
 
+import { getAllProducts } from "../services/product.service";
+// start
 export default function ProductsPage() {
   const { search } = useSearch();
 
@@ -27,51 +28,44 @@ export default function ProductsPage() {
     selectedColors: [],
     sort: "newest",
   });
-  // loading
-  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  const load = async () => {
-    setLoading(true);
-
-    const [data] = await Promise.all([getAllProducts(), delay(2000)]);
-
-    setProducts(data || []);
-    setLoading(false);
-  };
-  // fetch products
+  // FETCH PRODUCTS
   useEffect(() => {
-    let active = true;
+    let isActive = true;
 
-    const load = async () => {
-      setLoading(true);
-      const data = await getAllProducts();
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
 
-      if (active) {
-        setProducts(data || []);
-        setLoading(false);
+        const data = await getAllProducts();
+
+        if (isActive) {
+          setProducts(data || []);
+        }
+      } catch (err) {
+        console.error("Failed to load products:", err);
+      } finally {
+        if (isActive) setLoading(false);
       }
     };
 
-    load();
+    fetchProducts();
 
     return () => {
-      active = false;
+      isActive = false;
     };
   }, []);
 
-  // scroll lock + layout shift fix
+  // SCROLL LOCK (FILTER DRAWER)
   useEffect(() => {
-    if (isFilterOpen) {
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
+    if (!isFilterOpen) return;
 
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    }
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+    console.log("search:", search);
     return () => {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
@@ -79,12 +73,14 @@ export default function ProductsPage() {
   }, [isFilterOpen]);
 
   const filteredProducts = useFilteredProducts(products, filters, search);
-
+  // console
+  useEffect(() => {
+    console.log("FIRST PRODUCT:", products?.[0]);
+  }, [products]);
+  // jsx
   return (
     <div className="p-5 relative min-h-screen">
       {/* HEADER */}
-
-      {/* TITLE */}
       <GalleryTitle
         filters={filters}
         setFilters={setFilters}
@@ -94,19 +90,20 @@ export default function ProductsPage() {
       {/* PRODUCTS */}
       <ProductsGrid products={filteredProducts} />
 
-      {/* FULL PAGE LOADING OVERLAY */}
+      {/* LOADING OVERLAY */}
       {loading && (
         <div className="fixed inset-0 z-50 bg-white/80 flex items-center justify-center">
           <LoadingScreen />
         </div>
       )}
 
-      {/* DRAWER */}
+      {/* FILTER DRAWER */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ${
           isFilterOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
+        {/* BACKDROP */}
         <div
           onClick={() => setIsFilterOpen(false)}
           className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
@@ -114,11 +111,12 @@ export default function ProductsPage() {
           }`}
         />
 
+        {/* SIDEBAR */}
         <div
           className={`absolute left-0 top-0 h-full w-80 bg-white shadow-xl 
-        flex flex-col transform transition-transform duration-300 ease-in-out
-        ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}
-      `}
+          flex flex-col transform transition-transform duration-300 ease-in-out
+          ${isFilterOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex-1 overflow-y-auto p-5">

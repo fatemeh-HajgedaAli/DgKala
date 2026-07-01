@@ -1,0 +1,223 @@
+import {amazingImages} from "./amazingImagesData";
+// data
+export const amazingProducts = [
+  {
+    id: 1,
+    title: "دوربین دیجیتال حرفه‌ای",
+    brand: "Sony",
+    category: "electronics",
+    pricing: {
+      price: 12000000,
+      discountPercent: 10,
+      finalPrice: 10800000,
+    },
+    rating: { value: 4.6, reviewsCount: 320 },
+    inventory: { stock: 8, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "18 ماه گارانتی",
+    images: amazingImages.cameras,
+  },
+
+  {
+    id: 2,
+    title: "هدفون بی‌سیم نویز کنسلینگ",
+    brand: "Sony",
+    category: "electronics",
+    pricing: {
+      price: 750000,
+      discountPercent: 22,
+      finalPrice: 585000,
+    },
+    rating: { value: 4.8, reviewsCount: 890 },
+    inventory: { stock: 18, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "18 ماه گارانتی",
+    images: amazingImages.headphones,
+  },
+
+  {
+    id: 3,
+    title: "لپ‌تاپ حرفه‌ای توسعه‌دهندگان",
+    brand: "Apple",
+    category: "electronics",
+    pricing: {
+      price: 55000000,
+      discountPercent: 5,
+      finalPrice: 52250000,
+    },
+    rating: { value: 4.9, reviewsCount: 1120 },
+    inventory: { stock: 3, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "24 ماه گارانتی",
+    images: amazingImages.laptop,
+  },
+
+  {
+    id: 4,
+    title: "کیبورد مکانیکی گیمینگ",
+    brand: "Razer",
+    category: "electronics",
+    pricing: {
+      price: 3200000,
+      discountPercent: 18,
+      finalPrice: 2624000,
+    },
+    rating: { value: 4.5, reviewsCount: 540 },
+    inventory: { stock: 12, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "12 ماه گارانتی",
+    images: amazingImages.keyboard,
+  },
+
+  {
+    id: 5,
+    title: "صندلی ارگونومیک اداری",
+    brand: "DXRacer",
+    category: "home",
+    pricing: {
+      price: 8500000,
+      discountPercent: 12,
+      finalPrice: 7480000,
+    },
+    rating: { value: 4.4, reviewsCount: 210 },
+    inventory: { stock: 6, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "24 ماه گارانتی",
+    images: amazingImages.chair,
+  },
+
+  {
+    id: 6,
+    title: "جین مردانه استایل روز",
+    brand: "Levi’s",
+    category: "fashion",
+    pricing: {
+      price: 1800000,
+      discountPercent: 20,
+      finalPrice: 1440000,
+    },
+    rating: { value: 4.3, reviewsCount: 420 },
+    inventory: { stock: 15, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "7 روز ضمانت بازگشت",
+    images: amazingImages.jeans,
+  },
+
+  {
+    id: 7,
+    title: "پاوربانک فست شارژ",
+    brand: "Baseus",
+    category: "electronics",
+    pricing: {
+      price: 900000,
+      discountPercent: 25,
+      finalPrice: 675000,
+    },
+    rating: { value: 4.6, reviewsCount: 780 },
+    inventory: { stock: 25, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "12 ماه گارانتی",
+    images: amazingImages.powerbank,
+  },
+
+  {
+    id: 8,
+    title: "ساعت هوشمند اسپرت",
+    brand: "Xiaomi",
+    category: "wearable",
+    pricing: {
+      price: 2500000,
+      discountPercent: 30,
+      finalPrice: 1750000,
+    },
+    rating: { value: 4.7, reviewsCount: 990 },
+    inventory: { stock: 20, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "18 ماه گارانتی",
+    images: amazingImages.watch,
+  },
+
+  {
+    id: 9,
+    title: "کیت ابزار حرفه‌ای",
+    brand: "Bosch",
+    category: "tools",
+    pricing: {
+      price: 3800000,
+      discountPercent: 18,
+      finalPrice: 3116000,
+    },
+    rating: { value: 4.5, reviewsCount: 260 },
+    inventory: { stock: 14, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "24 ماه گارانتی",
+    images: amazingImages.tools,
+  },
+
+  {
+    id: 10,
+    title: "دستگاه جوشکاری خانگی",
+    brand: "Ronix",
+    category: "tools",
+    pricing: {
+      price: 5200000,
+      discountPercent: 15,
+      finalPrice: 4420000,
+    },
+    rating: { value: 4.2, reviewsCount: 180 },
+    inventory: { stock: 5, inStock: true },
+    shipping: { fastDelivery: true, freeShipping: true },
+    seller: {
+      name: "دیجی‌کالا",
+      type: "digikala",
+      fulfillment: "digikala",
+    },
+    guarantee: "12 ماه گارانتی",
+    images: amazingImages.welding,
+  },
+];

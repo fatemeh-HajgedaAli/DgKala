@@ -1,7 +1,7 @@
 // DESCRIPTION - BANNER
 
 import React from "react";
-import { bottomData } from "../../../data/description.data";
+import { bottomData } from "../../../data/componentData/description.data";
 // START
 export default function bottomCards() {
   return (

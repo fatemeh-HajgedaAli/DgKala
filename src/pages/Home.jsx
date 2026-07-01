@@ -1,5 +1,7 @@
 import React from "react";
+import { useSearch } from "../context/SearchContext";
 
+// navbar
 import Navbar from "../features/navbar/Navbar";
 
 // story / header
@@ -39,6 +41,8 @@ import Footer from "../features/footer/Footer";
 import TrendingProductsMobile from "../features/productsSections/designTrendingProducts/TrendingProductsMobile";
 
 export default function Home() {
+  const { search } = useSearch();
+console.log("HOME SEARCH:", search);
   return (
     <div className="bg-gray-50 overflow-x-hidden">
     

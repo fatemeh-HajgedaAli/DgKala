@@ -1,7 +1,7 @@
 // DESCRIPTION - BANNER
 
 import React from "react";
-import { topdata} from "../../../data/description.data";
+import { topdata } from "../../../data/componentData/description.data";
 // START
 export default function TopCards() {
   return (

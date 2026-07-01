@@ -1,4 +1,4 @@
-import { brandsData } from "../../data/brands.data";
+import { brandsData } from "../../data/componentData/brands.data";
 export default function SliderBrands() {
   return (
     <div

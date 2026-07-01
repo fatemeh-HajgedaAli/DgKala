@@ -1,60 +1,67 @@
-// FILTERED-HOOK
 export function useFilteredProducts(products, filters, search) {
-  return products
-    .filter((p) => {
-      const matchSearch =
-        !search || p.title?.toLowerCase().includes(search.toLowerCase());
+  const searchText = search?.toLowerCase().trim();
 
-      const matchCategory =
-        filters.category === "all" || p.category === filters.category;
+  const filtered = products.filter((p) => {
+    const title = p.title?.toLowerCase() || "";
 
-      const matchBrand = filters.brand === "all" || p.brand === filters.brand;
+    const matchSearch =
+      !search || p.title?.toLowerCase().includes(search.toLowerCase());
+    const matchCategory =
+      filters.category === "all" || p.category === filters.category;
 
-      const matchStock = !filters.onlyInStock || p.inventory?.stock > 0;
+    const matchBrand = filters.brand === "all" || p.brand === filters.brand;
 
-      const matchPrice =
-        p.pricing?.price >= filters.priceRange[0] &&
-        p.pricing?.price <= filters.priceRange[1];
+    const matchStock = !filters.onlyInStock || (p.inventory?.stock ?? 0) > 0;
 
-      const matchFast = !filters.onlyFastDelivery || p.shipping?.fastDelivery;
+    const price = p.pricing?.price ?? 0;
 
-      const matchShipping =
-        !filters.onlyFreeShipping || p.shipping?.freeShipping;
+    const matchPrice =
+      price >= filters.priceRange[0] && price <= filters.priceRange[1];
 
-      const matchSeller =
-        filters.sellerType === "all" || p.seller?.type === filters.sellerType;
+    const matchFast = !filters.onlyFastDelivery || !!p.shipping?.fastDelivery;
 
-      const matchColor =
-        filters.selectedColors.length === 0 ||
-        filters.selectedColors.some((color) =>
-          p.variants?.colors?.includes(color),
-        );
+    const matchShipping =
+      !filters.onlyFreeShipping || !!p.shipping?.freeShipping;
 
-      return (
-        matchSearch &&
-        matchCategory &&
-        matchBrand &&
-        matchStock &&
-        matchPrice &&
-        matchFast &&
-        matchShipping &&
-        matchSeller &&
-        matchColor
-      );
-    })
-    .sort((a, b) => {
-      switch (filters.sort) {
-        case "price_low":
-          return (a.pricing?.price || 0) - (b.pricing?.price || 0);
+    const matchSeller =
+      filters.sellerType === "all" || p.seller?.type === filters.sellerType;
 
-        case "price_high":
-          return (b.pricing?.price || 0) - (a.pricing?.price || 0);
+    const matchColor =
+      !filters.selectedColors?.length ||
+      filters.selectedColors.some((c) => p.variants?.colors?.includes(c));
 
-        case "rating":
-          return (b.rating?.value || 0) - (a.rating?.value || 0);
+    return (
+      matchSearch &&
+      matchCategory &&
+      matchBrand &&
+      matchStock &&
+      matchPrice &&
+      matchFast &&
+      matchShipping &&
+      matchSeller &&
+      matchColor
+    );
+  });
 
-        default:
-          return b.id - a.id;
-      }
-    });
+  return filtered.sort((a, b) => {
+    const priceA = a.pricing?.price ?? 0;
+    const priceB = b.pricing?.price ?? 0;
+
+    const ratingA = a.rating?.value ?? 0;
+    const ratingB = b.rating?.value ?? 0;
+
+    switch (filters.sort) {
+      case "price_low":
+        return priceA - priceB;
+
+      case "price_high":
+        return priceB - priceA;
+
+      case "rating":
+        return ratingB - ratingA;
+
+      default:
+        return (b.id ?? 0) - (a.id ?? 0);
+    }
+  });
 }
