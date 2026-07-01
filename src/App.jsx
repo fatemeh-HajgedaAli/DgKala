@@ -12,7 +12,7 @@ import SearchModal from "./features/navbar/searchPart/SearchModal";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AuthLayout from "./layouts/AuthLayout";
-import AmazingProducts from "./components/catergories/AmazingProducts";
+import AmazingOffer from "./features/amazingOffer/AmazingOffer";
 // start
 export default function App() {
   return (
@@ -27,7 +27,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           {/* offer */}
-          <Route path="/offers" element={<AmazingProducts />} />
+          <Route path="/offers" element={<AmazingOffer />} />
           {/* newsPart */}
           <Route path="news/:id" element={<NewsDetail />} />
           {/* products */}

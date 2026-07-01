@@ -59,8 +59,7 @@ export default function BrandsPart() {
         <div
           ref={sliderRef}
           onScroll={updateButtons}
-          className="flex overflow-x-auto no-scrollbar gap-5 
-       hide-scrollbar"
+          className="flex overflow-x-auto no-scrollbar gap-5 hide-scrollbar"
         >
           <SliderBrands />
         </div>
