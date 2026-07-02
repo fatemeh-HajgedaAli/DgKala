@@ -4,6 +4,9 @@ import DailyAmazingPart from "./amazingPart/DailyAmazingPart";
 import CategoriesItems from "./amazingPart/CategoriesItems";
 import EndAmazingOffer from "./amazingPart/EndAmazingOffer";
 import AmazingSupermarket from "../banners/bannerDescription/amazingSupermarket/AmazingSupermarket";
+import AccessToOffer from "./amazingPart/AccessToOffer";
+import AmazingBuyOffer from "./amazingPart/AmazingBuyOffer";
+import AmazingAllPage from "./AmazingAllPage";
 // start
 
 export default function AmazingProducts() {
@@ -25,6 +28,16 @@ export default function AmazingProducts() {
       <div className="">
         <AmazingSupermarket />
       </div>
+      {/* accessOffer */}
+      <div className="">
+        <AccessToOffer />
+      </div>
+      {/* amazingBuyOffer */}
+      <div className="">
+        <AmazingBuyOffer />
+      </div>
+      {/* AmazingAllProducts */}
+      <AmazingAllPage/>
     </div>
   );
 }

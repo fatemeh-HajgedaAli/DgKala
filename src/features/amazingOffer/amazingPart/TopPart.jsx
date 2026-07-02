@@ -14,7 +14,7 @@ export default function Topbar() {
     <section className="flex flex-col gap-5 overflow-hidden relative">
       {/* Header */}
       <div
-        className="flex bg-rose-500 items-center justify-center h-24"
+        className="flex bg-rose-400 items-center justify-center h-24"
         style={{
           backgroundImage: `url(${bgPattern})`,
           backgroundRepeat: "no-repeat",
