@@ -1,7 +1,6 @@
-// MOBILE-POSTERS
 import { useState, useEffect } from "react";
 import { heroPosterData } from "../../data/componentData/heroData";
-// START
+
 export default function HeroSliderSm() {
   const [index, setIndex] = useState(0);
 
@@ -15,7 +14,6 @@ export default function HeroSliderSm() {
 
   return (
     <div className="relative w-full overflow-hidden lg:hidden">
-      {/* SLIDER */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{
@@ -26,7 +24,7 @@ export default function HeroSliderSm() {
           <div key={item.id} className="w-full flex-shrink-0 px-3 pt-3">
             <img
               src={item.image}
-              alt="poster"
+              alt={item.title}
               className="w-full h-[180px] object-cover rounded-2xl"
             />
           </div>
@@ -47,4 +45,3 @@ export default function HeroSliderSm() {
     </div>
   );
 }
-// FINISH

@@ -25,7 +25,7 @@ export default function App() {
         <Route element={<MainLayout />}>
           {/* home */}
           <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           {/* offer */}
           <Route path="/offers" element={<AmazingOffer />} />
           {/* newsPart */}

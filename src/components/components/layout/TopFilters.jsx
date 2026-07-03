@@ -1,3 +1,4 @@
+// search Filter
 import SearchBar from "../search/SearchBar";
 import SortBar from "../sorting/SortBar";
 

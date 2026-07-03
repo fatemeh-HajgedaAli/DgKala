@@ -4,13 +4,14 @@ import { useSearch } from "../context/SearchContext";
 // navbar
 import Navbar from "../features/navbar/Navbar";
 
-// story / header
+// story
 import StoryHeader from "../features/story/StoryHeader";
+import StoryViewer from "../features/story/StoryViewer";
 
 // hero
 import HeroSliderSm from "../features/hero/HeroSliderSm";
 import HeroSliderLg from "../features/hero/HeroSliderLg";
-import HeroStory from "../features/hero/HeroStory";
+import HeroStory from "../features/HeroStory/HeroStory";
 
 // offers
 import AmazingCarousal from "../features/offers/AmazingCarousel";
@@ -32,100 +33,109 @@ import MainBestSelling from "../features/productsSections/bestSelling/MainBestSe
 import SuggestionProducts2 from "../features/productsSections/suggestionProducts/SuggestionProducts2";
 import SelectedDiscountProducts from "../features/productsSections/selectedDiscount/SelectedDiscountProducts";
 import TrendingProducts from "../features/productsSections/designTrendingProducts/TrendingProducts";
+import TrendingProductsMobile from "../features/productsSections/designTrendingProducts/TrendingProductsMobile";
 
 // reading
 import Reading from "../features/readingPart/Reading";
 
 // footer
 import Footer from "../features/footer/Footer";
-import TrendingProductsMobile from "../features/productsSections/designTrendingProducts/TrendingProductsMobile";
 
 export default function Home() {
   const { search } = useSearch();
-console.log("HOME SEARCH:", search);
+
   return (
     <div className="bg-gray-50 overflow-x-hidden">
-    
+      {/* <Navbar /> */}
 
-      {/* STORY HEADER (top row) */}
-      <div className="px-3 mt-2">
+      {/* STORIES */}
+      <section className="px-3 mt-2">
         <StoryHeader />
-      </div>
+        <StoryViewer />
+      </section>
 
-      {/* HERO SECTION */}
-      <div className="relative">
+      {/* HERO */}
+      <section className="relative">
         <HeroSliderSm />
         <HeroSliderLg />
-
-        {/* HERO STORY OVERLAY  */}
-        <div className="relative -mt-40 z-10">
-          <HeroStory />
-        </div>
-      </div>
+      </section>
+      {/* overlay story */}
+      <section className="mt-1">
+        <HeroStory />
+      </section>
 
       {/* OFFERS */}
-      <div className="mt-4 ">
+      <section>
         <AmazingCarousal />
-      </div>
+      </section>
 
       {/* BANNER */}
-      <div className="mt-5 pr-10">
+      <section className="mt-5 pr-10">
         <BannerDiscription />
-      </div>
+      </section>
 
       {/* CATEGORIES */}
-      <div className="mt-5">
+      <section className="mt-5">
         <ShopingByCategories />
-      </div>
+      </section>
 
       {/* POSTERS TOP */}
-      <div className="mt-6 px-3">
+      <section className="mt-6 px-3">
         <PosterDescriptionTop />
-      </div>
+      </section>
 
       {/* BRANDS */}
-      <div className="mt-6">
+      <section className="mt-6">
         <BrandsPart />
-      </div>
+      </section>
 
       {/* POSTERS BOTTOM */}
-      <div className="mt-6 px-3">
+      <section className="mt-6 px-3">
         <PosterDescriptionBottom />
-      </div>
+      </section>
 
-      {/* PRODUCTS */}
-      <div className="mt-6">
+      {/* PRODUCTS SECTION 1 */}
+      <section className="mt-6">
         <SuggestionProducts1 />
-      </div>
-      <div className="">
+      </section>
+
+      {/* TRENDING MOBILE */}
+      <section className="lg:hidden">
         <TrendingProductsMobile />
-      </div>
-      <div className="mt-6">
+      </section>
+
+      {/* BEST SELLING */}
+      <section className="mt-6">
         <MainBestSelling />
-      </div>
+      </section>
 
-      <div className="mt-6">
+      {/* PRODUCTS SECTION 2 */}
+      <section className="mt-6">
         <SuggestionProducts2 />
-      </div>
-      {/* POSTERS */}
-      <div className="flex lg:hidden mt-6 px-3">
+      </section>
+
+      {/* POSTER (mobile only) */}
+      <section className="lg:hidden mt-6 px-3">
         <PosterDescriptionTop />
-      </div>
+      </section>
 
-      <div className="mt-6">
+      {/* DISCOUNT */}
+      <section className="mt-6">
         <SelectedDiscountProducts />
-      </div>
+      </section>
 
-      <div className="mt-6">
+      {/* TRENDING DESKTOP */}
+      <section className="mt-6 hidden lg:block">
         <TrendingProducts />
-      </div>
+      </section>
 
       {/* READING */}
-      <div className="mt-6 px-3">
+      <section className="mt-6 px-3">
         <Reading />
-      </div>
+      </section>
 
-      
+      {/* FOOTER */}
+      <Footer />
     </div>
   );
 }

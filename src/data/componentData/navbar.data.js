@@ -94,7 +94,7 @@ export const bottemData = [
     icon: BsCart,
     activeIcon: BsCartFill,
     title: "سبد خرید",
-    path: "/categories",
+    path: "/Cart",
   },
   {
     id: 4,

@@ -5,24 +5,27 @@ import { BrowserRouter } from "react-router-dom";
 // context
 import { SearchProvider } from "./context/SearchContext";
 import { CartProvider } from "./context/CartContext";
-import { MiniCartProvider } from "./context/MiniCartContext.jsx";
-import { AddressProvider } from "./context/AddressContext.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
+import { MiniCartProvider } from "./context/MiniCartContext";
+import { AddressProvider } from "./context/AddressContext";
+import { AuthProvider } from "./context/AuthContext";
+import { StoryProvider } from "./context/StoryProvider";
 
-import App from "./App.jsx";
+import App from "./App";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthProvider>
       <SearchProvider>
-        <MiniCartProvider>
-          <CartProvider>
-            <AddressProvider>
-              <App />
-            </AddressProvider>
-          </CartProvider>
-        </MiniCartProvider>
+        <StoryProvider>
+          <MiniCartProvider>
+            <CartProvider>
+              <AddressProvider>
+                <App />
+              </AddressProvider>
+            </CartProvider>
+          </MiniCartProvider>
+        </StoryProvider>
       </SearchProvider>
     </AuthProvider>
   </BrowserRouter>,

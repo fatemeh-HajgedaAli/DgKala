@@ -1,144 +1,53 @@
+import { useState } from "react";
 import PriceFilter from "./PriceFilter";
 import SortBar from "../sorting/SortBar";
+import { HiChevronDown } from "react-icons/hi";
+
+function Section({ id, title, open, setOpen, children }) {
+  const isOpen = open === id;
+
+  return (
+    <div className="border-b border-gray-100 py-2">
+      <button
+        onClick={() => setOpen(isOpen ? null : id)}
+        className="w-full flex items-center justify-between py-2"
+      >
+        <span className="font-semibold text-gray-700">{title}</span>
+
+        <HiChevronDown
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {isOpen && <div className="pt-3 pb-2 space-y-2">{children}</div>}
+    </div>
+  );
+}
 
 export default function FiltersSidebar({ filters, setFilters }) {
   if (!filters || typeof setFilters !== "function") return null;
-  const updateFilter = (key, value) => {
-    setFilters((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
 
-  const toggleColor = (color) => {
-    if (filters.selectedColors.includes(color)) {
-      updateFilter(
-        "selectedColors",
-        filters.selectedColors.filter((c) => c !== color),
-      );
-    } else {
-      updateFilter("selectedColors", [...filters.selectedColors, color]);
-    }
+  const [open, setOpen] = useState("sort");
+
+  const updateFilter = (key, value) => {
+    setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
   return (
-    <div className="h-full flex flex-col">
-      {/* HEADER (fixed) */}
+    <div className="h-full flex flex-col text-sm">
       <h3 className="font-bold text-lg text-gray-700 mb-4">فیلترها</h3>
 
-      {/* SCROLL AREA */}
-      <div className="flex-1 overflow-y-auto space-y-5 pr-2">
-        {/* CATEGORY */}
-        <div>
-          <p className="mb-2 font-semibold text-red-600">دسته‌بندی</p>
-          <select
-            value={filters.category}
-            onChange={(e) => updateFilter("category", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 p-2 shadow-sm"
-          >
-            <option value="all">همه</option>
-            <option value="book">کتاب</option>
-            <option value="electronics">دیجیتال</option>
-            <option value="mobile">موبایل</option>
-            <option value="food">مواد غذایی</option>
-            <option value="health">سلامت</option>
-            <option value="beauty">آرایشی</option>
-            <option value="travel">سفر</option>
-            <option value="tools">ابزار</option>
-            <option value="home">خانه</option>
-            <option value="home-appliance">لوازم خانگی</option>
-          </select>
-        </div>
-
-        <div>
+      <div className="flex-1 overflow-y-auto pr-2">
+        {/* SORT */}
+        <Section id="sort" title="مرتب‌سازی" open={open} setOpen={setOpen}>
           <SortBar filters={filters} setFilters={setFilters} />
-        </div>
-        {/*        
+        </Section>
 
-// Brands
-        <div>
-          <p className="mb-2 font-semibold text-red-600">برند</p>
-          <select
-            value={filters.brand}
-            onChange={(e) => updateFilter("brand", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 p-2 shadow-sm"
-          >
-            <option value="all">همه</option>
-            <option value="Sony">Sony</option>
-            <option value="LG">LG</option>
-            <option value="Baseus">Baseus</option>
-            <option value="Bosch">Bosch</option>
-            <option value="Tefal">Tefal</option>
-            <option value="Samsonite">Samsonite</option>
-            <option value="La Roche-Posay">La Roche-Posay</option>
-            <option value="Casio">Casio</option>
-            <option value="Bestway">Bestway</option>
-            <option value="Del Monte">Del Monte</option>
-            <option value="Shilton">Shilton</option>
-            <option value="Nature Made">Nature Made</option>
-            <option value="یوروویتال">یوروویتال</option>
-            <option value="کاله">کاله</option>
-          </select>
-        </div> */}
-
-        {/* PRICE */}
-        <PriceFilter filters={filters} setFilters={setFilters} />
-
-        {/* COLORS */}
-        {/* <div>
-          <p className="mb-3 font-semibold text-red-600">رنگ</p>
-
-          <div className="flex flex-wrap gap-3">
-            {colors.map((color) => (
-              <button
-                key={color.name}
-                type="button"
-                onClick={() => toggleColor(color.name)}
-                className={`relative w-8 h-8 rounded-full border-2 transition-all
-                  ${
-                    filters.selectedColors.includes(color.name)
-                      ? "border-red-500 scale-110 shadow-md"
-                      : "border-gray-300"
-                  }`}
-                style={{ backgroundColor: color.value }}
-              >
-                {filters.selectedColors.includes(color.name) && (
-                  <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">
-                    ✓
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
-        </div> */}
-
-        {/* SELLER */}
-        <div>
-          <p className="mb-2 font-semibold text-red-600">نوع فروشنده</p>
-
-          <select
-            value={filters.sellerType}
-            onChange={(e) => updateFilter("sellerType", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 p-2 shadow-sm"
-          >
-            <option value="all">همه</option>
-            <option value="digikala">دیجی‌کالا</option>
-            <option value="marketplace">فروشنده</option>
-          </select>
-        </div>
-
-        {/* CHECKBOXES */}
-        <div className="space-y-3 text-sm text-gray-600">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={filters.onlyInStock}
-              onChange={(e) => updateFilter("onlyInStock", e.target.checked)}
-            />
-            فقط کالاهای موجود
-          </label>
-
-          <label className="flex items-center gap-2 cursor-pointer">
+        {/* SHIPPING */}
+        <Section id="shipping" title="ارسال" open={open} setOpen={setOpen}>
+          <label className="flex items-center gap-2">
             <input
               type="checkbox"
               checked={filters.onlyFastDelivery}
@@ -149,7 +58,7 @@ export default function FiltersSidebar({ filters, setFilters }) {
             ارسال سریع
           </label>
 
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-2">
             <input
               type="checkbox"
               checked={filters.onlyFreeShipping}
@@ -159,7 +68,65 @@ export default function FiltersSidebar({ filters, setFilters }) {
             />
             ارسال رایگان
           </label>
-        </div>
+        </Section>
+
+        {/* STOCK */}
+        <Section id="stock" title="موجودی" open={open} setOpen={setOpen}>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={filters.onlyInStock}
+              onChange={(e) => updateFilter("onlyInStock", e.target.checked)}
+            />
+            فقط کالاهای موجود
+          </label>
+        </Section>
+
+        {/* CATEGORY */}
+        <Section id="category" title="دسته‌بندی" open={open} setOpen={setOpen}>
+          <select
+            value={filters.category}
+            onChange={(e) => updateFilter("category", e.target.value)}
+            className="w-full border rounded-lg p-2"
+          >
+            <option value="all">همه</option>
+            <option value="book">کتاب</option>
+            <option value="mobile">موبایل</option>
+            <option value="electronics">دیجیتال</option>
+          </select>
+        </Section>
+
+        {/* BRAND */}
+        <Section id="brand" title="برند" open={open} setOpen={setOpen}>
+          <select
+            value={filters.brand}
+            onChange={(e) => updateFilter("brand", e.target.value)}
+            className="w-full border rounded-lg p-2"
+          >
+            <option value="all">همه</option>
+            <option value="Sony">Sony</option>
+            <option value="LG">LG</option>
+            <option value="Bosch">Bosch</option>
+          </select>
+        </Section>
+
+        {/* PRICE */}
+        <Section id="price" title="محدوده قیمت" open={open} setOpen={setOpen}>
+          <PriceFilter filters={filters} setFilters={setFilters} />
+        </Section>
+
+        {/* SELLER */}
+        <Section id="seller" title="نوع فروشنده" open={open} setOpen={setOpen}>
+          <select
+            value={filters.sellerType}
+            onChange={(e) => updateFilter("sellerType", e.target.value)}
+            className="w-full border rounded-lg p-2"
+          >
+            <option value="all">همه</option>
+            <option value="digikala">دیجی‌کالا</option>
+            <option value="marketplace">فروشنده</option>
+          </select>
+        </Section>
 
         {/* RESET */}
         <button
@@ -173,10 +140,10 @@ export default function FiltersSidebar({ filters, setFilters }) {
               onlyFreeShipping: false,
               selectedColors: [],
               priceRange: [0, 20000000],
-              sort: "newest",
+              sort: "new",
             })
           }
-          className="w-full rounded-lg bg-gray-100 p-3 font-semibold hover:bg-gray-200"
+          className="w-full mt-4 bg-gray-100 p-3 rounded-lg font-semibold"
         >
           حذف همه فیلترها
         </button>
