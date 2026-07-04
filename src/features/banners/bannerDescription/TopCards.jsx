@@ -1,16 +1,18 @@
-// DESCRIPTION - BANNER
-
 import React from "react";
 import { topdata } from "../../../data/componentData/description.data";
-// START
+
 export default function TopCards() {
   return (
     <div
       className="
-        grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex
-        gap-5 
-        px-3 sm:px-5 lg:px-20
-        mt-25 lg:mt-15
+        grid
+        grid-cols-2
+        sm:grid-cols-3
+        lg:grid-cols-4
+        gap-4
+        px-3 sm:px-5 lg:px-16 lg:mx-5
+        items-center
+        mt-6 mx-5 
       "
     >
       {topdata.map((item) => (
@@ -20,9 +22,14 @@ export default function TopCards() {
             alt={item.title}
             className="
               w-full
-              h-[120px] sm:h-[140px] md:h-[160px] lg:h-auto
+              h-[120px]
+              sm:h-[140px]
+              md:h-[160px]
+              lg:h-[200px]
               object-cover
               rounded-xl
+              hover:scale-[1.02]
+              transition
             "
           />
         </div>
@@ -30,4 +37,3 @@ export default function TopCards() {
     </div>
   );
 }
-// FINISH

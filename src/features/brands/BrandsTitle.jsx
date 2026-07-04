@@ -3,7 +3,7 @@ import { GiStarFormation } from "react-icons/gi";
 
 export default function BrandsTitle() {
   return (
-    <div className="flex  items-center lg:justify-center gap-3">
+    <div className="flex  items-center lg:justify-center gap-3 mt-2">
       <GiStarFormation className="text-yellow-500" />
       <p className="text-2xl font-bold text-neutral-900">محبوب‌ترین برندها</p>
     </div>

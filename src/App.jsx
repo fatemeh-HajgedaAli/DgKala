@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AuthLayout from "./layouts/AuthLayout";
 import AmazingOffer from "./features/amazingOffer/AmazingOffer";
+import AmazingDetails from "./features/amazingOffer/AmazingDetails";
 // start
 export default function App() {
   return (
@@ -28,11 +29,14 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           {/* offer */}
           <Route path="/offers" element={<AmazingOffer />} />
+          <Route path="/product/:id" element={<AmazingDetails />} />
+
           {/* newsPart */}
           <Route path="news/:id" element={<NewsDetail />} />
           {/* products */}
           <Route path="products" element={<ProductsPage />} />
           <Route path="product/:id" element={<ProductDetailsPages />} />
+
           {/* cartPart */}
           <Route path="CartPage" element={<CartPage />} />
         </Route>

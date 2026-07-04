@@ -70,7 +70,7 @@ export default function Home() {
       </section>
 
       {/* BANNER */}
-      <section className="mt-5 pr-10">
+      <section className="mt-14 pr-5">
         <BannerDiscription />
       </section>
 
