@@ -31,7 +31,7 @@ const AmazingSlider = forwardRef(({ products }, ref) => {
         return (
           <Link
             key={item.id}
-            to={`/product/${item.id}`}
+            to={`/amazing/${item.id}`}
             className="min-w-[600px] h-[250px] bg-white items-center
              rounded-2xl p-3 hover:shadow-xl transition"
           >

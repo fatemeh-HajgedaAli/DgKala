@@ -39,7 +39,7 @@ export const menuItems = [
     id: 2,
     icon: BiSolidOffer,
     title: "شگفت انگیزها",
-    path: "/offers",
+    path: "/amazing",
     divider: true,
   },
   {
@@ -94,7 +94,7 @@ export const bottemData = [
     icon: BsCart,
     activeIcon: BsCartFill,
     title: "سبد خرید",
-    path: "/Cart",
+    path: "/cart",
   },
   {
     id: 4,

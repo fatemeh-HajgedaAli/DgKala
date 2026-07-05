@@ -47,14 +47,14 @@ export default function OffersText() {
          lg:-mt-2  lg:mr-10"
         >
           <Link
-            to="/offers"
+            to="/amazing"
             type="button"
             className="text-sm ml-5  hidden lg:flex "
           >
             مشاهده همه
           </Link>
           <Link
-            to="/offers"
+            to="/amazing"
             type="button"
             className="text-sm flex lg:hidden mr-35 "
           >

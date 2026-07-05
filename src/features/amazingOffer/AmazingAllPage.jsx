@@ -165,7 +165,7 @@ export default function AmazingAllPage() {
               return (
                 <Link
                   key={item.id}
-                  to={`/product/${item.id}`}
+                  to={`/amazing/${item.id}`}
                   className="
                   bg-white
                   border border-gray-200

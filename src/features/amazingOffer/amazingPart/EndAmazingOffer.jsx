@@ -42,7 +42,7 @@ export default function EndAmazingOffer() {
         </h2>
 
         <Link
-          to="/offers"
+          to="/amazing"
           className="text-red-500 text-sm font-medium hover:text-red-600"
         >
           مشاهده همه

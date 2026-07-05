@@ -12,40 +12,45 @@ import SearchModal from "./features/navbar/searchPart/SearchModal";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AuthLayout from "./layouts/AuthLayout";
-import AmazingOffer from "./features/amazingOffer/AmazingOffer";
+
+import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
-// start
+
 export default function App() {
   return (
     <>
       <ScrollToTop />
-      {/* search-modals */}
       <SearchModal />
-      {/* routes */}
+
       <Routes>
+        {/* MAIN LAYOUT */}
         <Route element={<MainLayout />}>
           {/* home */}
           <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          {/* offer */}
-          <Route path="/offers" element={<AmazingOffer />} />
-          <Route path="/product/:id" element={<AmazingDetails />} />
+          <Route path="home" element={<Home />} />
 
-          {/* newsPart */}
+          {/* AMAZING (PARENT ROUTE) */}
+          <Route path="amazing" element={<MainAmazing />} />
+          <Route path="amazing/:id" element={<AmazingDetails />} />
+
+          {/* news */}
           <Route path="news/:id" element={<NewsDetail />} />
+
           {/* products */}
           <Route path="products" element={<ProductsPage />} />
           <Route path="product/:id" element={<ProductDetailsPages />} />
 
-          {/* cartPart */}
-          <Route path="CartPage" element={<CartPage />} />
+          {/* cart */}
+          <Route path="cart" element={<CartPage />} />
         </Route>
-        {/* AUTH (NO NAVBAR) */}
+
+        {/* AUTH */}
         <Route element={<AuthLayout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Route>
-        {/* error Text */}
+
+        {/* fallback */}
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </>

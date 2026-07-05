@@ -11,9 +11,9 @@ const EndAmazingSlider = forwardRef(({ products }, ref) => {
   return (
     <>
       <div
-  ref={ref}
-  className="flex gap-px rounded-sm overflow-x-auto scroll-smooth hide-scrollbar bg-gray-200"
->
+        ref={ref}
+        className="flex gap-px rounded-sm overflow-x-auto scroll-smooth hide-scrollbar bg-gray-200"
+      >
         {products.map((item) => {
           const { price, discountPercent, finalPrice } = item.pricing;
           const { value: rating } = item.rating;
@@ -27,11 +27,15 @@ const EndAmazingSlider = forwardRef(({ products }, ref) => {
           return (
             <Link
               key={item.id}
-              to={`/product/${item.id}`}
+              to={`/amazing/${item.id}`}
               className="min-w-[260px]  bg-white 
              p-4 hover:shadow-lg transition"
             >
-                <img src={offerLogo} alt="offerLogo" className="mx-15 items-center" />
+              <img
+                src={offerLogo}
+                alt="offerLogo"
+                className="mx-15 items-center"
+              />
               {/* عکس محصول */}
               <img
                 src={image}

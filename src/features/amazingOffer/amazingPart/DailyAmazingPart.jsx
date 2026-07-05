@@ -45,7 +45,7 @@ export default function DailyAmazingPart() {
         </h2>
 
         <Link
-          to="/offers"
+          to="/amazing"
           className="bg-white text-rose-600 px-4 py-2 rounded-full text-sm font-medium"
         >
           مشاهده همه

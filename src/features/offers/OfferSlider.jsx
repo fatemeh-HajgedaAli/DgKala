@@ -24,14 +24,14 @@ export default function OfferSlider({ sliderRef, handleScroll }) {
       items-center justify-center bg-white rounded-l-xl 
       cursor-pointer hover:shadow-md transition"
         >
-          <Link to="/offers">
+          <Link to="/amazing">
             <PiArrowCircleLeftThin
               className="text-blue-600 
           text-5xl font-light cursor-pointer"
             />
           </Link>
           {/* moreOptions */}
-          <Link to="/offers" className="text-gray-600 mt-2">
+          <Link to="/amazing" className="text-gray-600 mt-2">
             مشاهده همه
           </Link>
         </div>

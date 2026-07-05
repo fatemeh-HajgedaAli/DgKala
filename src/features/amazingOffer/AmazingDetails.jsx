@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { amazingProducts } from "../../data/categoriesData/amazingData";
 
-// components
-// import ProductGallery from "../components/productDetails/ProductsGallary";
-// import ProductInfo from "../components/productDetails/ProductInfo";
-// import ProductAction from "../components/productDetails/ProductAction";
-// import ProductsIcons from "../components/productDetails/ProductsIcons";
-// import DetailsLink from "../components/productDetails/DetailsLink";
-// import LoadingScreen from "../../../components/ui/LoadingScreen";
+// details (Desktop)
+import AmazingGallary from "./amazingDetails/AmazingGallary";
+import AmazingInfo from "./amazingDetails/AmazingInfo";
+import AmazingAction from "./amazingDetails/AmazingAction";
+import DetailsLink from "./amazingDetails/DetailsLink";
+import LoadingPart from "./amazingDetails/LoadingPart";
+import AmazingIcons from "./amazingDetails/AmazingIcons";
+import AmazingSpece from "./amazingDetails/AmazingSpece";
+
+// Mobile View Component
+import MobileProductLayout from "./MobileProductLayout"; // 👈 کامپوننت موبایل را اینجا ایمپورت کنید
 
 // icons
 import { FaArrowRight } from "react-icons/fa";
@@ -42,12 +46,10 @@ export default function AmazingDetails() {
     return () => clearTimeout(timer);
   }, [id]);
 
-  // هندل کردن وضعیت لودینگ
   if (loading) {
-    return <LoadingScreen />;
+    return <LoadingPart />;
   }
 
-  // هندل کردن خطای عدم وجود محصول
   if (error || !product) {
     return (
       <div className="p-6 text-red-500 text-center font-bold">
@@ -57,14 +59,11 @@ export default function AmazingDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      {/* Sticky Mobile Header */}
-      <div
-        className="relative top-0 z-20 flex items-center 
-        justify-between bg-white p-3 border-b border-gray-200 shadow-sm lg:hidden"
-      >
+    <div className="min-h-screen bg-gray-50 md:bg-white" dir="rtl">
+      {/* 📱 Sticky Mobile Header (مخصوص موبایل) */}
+      <div className="relative top-0 z-20 flex items-center justify-between bg-white p-3 border-b border-gray-200 shadow-sm lg:hidden">
         <button
-          onClick={() => navigate(-1)} // بازگشت به صفحه قبل
+          onClick={() => navigate(-1)}
           className="p-2 rounded-lg hover:bg-gray-100 transition"
         >
           <FaArrowRight />
@@ -72,7 +71,7 @@ export default function AmazingDetails() {
 
         <div className="flex items-center gap-3 text-xl">
           <button
-            onClick={() => navigate("/CartPage")}
+            onClick={() => navigate("/cart")}
             className="p-2 rounded-lg hover:bg-gray-100 transition"
           >
             <BsCart />
@@ -84,26 +83,33 @@ export default function AmazingDetails() {
         </div>
       </div>
 
-      {/* Breadcrumbs / Links */}
-      <div>
+      {/* 📱 نمای واکنش‌گرا (Responsive Rendering) */}
+
+      {/* ۱. بخش موبایل: در حالت عادی پدیدار است و در سایز lg به بالا مخفی می‌شود */}
+      <div className="block lg:hidden">
+        <div className="p-2 bg-white">
+          <AmazingGallary product={product} />{" "}
+        </div>
+        <MobileProductLayout product={product} />
+      </div>
+
+      {/* ۲. بخش دسکتاپ: در موبایل کلاً hidden است و از سایز lg به بالا رندر می‌شود */}
+      <div className="hidden lg:block">
+        {/* Breadcrumbs */}
         <DetailsLink product={product} />
-      </div>
 
-      {/* Main Layout (Digikala Style) */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-5 max-w-7xl mx-auto">
-        {/* بخش تصاویر محصول */}
-        <ProductGallery product={product} />
+        {/* Main Layout Desktop */}
+        <div className="max-w-7xl mx-auto p-5 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-rows-3 gap-6">
+            <AmazingGallary product={product} />
+            <AmazingInfo product={product} />
+            <AmazingSpece product={product} />
+            <AmazingAction product={product} />
+          </div>
 
-        {/* بخش ویژگی‌ها و عنوان محصول */}
-        <ProductInfo product={product} />
-
-        {/* باکس خرید، قیمت و گارانتی */}
-        <ProductAction product={product} />
-      </div>
-
-      {/* Bottom Features Icons */}
-      <div className="max-w-7xl mx-auto px-5 pb-10">
-        <ProductsIcons />
+          {/* icons */}
+          <AmazingIcons product={product} />
+        </div>
       </div>
     </div>
   );

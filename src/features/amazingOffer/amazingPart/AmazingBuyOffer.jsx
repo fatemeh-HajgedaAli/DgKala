@@ -27,7 +27,7 @@ export default function AmazingBuyOffer() {
           شگفت‌انگیز سفارشی
         </h2>
 
-        <Link to="/offers" className="text-red-500 text-sm">
+        <Link to="/amazing" className="text-red-500 text-sm">
           مشاهده همه
         </Link>
       </div>

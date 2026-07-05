@@ -22,7 +22,7 @@ const AmazingBuySlider = forwardRef(({ products }, ref) => {
         return (
           <Link
             key={item.id}
-            to={`/product/${item.id}`}
+            to={`/amazing/${item.id}`}
             className="min-w-[240px] bg-white p-4 border-r 
             border-gray-200 hover:shadow-sm transition"
           >
@@ -50,8 +50,10 @@ const AmazingBuySlider = forwardRef(({ products }, ref) => {
 
             {/* price */}
             <div className="mt-3 flex justify-between items-center">
-              <span className="bg-red-600 text-white text-xs px-2 py-1 
-              rounded-full">
+              <span
+                className="bg-red-600 text-white text-xs px-2 py-1 
+              rounded-full"
+              >
                 %{toFarsiNumber(discountPercent)}
               </span>
 
