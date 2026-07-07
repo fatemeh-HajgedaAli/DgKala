@@ -34,7 +34,7 @@ export default function AmazingCarousal() {
   // jsx
   return (
     <div
-      className="relative flex h-[280px] lg:h-[350px] bg-red-700 
+      className="relative flex h-[280px] lg:h-[350px] bg-rose-500 
     lg:rounded-3xl  overflow-hidden top-10  lg:mr-[100px] lg:mx-10 "
     >
       <OffersText />

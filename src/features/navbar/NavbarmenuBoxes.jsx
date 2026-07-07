@@ -6,11 +6,15 @@ import { boxItems } from "../../data/componentData/navbar.data";
 
 import { useAddress } from "../../context/AddressContext";
 import AddressModal from "../address/AddressModal";
-
+// start
 export default function NavbarmenuBoxes() {
   const { address, setAddress } = useAddress();
   const [open, setOpen] = useState(false);
-
+  // hide in amazing part
+  if (location.pathname === "/amazing") {
+    return null;
+  }
+  // jsx
   return (
     <>
       <div className="w-full bg-gray-100 lg:hidden">

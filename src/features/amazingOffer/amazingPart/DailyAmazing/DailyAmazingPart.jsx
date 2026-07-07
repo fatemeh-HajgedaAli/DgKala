@@ -2,18 +2,19 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 // logo
-import bgPattern from "../../../assets/logos/deal-pattern-amazing.svg";
+import bgPattern from "../../../../assets/logos/bestSellingPattern-bg.svg";
 
 // components
-import Button from "../../../components/shared/Button";
+import Button from "../../../../components/shared/Button";
 import AmazingSlider from "./AmazingDailySlider";
 
 // data
-import { amazingProducts } from "../../../data/categoriesData/amazingData";
+import { amazingProducts } from "../../../../data/categoriesData/amazingData";
 
 // icons
 import { FaStar } from "react-icons/fa6";
-
+import { FaStarAndCrescent } from "react-icons/fa";
+// start
 export default function DailyAmazingPart() {
   const sliderRef = useRef(null);
 
@@ -25,21 +26,23 @@ export default function DailyAmazingPart() {
   };
 
   return (
-    <div className="relative top-5 bg-rose-500 rounded-3xl mx-12 overflow-hidden p-5">
+    <div
+      id="daily-amazing"
+      className="relative top-5 bg-rose-500 lg:rounded-3xl lg:mx-4 lg:overflow-hidden p-4"
+      style={{
+        backgroundImage: `url(${bgPattern})`,
+        backgroundRepeat: "repeat",
+      }}
+    >
       {/* Buttons */}
-      <Button direction="left" onClick={() => slide("left")} />
-      <Button direction="right" onClick={() => slide("right")} />
-
+      <div className="hidden lg:flex">
+        {" "}
+        <Button direction="left" onClick={() => slide("left")} />
+        <Button direction="right" onClick={() => slide("right")} />
+      </div>
       {/* Header */}
-      <div
-        className="flex items-center justify-between mb-5"
-        style={{
-          backgroundImage: `url(${bgPattern})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2 className="flex items-center text-white text-lg gap-2 mx-3 font-bold">
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="flex items-center text-white text-lg gap-2 font-bold">
           <FaStar />
           شگفت انگیزها
         </h2>

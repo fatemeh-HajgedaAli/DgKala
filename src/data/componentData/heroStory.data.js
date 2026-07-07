@@ -27,7 +27,10 @@ export const heroStoryData = [
   { id: 6, title: "دیجی‌استایل", image: pic6 },
   { id: 7, title: " موبایل زیر ۱۰۰میلیون", image: pic7 },
   { id: 8, title: "وام بانکی، اعتبار خرید", image: pic8 },
-  { id: 9, title: "سوپرمارکت‌", image: pic9 },
+  { id: 9, title: "طلا و نقره دیجیتال", image: pic14 },
+  { id: 10, title: "دیجی سرویس", image: pic13 },
+  { id: 11, title: "فیدیبو", image: pic11 },
+  { id: 12, title: "دیجی‌کالا بیزینس", image: pic12 },
 ];
 // services-modal
 export const groupServices = [

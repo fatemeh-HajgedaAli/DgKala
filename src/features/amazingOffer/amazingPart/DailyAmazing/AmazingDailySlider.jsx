@@ -2,15 +2,15 @@ import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 // logo
-import Amazing from "../../../assets/logos/IncredibleOffer-logo.svg";
+import amazingLogo from "../../../../assets/logos/IncredibleOffer-logo.svg";
 
 // utils
-import { toFarsiNumber } from "../../../utils/number";
-import { formatPrice } from "../../../utils/price";
+import { toFarsiNumber } from "../../../../utils/number";
+import { formatPrice } from "../../../../utils/price";
 
 // icons
 import { GoChecklist } from "react-icons/go";
-
+// start
 const AmazingSlider = forwardRef(({ products }, ref) => {
   return (
     <div
@@ -32,16 +32,22 @@ const AmazingSlider = forwardRef(({ products }, ref) => {
           <Link
             key={item.id}
             to={`/amazing/${item.id}`}
-            className="min-w-[600px] h-[250px] bg-white items-center
-             rounded-2xl p-3 hover:shadow-xl transition"
+            className="min-w-[200px] h-[420px] lg:min-w-[400px] lg:h-[250px]
+              bg-white items-center
+             rounded-2xl p-4 hover:shadow-xl transition "
           >
-            <img src={Amazing} alt="" />
-
-            <div className="grid grid-cols-2 items-center">
-              <img src={image} className="w-full h-40 object-contain" alt="" />
+            {/* logo */}
+            <img src={amazingLogo} alt="amazingLogo" />
+            {/* cards */}
+            <div className="grid grid-rows-2 lg:grid-cols-2 items-center shrink-0">
+              <img
+                src={image}
+                className="w-full h-20 lg:h-40 object-contain"
+                alt="image"
+              />
 
               <div>
-                <h3 className="mt-3 text-sm text-gray-600 line-clamp-1 h-10">
+                <h3 className="text-sm text-gray-600 line-clamp-1 h-10">
                   {item.title}
                 </h3>
 

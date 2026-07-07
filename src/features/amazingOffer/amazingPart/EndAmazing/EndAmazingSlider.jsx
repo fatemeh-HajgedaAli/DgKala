@@ -1,13 +1,15 @@
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
-
+// icons
 import { GoChecklist } from "react-icons/go";
-
-import { toFarsiNumber } from "../../../utils/number";
-import { formatPrice } from "../../../utils/price";
-import offerLogo from "../../../assets/logos/IncredibleOffer-logo.svg";
-
+// psrts
+import { toFarsiNumber } from "../../../../utils/number";
+import { formatPrice } from "../../../../utils/price";
+// logo
+import offerLogo from "../../../../assets/logos/IncredibleOffer-logo.svg";
+// start
 const EndAmazingSlider = forwardRef(({ products }, ref) => {
+  // jsx
   return (
     <>
       <div
@@ -114,3 +116,4 @@ const EndAmazingSlider = forwardRef(({ products }, ref) => {
 });
 
 export default EndAmazingSlider;
+// finish

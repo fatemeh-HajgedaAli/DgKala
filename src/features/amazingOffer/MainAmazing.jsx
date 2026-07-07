@@ -1,8 +1,8 @@
 // End-amazing-Offer
 import Topbar from "./amazingPart/TopPart";
-import DailyAmazingPart from "./amazingPart/DailyAmazingPart";
+import DailyAmazingPart from "./amazingPart/DailyAmazing/DailyAmazingPart";
 import CategoriesItems from "./amazingPart/CategoriesItems";
-import EndAmazingOffer from "./amazingPart/EndAmazingOffer";
+import EndAmazingOffer from "./amazingPart/EndAmazing/EndAmazingOffer";
 import AmazingSupermarket from "../banners/bannerDescription/amazingSupermarket/AmazingSupermarket";
 import AccessToOffer from "./amazingPart/AccessToOffer";
 import AmazingBuyOffer from "./amazingPart/AmazingBuyOffer";

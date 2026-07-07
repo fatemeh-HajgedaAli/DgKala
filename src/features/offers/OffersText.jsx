@@ -6,15 +6,15 @@ import Logo3 from "../../assets/logos/shegeftaneh-sm.svg";
 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import OfferTimer from "./OfferTimer";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 // start
 export default function OffersText() {
   // jsx
   return (
     <>
       <div
-        className="absolute flex flex-row lg:flex-col
-       items-center lg:gap-2 my-4 mx-4 justify-between"
+        className="absolute z-20 pointer-events-auto flex flex-row lg:flex-col
+        items-center lg:gap-2 my-4 mx-4 justify-between"
       >
         <img
           src={Logo1}
@@ -49,19 +49,11 @@ export default function OffersText() {
           <Link
             to="/amazing"
             type="button"
-            className="text-sm ml-5  hidden lg:flex "
-          >
-            مشاهده همه
-          </Link>
-          <Link
-            to="/amazing"
-            type="button"
-            className="text-sm flex lg:hidden mr-35 "
+            className="text-sm flex lg:hidden mr-[25px] items-center "
           >
             همه
+            <MdKeyboardArrowLeft />
           </Link>
-          {/* icon */}
-          <MdKeyboardArrowLeft />
         </div>
       </div>
     </>
