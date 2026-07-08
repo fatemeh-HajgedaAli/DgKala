@@ -414,4 +414,6 @@ export const amazingProducts = [
     ],
     images: amazingImages.airpods || amazingImages.headphones,
   },
+ 
+  
 ];

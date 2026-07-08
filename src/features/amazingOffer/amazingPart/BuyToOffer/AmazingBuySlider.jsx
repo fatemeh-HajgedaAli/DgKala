@@ -2,10 +2,10 @@
 // slider
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
-import offerLogo from "../../../assets/logos/IncredibleOffer-logo.svg";
+import offerLogo from "../../../../assets/logos/IncredibleOffer-logo.svg";
 import { GoChecklist } from "react-icons/go";
-import { toFarsiNumber } from "../../../utils/number";
-import { formatPrice } from "../../../utils/price";
+import { toFarsiNumber } from "../../../../utils/number";
+import { formatPrice } from "../../../../utils/price";
 
 const AmazingBuySlider = forwardRef(({ products }, ref) => {
   return (

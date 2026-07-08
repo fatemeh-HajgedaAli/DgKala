@@ -38,8 +38,6 @@ import powerbank1 from "../../assets/images/amazingProduct/powerBank1.webp";
 import powerbank2 from "../../assets/images/amazingProduct/powerBank2.webp";
 import wallCharger1 from "../../assets/images/amazingProduct/sharjerDivari.webp";
 import wallCharger2 from "../../assets/images/amazingProduct/sharjer1.webp";
-
-
 // data
 export const amazingImages = {
   cameras: [camera1, camera2],

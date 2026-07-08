@@ -28,7 +28,7 @@ export default function DailyAmazingPart() {
   return (
     <div
       id="daily-amazing"
-      className="relative top-5 bg-rose-500 lg:rounded-3xl lg:mx-4 lg:overflow-hidden p-4"
+      className="relative top-5 bg-rose-500 lg:rounded-3xl lg:mx-4 overflow-hidden p-4"
       style={{
         backgroundImage: `url(${bgPattern})`,
         backgroundRepeat: "repeat",
@@ -36,7 +36,6 @@ export default function DailyAmazingPart() {
     >
       {/* Buttons */}
       <div className="hidden lg:flex">
-        {" "}
         <Button direction="left" onClick={() => slide("left")} />
         <Button direction="right" onClick={() => slide("right")} />
       </div>

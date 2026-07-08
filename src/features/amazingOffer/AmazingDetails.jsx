@@ -57,7 +57,6 @@ export default function AmazingDetails() {
       </div>
     );
   }
-
   return (
     <div className="min-h-screen bg-gray-50 md:bg-white" dir="rtl">
       {/* 📱 Sticky Mobile Header (مخصوص موبایل) */}

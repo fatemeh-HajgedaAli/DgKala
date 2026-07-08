@@ -1,15 +1,15 @@
 // Acess-To-Offer
-import earlyAccessTeasing from "../../../assets/logos/earlyAccessTeasing.svg";
-import earlyAccessPatternPlus from "../../../assets/logos/earlyAccessPatternPlus.svg";
-import earlyAccessPatternPlusMobile from "../../../assets/logos/earlyAccessPatternPlusMobile.svg";
+import earlyAccessTeasing from "../../../../assets/logos/earlyAccessTeasing.svg";
+import earlyAccessPatternPlus from "../../../../assets/logos/earlyAccessPatternPlus.svg";
+import earlyAccessPatternPlusMobile from "../../../../assets/logos/earlyAccessPatternPlusMobile.svg";
 
 import { PiStarFourBold } from "react-icons/pi";
-import AmazingOfferTimer from "./AmazingOfferTimer";
+import AmazingOfferTimer from "../AmazingOfferTimer";
 
 export default function AccessToOffer() {
   return (
-    <section className="mx-19 mt-8 ">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-gray-100 to-fuchsia-100">
+    <section className="mx-[70px] mt-8   ">
+      <div className="relative  overflow-hidden rounded-2xl bg-gradient-to-r from-gray-100 to-fuchsia-100">
         {/* Pattern Right */}
         <div
           className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"

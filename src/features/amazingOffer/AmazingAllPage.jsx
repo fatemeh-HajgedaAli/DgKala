@@ -51,30 +51,39 @@ export default function AmazingAllPage() {
   // -----------------------------
   // PAGINATION (INFINITE SCROLL)
   // -----------------------------
-  const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
-
   const loaderRef = useRef(null);
 
+  const items = filteredProducts.slice(0, page * 10);
+
   useEffect(() => {
-    setItems(filteredProducts.slice(0, 10));
     setPage(1);
   }, [filteredProducts]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        const next = filteredProducts.slice(0, (page + 1) * 10);
-        setItems(next);
-        setPage((p) => p + 1);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && page * 10 < filteredProducts.length) {
+          setPage((prev) => prev + 1);
+        }
+      },
+      {
+        threshold: 1,
+      },
+    );
+
+    const loader = loaderRef.current;
+
+    if (loader) {
+      observer.observe(loader);
+    }
+
+    return () => {
+      if (loader) {
+        observer.unobserve(loader);
       }
-    });
-
-    if (loaderRef.current) observer.observe(loaderRef.current);
-
-    return () => observer.disconnect();
-  }, [filteredProducts, page]);
-
+    };
+  }, [page, filteredProducts.length]);
   // -----------------------------
   // SORT HANDLER
   // -----------------------------
@@ -104,7 +113,7 @@ export default function AmazingAllPage() {
 
       <div className="mx-4 mt-6 flex flex-col lg:flex-row gap-4">
         {/* ================= MOBILE TOP FILTERS ================= */}
-        <div className=" lg:hidden no-scrollbar">
+        <div className="lg:hidden no-scrollbar">
           <button
             onClick={() => setShowFilters(true)}
             className="flex items-center gap-2 border border-gray-300 
@@ -134,20 +143,13 @@ export default function AmazingAllPage() {
             </div>
 
             {/* SORT BUTTONS */}
-            <div className="flex items-center gap-1 text-sm text-gray-500 overflow-x-auto">
+            <div className="flex items-center gap-1 text-sm text-gray-500 overflow-x-auto hide-scrollbar">
               {SORTS.map((s) => (
                 <button
                   key={s}
                   onClick={() => handleSort(s)}
-                  className="
-                  px-3 py-1
-                  border border-gray-300
-                  lg:border-0
-                  rounded-full
-                  whitespace-nowrap
-                  hover:text-gray-700
-                  transition
-                "
+                  className=" px-3 py-1 border border-gray-300 lg:border-0 rounded-full 
+                  whitespace-nowrap hover:text-gray-700 transition"
                 >
                   {s}
                 </button>
@@ -166,13 +168,7 @@ export default function AmazingAllPage() {
                 <Link
                   key={item.id}
                   to={`/amazing/${item.id}`}
-                  className="
-                  bg-white
-                  border border-gray-200
-                  p-3
-                  hover:shadow-lg
-               hover:scale-[1.02]
-                  duration-200
+                  className="bg-white   border border-gray-200   p-3   hover:shadow-lghover:scale-[1.02] duration-200
                 "
                 >
                   <img

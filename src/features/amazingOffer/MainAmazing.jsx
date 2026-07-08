@@ -4,8 +4,8 @@ import DailyAmazingPart from "./amazingPart/DailyAmazing/DailyAmazingPart";
 import CategoriesItems from "./amazingPart/CategoriesItems";
 import EndAmazingOffer from "./amazingPart/EndAmazing/EndAmazingOffer";
 import AmazingSupermarket from "../banners/bannerDescription/amazingSupermarket/AmazingSupermarket";
-import AccessToOffer from "./amazingPart/AccessToOffer";
-import AmazingBuyOffer from "./amazingPart/AmazingBuyOffer";
+import AccessToOffer from "./amazingPart/accessToOffer/AccessToOffer";
+import AmazingBuyOffer from "./amazingPart/BuyToOffer/AmazingBuyOffer";
 import AmazingAllPage from "./AmazingAllPage";
 import { Outlet } from "react-router";
 // start
@@ -38,7 +38,8 @@ export default function MainAmazing() {
         <AmazingBuyOffer />
       </div>
       {/* AmazingAllProducts */}
-      <Outlet/>
+      <AmazingAllPage/>
+      <Outlet />
     </div>
   );
 }

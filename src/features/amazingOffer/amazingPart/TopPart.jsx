@@ -112,7 +112,7 @@ export default function Topbar() {
                   suggestions.map((item) => (
                     <Link
                       key={item.id}
-                      to={`/product/${item.id}`}
+                      to={`/amazing/${item.id}`}
                       onClick={closeModal}
                       className="flex items-center gap-3 p-2 hover:bg-gray-100"
                     >
