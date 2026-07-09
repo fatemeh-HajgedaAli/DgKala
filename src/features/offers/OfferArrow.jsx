@@ -18,7 +18,8 @@ export default function OfferArrow({ direction, onClick }) {
         border-gray-400
         bg-white
         shadow-md
-        flex
+        hidden
+        lg:flex
         items-center
         justify-center
         

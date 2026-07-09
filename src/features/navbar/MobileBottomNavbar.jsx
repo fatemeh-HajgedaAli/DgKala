@@ -1,7 +1,7 @@
 // BOOTOM-MOBILE-NAVBAR
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { bottemData } from "../../data/navbar.data";
+import { bottemData } from "../../data/componentData/navbar.data";
 
 export default function MobileBottomNavbar() {
   const location = useLocation();

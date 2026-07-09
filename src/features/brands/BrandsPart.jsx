@@ -1,72 +1,115 @@
-// brands-part
 import { useRef, useState, useEffect } from "react";
-
 import SliderBrands from "./SliderBrands";
 import BrandsArrow from "./BrandsArrow";
 import BrandsTitle from "./BrandsTitle";
 
 export default function BrandsPart() {
   const sliderRef = useRef(null);
-  const [showLeft, setShowLeft] = useState(true);
-  const [showRight, setShowRight] = useState(false);
 
-  const slide = (dir) => {
-    sliderRef.current?.scrollBy({
-      left: dir === "left" ? -300 : 300,
-      behavior: "smooth",
-    });
-    onScroll = { updateButtons };
-  };
-  const updateButtons = () => {
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
+
+  // متغیرهای کمکی برای قابلیت درگ با ماوس
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const updateArrows = () => {
     const el = sliderRef.current;
     if (!el) return;
 
-    const isAtStart = el.scrollLeft === 0;
+    // استفاده از Math.abs برای سازگاری کامل با حالت‌های RTL (فارسی) و LTR
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const current = Math.abs(el.scrollLeft);
 
-    const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5;
-
-    setShowRight(!isAtStart && !isAtEnd);
+    setShowLeft(current > 5);
+    setShowRight(current < maxScroll - 5);
   };
 
+  const scroll = (direction) => {
+    const el = sliderRef.current;
+    if (!el) return;
+
+    const amount = 300;
+    // تشخیص جهت صفحه (راست‌به‌چپ یا چپ‌به‌راست) برای اسکرول صحیح دکمه‌ها
+    const isRTL = window.getComputedStyle(el).direction === "rtl";
+
+    let scrollAmount = direction === "left" ? -amount : amount;
+    if (isRTL) {
+      // در حالت RTL جهت اسکرول برعکس می‌شود
+      scrollAmount = direction === "left" ? amount : -amount;
+    }
+
+    el.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  // بررسی وضعیت دکمه‌ها در اولین رندر
   useEffect(() => {
-    updateButtons();
+    updateArrows();
+    // در صورت تغییر سایز صفحه دکمه‌ها دوباره بررسی شوند
+    window.addEventListener("resize", updateArrows);
+    return () => window.removeEventListener("resize", updateArrows);
   }, []);
 
-  // start
+  // --- منطقِ درگ کردن با ماوس (Mouse Drag to Scroll) ---
+  const handleMouseDown = (e) => {
+    const el = sliderRef.current;
+    if (!el) return;
+    isDown.current = true;
+    startX.current = e.pageX - el.offsetLeft;
+    scrollLeft.current = el.scrollLeft;
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    isDown.current = false;
+  };
+
+  const handleMouseMove = (e) => {
+    const el = sliderRef.current;
+    if (!el || !isDown.current) return;
+    e.preventDefault();
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - startX.current) * 1.2;
+    el.scrollLeft = scrollLeft.current - walk;
+  };
+
   return (
-    <>
-      {/* MOBILE */}
-      <div className="lg:hidden w-full mt-5 mx-3 border border-gray-300 rounded-xl">
-        <BrandsTitle />
+    <div className="relative w-full mt-5 mx-3 border border-gray-300 rounded-xl bg-white overflow-hidden">
+      <BrandsTitle />
 
-        <div
-          ref={sliderRef}
-          className="flex overflow-x-auto gap-4 scroll-smooth hide-scrollbar py-3"
-        >
-          <SliderBrands />
-        </div>
-      </div>
-      {/* desktop */}
+      {/* LEFT */}
+      {showLeft && (
+        <BrandsArrow direction="left" onClick={() => scroll("left")} />
+      )}
+
+      {/* RIGHT */}
+      {showRight && (
+        <BrandsArrow direction="right" onClick={() => scroll("right")} />
+      )}
+
       <div
-        className="relative lg:flex flex-col hidden  h-[200px]  m-5
-     border-2 border-gray-200 rounded-2xl overflow-hidden top-10"
+        ref={sliderRef}
+        className="
+          flex
+          overflow-x-auto
+          gap-4
+          px-3 py-3
+          scroll-smooth
+          select-none
+          cursor-grab active:cursor-grabbing
+        "
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        onScroll={updateArrows}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeaveOrUp}
+        onMouseUp={handleMouseLeaveOrUp}
+        onMouseMove={handleMouseMove}
       >
-        <BrandsTitle />
-        {showRight && (
-          <BrandsArrow direction="right" onClick={() => slide("right")} />
-        )}
-
-        <div
-          ref={sliderRef}
-          onScroll={updateButtons}
-          className="flex overflow-x-auto no-scrollbar gap-5 
-       hide-scrollbar"
-        >
-          <SliderBrands />
-        </div>
-        <BrandsArrow direction="left" onClick={() => slide("left")} />
+        <SliderBrands />
       </div>
-    </>
+    </div>
   );
 }
-// finish

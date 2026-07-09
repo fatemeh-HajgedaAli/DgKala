@@ -1,5 +1,5 @@
 // footer-Links
-import { footerLinks } from "../../data/footer.data";
+import { footerLinks } from "../../data/componentData/footer.data";
 import FooterWithUs from "./FooterWithUs";
 import FooterAccordionSection from "./FooterAccordionSection";
 

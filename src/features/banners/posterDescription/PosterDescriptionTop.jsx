@@ -1,4 +1,4 @@
-import { posterDataTop } from "../../../data/posterDescription.data";
+import { posterDataTop } from "../../../data/componentData/posterDescription.data";
 
 export default function PosterDescriptionTop() {
   return (

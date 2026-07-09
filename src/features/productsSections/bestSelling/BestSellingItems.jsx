@@ -1,4 +1,4 @@
-import { bestSellingData } from "../../../data/bestSelling.data";
+import { bestSellingData } from "../../../data/componentData/bestSelling.data";
 
 export default function BestSellingItems() {
   return (

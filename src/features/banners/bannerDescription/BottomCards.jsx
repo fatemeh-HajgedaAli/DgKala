@@ -1,16 +1,18 @@
-// DESCRIPTION - BANNER
-
 import React from "react";
-import { bottomData } from "../../../data/description.data";
-// START
-export default function bottomCards() {
+import { bottomData } from "../../../data/componentData/description.data";
+
+export default function BottomCards() {
   return (
     <div
       className="
-       hidden grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex
-        gap-4 
-        px-3 sm:px-5 lg:px-20
-        mt-10 lg:mt-15
+      hidden
+        lg:grid
+        sm:grid-cols-3
+        lg:grid-cols-4
+        gap-4
+        px-3 sm:px-5 lg:px-16
+        mt-10
+        mx-5
       "
     >
       {bottomData.map((item) => (
@@ -20,7 +22,10 @@ export default function bottomCards() {
             alt={item.title}
             className="
               w-full
-              h-[120px] sm:h-[140px] md:h-[160px] lg:h-auto
+              h-[120px]
+              sm:h-[140px]
+              md:h-[160px]
+              lg:h-[200px]
               object-cover
               rounded-xl
             "
@@ -30,4 +35,3 @@ export default function bottomCards() {
     </div>
   );
 }
-// FINISH

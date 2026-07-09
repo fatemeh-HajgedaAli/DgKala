@@ -1,14 +1,15 @@
+// amazing-slider
 import React from "react";
 import { useState } from "react";
-import { amazingData } from "../../data/offersData";
+import { amazingData } from "../../data/componentData/offersData";
 import OfferItems from "./OfferItems";
 import useMainSlider from "../../hooks/useMainSlider";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { Link } from "react-router-dom";
-
+// start
 export default function OfferSlider({ sliderRef, handleScroll }) {
   const { index, next, prev } = useMainSlider(amazingData.length);
-
+  // jsx
   return (
     <>
       <div className="relative flex flex-row gap-3  ">
@@ -23,13 +24,14 @@ export default function OfferSlider({ sliderRef, handleScroll }) {
       items-center justify-center bg-white rounded-l-xl 
       cursor-pointer hover:shadow-md transition"
         >
-          <Link to="/products">
+          <Link to="/amazing">
             <PiArrowCircleLeftThin
               className="text-blue-600 
           text-5xl font-light cursor-pointer"
             />
           </Link>
-          <Link to="/products" className="text-gray-600 mt-2">
+          {/* moreOptions */}
+          <Link to="/amazing" className="text-gray-600 mt-2">
             مشاهده همه
           </Link>
         </div>

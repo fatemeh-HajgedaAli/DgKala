@@ -12,4 +12,6 @@ export function MiniCartProvider({ children }) {
   );
 }
 
-export const useMiniCart = () => useContext(MiniCartContext);
+export function useMiniCart() {
+  return useContext(MiniCartContext);
+}

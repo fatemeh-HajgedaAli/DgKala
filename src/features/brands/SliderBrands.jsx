@@ -1,29 +1,31 @@
-import { brandsData } from "../../data/brands.data";
+import { brandsData } from "../../data/componentData/brands.data";
+
 export default function SliderBrands() {
   return (
-    <div
-      className="flex flex-row flex-nowrap gap-5  mr-2
-     scroll-smooth no-scrollbar "
-    >
+    <>
       {brandsData.map((item) => (
         <div
           key={item.id}
-          className="flex flex-col shrink-0 
-          border-1 border-gray-200 border-2 rounded-xl  "
+          className="
+            flex flex-col
+            shrink-0
+            w-[140px]
+            border border-gray-200
+            rounded-xl
+            bg-white
+          "
         >
           <img
             src={item.image}
             alt={item.title}
             className="w-[120px] h-[120px] object-contain m-2"
           />
-          <p
-            className="flex lg:hidden justify-center 
-          text-white bg-red-600 py-2  rounded-b-xl "
-          >
+
+          <p className="text-center text-sm py-2 lg:hidden bg-red-600 text-white rounded-b-xl">
             {item.title}
           </p>
         </div>
       ))}
-    </div>
+    </>
   );
 }

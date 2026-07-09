@@ -1,6 +1,6 @@
 // feature Part
 import { div } from "framer-motion/client";
-import { featureData } from "../../data/footer.data";
+import { featureData } from "../../data/componentData/footer.data";
 // start
 export default function FooterFeatures() {
   return (

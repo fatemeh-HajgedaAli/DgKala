@@ -1,8 +1,9 @@
+// Amazing-Crasoul-main
 import React, { useRef, useState, useEffect } from "react";
 import OfferArrow from "./OfferArrow";
 import OfferSlider from "./OfferSlider";
 import OffersText from "./OffersText";
-
+// start
 export default function AmazingCarousal() {
   const sliderRef = useRef(null);
 
@@ -30,11 +31,11 @@ export default function AmazingCarousal() {
   useEffect(() => {
     updateButtons();
   }, []);
-
+  // jsx
   return (
     <div
-      className="relative flex h-[280px] lg:h-[350px] bg-rose-600 
-    lg:rounded-r-3xl  overflow-hidden top-10  mr-0 lg:mr-30 "
+      className="relative flex h-[280px] lg:h-[350px] bg-rose-500 
+    lg:rounded-3xl  overflow-hidden top-10  lg:mr-[100px] lg:mx-10 "
     >
       <OffersText />
 
@@ -54,3 +55,4 @@ export default function AmazingCarousal() {
     </div>
   );
 }
+// finish

@@ -1,4 +1,4 @@
-import { productsCategoriesData } from "../../../data/productsCategories.data";
+import { productsCategoriesData } from "../../../data/componentData/productsCategories.data";
 
 export default function ProductsItems() {
   return (

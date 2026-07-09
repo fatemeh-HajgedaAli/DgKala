@@ -1,5 +1,5 @@
 // footer brands
-import { footerBrands } from "../../data/footer.data";
+import { footerBrands } from "../../data/componentData/footer.data";
 // start
 export default function FooterBrands() {
   return (

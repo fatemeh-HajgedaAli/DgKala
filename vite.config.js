@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/DgKala/",
   server: {
-    open: true,
+   
+    open: false,
   },
 });
