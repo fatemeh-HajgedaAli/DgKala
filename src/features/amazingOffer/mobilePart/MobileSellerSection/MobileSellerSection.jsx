@@ -5,8 +5,8 @@ import ShippingItem from "./ShippingItem";
 import PlusBenefits from "./PlusBenefits";
 import DigiclubItem from "./DigiclubItem";
 
-import plusCard from "./plusCard";
-// slider 
+import plusCard from "./PlusCard";
+// slider
 import ServicesSlider from "./ServicesSlider";
 
 export default function MobileSellerSection({ seller, guarantee }) {
