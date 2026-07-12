@@ -1,74 +1,128 @@
-import { useNavigate } from "react-router-dom";
-import { formatPrice } from "../../utils/price";
-import { toFarsiNumber } from "../../utils/number";
-// parts// responsive
+import { Link, useParams } from "react-router-dom";
+
+import { amazingProducts } from "../../data/categoriesData/amazingData";
+// details-description-data
+import { amazingDetailsData } from "./amazingDetails/detailDescription/amazingDetailsData";
 // desktop
-import AmazingOfferAction from "../amazingOffer/amazingDetails/AmazingOfferAction";
+import AmazingOfferAction from "./amazingDetails/AmazingOfferAction";
+import AmazingGallary from "./amazingDetails/AmazingGallary";
+import AmazingInfo from "./amazingDetails/AmazingInfo";
+import AmazingSpece from "./amazingDetails/AmazingSpece";
+import DetailsLink from "./amazingDetails/DetailsLink";
+import AmazingFeature from "./amazingDetails/AmazingFeature";
+
 // mobile
-import MobileProductLayout from "../amazingOffer/MobileProductLayout";
+import MobileProductLayout from "./MobileProductLayout";
+// detailsDescription
+import ProductTabs from "./amazingDetails/detailDescription/ProductTabs";
+// icons
+import { BiChevronLeft } from "react-icons/bi";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 // start
-export default function AmazingAction({ product = {} }) {
-  const navigate = useNavigate();
+export default function AmazingDetails() {
+  const { id } = useParams();
 
-  const handleAddToCart = () => {
-    navigate("/cart", {
-      state: {
-        product,
-      },
-    });
-  };
-  // jsx
+  const product = amazingProducts.find((item) => item.id === Number(id));
+
+  if (!product) {
+    return (
+      <div className="text-center py-10 text-gray-500" dir="rtl">
+        محصول پیدا نشد
+      </div>
+    );
+  }
+
   return (
-    <div
-      className="bg-gray-50 border border-gray-200 rounded-2xl p-5 flex flex-col gap-4 md:sticky md:top-4"
-      dir="rtl"
-    >
-      <h3 className="font-bold text-gray-800 text-sm">فروشنده</h3>
-
-      <div className="flex flex-col gap-1 text-xs text-gray-600">
-        <span className="font-bold text-gray-800">{product.seller?.name}</span>
-
-        <span className="text-emerald-600 font-medium">
-          رضایت {product.seller?.satisfaction} | عملکرد{" "}
-          {product.seller?.performance}
-        </span>
+    <>
+      {/* MOBILE */}
+      <div className="block md:hidden">
+        <MobileProductLayout product={product} />
       </div>
 
-      <hr className="border-gray-200" />
+      {/* DESKTOP */}
+      <div className="hidden md:block p-5" dir="rtl">
+        <DetailsLink product={product} />
 
-      <div className="text-xs text-gray-700 font-medium flex items-center gap-2">
-        <span>🛡️</span>
-        {product.guarantee}
-      </div>
+        <section
+          className="
+          grid
+          grid-cols-12
+          gap-6
+          mt-5
+          "
+        >
+          {/* RIGHT - Gallery */}
+          <div
+            className="
+            col-span-4
+            "
+          >
+            <AmazingGallary product={product} />
+          </div>
 
-      <hr className="border-gray-200" />
+          {/* CENTER - Info */}
+          <div
+            className="
+            col-span-5
+            bg-white
+            rounded-2xl
+            p-5
+            space-y-5
+            "
+          >
+            <AmazingInfo product={product} />
 
-      <div className="flex flex-col items-end gap-1 mt-2">
-        <div className="flex items-center gap-2">
-          <span className="bg-red-500 text-white font-bold text-xs px-2 py-0.5 rounded-full">
-            {toFarsiNumber(product.pricing?.discountPercent)}٪
-          </span>
+            <AmazingFeature product={product} />
+            {/* more */}
 
-          <span className="text-gray-400 line-through text-sm">
-            {formatPrice(product.pricing?.price)}
-          </span>
+            <div className="flex flex-col items-center w-full ">
+              <Link
+                to={`/amazing/${product.id}/description`}
+                className="flex items-center justify-center w-full my-4 
+                text-sm font-medium text-gray-500 hover:text-gray-700 
+                transition-colors gap-4"
+              >
+                {/* right-line */}
+                <span className="h-[1px] flex-1 bg-gray-100"></span>
+
+                {/* text+btn */}
+                <span className="flex items-center gap-1 flex-shrink-0">
+                  مشاهده همه ویژگی‌ها
+                  <BiChevronLeft className="text-xl mt-0.5" />
+                </span>
+
+                {/* left */}
+                <span className="h-[1px] flex-1 bg-gray-100"></span>
+              </Link>
+
+              {/* alarm-text */}
+              <div className="flex items-start gap-2.5  p-4 mt-6 w-full">
+                <AiOutlineInfoCircle className="text-gray-400 text-xl flex-shrink-0 mt-0.5" />
+                <p className="text-gray-500 font-normal text-xs leading-6 text-justify">
+                  درخواست مرجوع کردن کالا در گروه هدفون، هدست و هندزفری با دلیل
+                  "انصراف از خرید" تنها در صورتی قابل تایید است که کالا در شرایط
+                  اولیه باشد (در صورت پلمب بودن، کالا نباید باز شده باشد).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* LEFT - Buy Card */}
+          <div
+            className="
+            col-span-3
+            "
+          >
+            <AmazingOfferAction product={product} />
+          </div>
+        </section>
+
+        {/* Specifications  */}
+        <div className="mt-8">
+          <AmazingSpece product={product} />
         </div>
-
-        <div className="text-xl font-bold text-gray-900 mt-1">
-          {formatPrice(product.pricing?.finalPrice)}
-          <span className="text-xs font-normal text-gray-500"> تومان</span>
-        </div>
       </div>
-
-      <button
-        onClick={handleAddToCart}
-        className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl transition duration-200 text-sm shadow-md shadow-red-100 mt-2"
-      >
-        افزودن به سبد خرید
-      </button>
-      {/* desktop*/}
-      <AmazingOfferAction product={product} />
-    </div>
+    </>
   );
 }

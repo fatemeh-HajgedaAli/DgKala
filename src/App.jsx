@@ -15,6 +15,7 @@ import AuthLayout from "./layouts/AuthLayout";
 
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
+import ProductTabs from "./features/amazingOffer/amazingDetails/detailDescription/ProductTabs";
 
 export default function App() {
   return (
@@ -23,15 +24,15 @@ export default function App() {
       <SearchModal />
 
       <Routes>
-        {/* MAIN LAYOUT */}
         <Route element={<MainLayout />}>
-          {/* home */}
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
 
-          {/* AMAZING (PARENT ROUTE) */}
+          {/* AMAZING */}
           <Route path="amazing" element={<MainAmazing />} />
+
           <Route path="amazing/:id" element={<AmazingDetails />} />
+          <Route path="amazing/:id/description" element={<ProductTabs />} />
 
           {/* news */}
           <Route path="news/:id" element={<NewsDetail />} />
@@ -50,7 +51,6 @@ export default function App() {
           <Route path="register" element={<Register />} />
         </Route>
 
-        {/* fallback */}
         <Route path="*" element={<h1>NOT FOUND - TEST</h1>} />
       </Routes>
     </>

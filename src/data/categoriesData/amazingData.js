@@ -29,7 +29,7 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "18 ماه گارانتی شرکتی",
-    color: "مشکی",
+    colors: [{ name: "مشکی", value: "#000000" }],
     features: [
       { name: "نوع حسگر", value: "Full-Frame Exmor R CMOS" },
       { name: "دقت حسگر", value: "33 مگاپیکسل" },
@@ -66,7 +66,11 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "18 ماه گارانتی",
-    color: "مشکی",
+    colors: [
+      { name: "مشکی", value: "#000000" },
+      { name: "سفید", value: "#ffffff" },
+      { name: "آبی", value: "#2563eb" },
+    ],
     features: [
       { name: "قابلیت نویز کنسلینگ", value: "فعال (ANC) هوشمند" },
       { name: "عمر باتری", value: "تا 30 ساعت پخش مداوم" },
@@ -103,7 +107,10 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "24 ماه گارانتی حامی",
-    color: "خاکستری فضایی",
+    colors: [
+      { name: "خاکستری فضایی", value: "#4e5154" },
+      { name: "نقره‌ای", value: "#e3e4e5" },
+    ],
     features: [
       { name: "پردازنده", value: "Apple M3 Pro (12-Core)" },
       { name: "حافظه رم", value: "18 گیگابایت Unified" },
@@ -140,7 +147,10 @@ export const amazingProducts = [
       performance: "خوب",
     },
     guarantee: "12 ماه گارانتی پانا",
-    color: "مشکی",
+    colors: [
+      { name: "مشکی", value: "#000000" },
+      { name: "سفید", value: "#ffffff" },
+    ],
     features: [
       { name: "نوع سوئیچ", value: "سوئیچ‌های سبز ریزر (Clicky)" },
       { name: "نورپردازی", value: "Razer Chroma RGB" },
@@ -177,7 +187,11 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "24 ماه گارانتی تخت جمشید",
-    color: "مشکی قرمز",
+    colors: [
+      { name: "قرمز", value: "#dc2626" },
+      { name: "مشکی", value: "#000000" },
+      { name: "آبی", value: "#2563eb" },
+    ],
     features: [
       { name: "جنس روکش", value: "چرم مصنوعی PU مقاوم" },
       { name: "قابلیت تنظیم", value: "پشتی قابل تنظیم تا 135 درجه" },
@@ -214,7 +228,10 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "7 روز ضمانت بازگشت کالا",
-    color: "آبی تیره",
+    colors: [
+      { name: "آبی", value: "#2563eb" },
+      { name: "مشکی", value: "#000000" },
+    ],
     features: [
       { name: "برش شلوار", value: "Slim Fit (راسته جذب)" },
       { name: "جنس پارچه", value: "99% نخ، 1% الاستین" },
@@ -251,7 +268,10 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "12 ماه گارانتی ژیوان",
-    color: "سرمه‌ای",
+    colors: [
+      { name: "مشکی", value: "#000000" },
+      { name: "آبی", value: "#2563eb" },
+    ],
     features: [
       { name: "ظرفیت اسمی", value: "20000 میلی‌آمپر ساعت" },
       { name: "توان خروجی", value: "22.5 وات سوپر فست شارژ" },
@@ -288,7 +308,10 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "18 ماه گارانتی شرکتی",
-    color: "مشکی",
+    colors: [
+      { name: "مشکی", value: "#000000" },
+      { name: "سفید", value: "#ffffff" },
+    ],
     features: [
       { name: "نوع صفحه نمایش", value: "AMOLED با سایز 1.75 اینچ" },
       {
@@ -328,7 +351,7 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "24 ماه گارانتی ابزار سرا",
-    color: "سبز ارتشي",
+    colors: [{ name: "مشکی", value: "#000000" }],
     features: [
       { name: "تعداد اقلام", value: "38 پارچه کاربردی" },
       { name: "جنس ابزارها", value: "فولاد ضد زنگ کروم وانادیوم" },
@@ -365,7 +388,7 @@ export const amazingProducts = [
       performance: "خوب",
     },
     guarantee: "12 ماه گارانتی رونیکس",
-    color: "قرمز",
+    colors: [{ name: "قرمز", value: "#dc2626" }],
     features: [
       { name: "حداکثر جریان", value: "200 آمپر واقعی" },
       { name: "فناوری دستگاه", value: "سیستم ضد چسبندگی (Anti-Stick)" },
@@ -404,7 +427,7 @@ export const amazingProducts = [
       performance: "عالی",
     },
     guarantee: "گارانتی 18 ماهه شرکتی",
-    color: "سفید",
+    colors: [{ name: "سفید", value: "#ffffff" }],
     features: [
       { name: "قابلیت نویز کنسلینگ", value: "فعال (ANC) و میکروفون (ENC)" },
       { name: "نوع گوشی", value: "دو گوشی" },
@@ -414,6 +437,4 @@ export const amazingProducts = [
     ],
     images: amazingImages.airpods || amazingImages.headphones,
   },
- 
-  
 ];

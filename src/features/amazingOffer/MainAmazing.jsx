@@ -7,7 +7,7 @@ import AmazingSupermarket from "../banners/bannerDescription/amazingSupermarket/
 import AccessToOffer from "./amazingPart/accessToOffer/AccessToOffer";
 import AmazingBuyOffer from "./amazingPart/BuyToOffer/AmazingBuyOffer";
 import AmazingAllPage from "./AmazingAllPage";
-import { Outlet } from "react-router";
+
 // start
 
 export default function MainAmazing() {
@@ -38,8 +38,7 @@ export default function MainAmazing() {
         <AmazingBuyOffer />
       </div>
       {/* AmazingAllProducts */}
-      <AmazingAllPage/>
-      <Outlet />
+      <AmazingAllPage />
     </div>
   );
 }

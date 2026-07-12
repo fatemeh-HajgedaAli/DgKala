@@ -17,33 +17,66 @@ export default function AmazingOfferAction({ product }) {
   };
 
   return (
-    <div
-      className="bg-gray-50 border border-gray-200 rounded-2xl p-5 flex flex-col gap-4 md:sticky md:top-4"
+    <aside
+      className="
+      bg-white
+      border
+      border-gray-200
+      rounded-2xl
+      p-5
+      flex
+      flex-col
+      gap-5
+      md:sticky
+      md:top-5
+      "
       dir="rtl"
     >
-      <h3 className="font-bold text-gray-800 text-sm">فروشنده</h3>
+      {/* Seller Header */}
+      <div>
+        <h3 className="font-bold text-gray-800 text-sm">فروشنده</h3>
 
-      <div className="flex flex-col gap-1 text-xs text-gray-600">
-        <span className="font-bold text-gray-800">{product.seller?.name}</span>
+        <p className="text-xs text-gray-500 mt-2">۲ فروشنده دیگر</p>
+      </div>
 
-        <span className="text-emerald-600 font-medium">
-          رضایت {product.seller?.satisfaction}
-          {" | "}
-          عملکرد {product.seller?.performance}
+      {/* Seller Info */}
+      <div className="flex flex-col gap-2">
+        <span className="font-bold text-gray-800 text-sm">
+          {product.seller?.name || "دیجی‌کالا"}
         </span>
+
+        <div className="flex items-center gap-2 text-xs">
+          <span className="text-emerald-600 font-bold">
+            {product.seller?.satisfaction || "۹۱.۶٪"}
+          </span>
+
+          <span className="text-gray-500">رضایت از کالا</span>
+        </div>
+
+        <div className="flex items-center gap-2 text-xs">
+          <span className="font-bold text-gray-700">
+            {product.seller?.performance || "عالی"}
+          </span>
+
+          <span className="text-gray-500">عملکرد</span>
+        </div>
       </div>
 
       <hr className="border-gray-200" />
 
-      <div className="text-xs text-gray-700 font-medium flex items-center gap-2">
-        🛡️ {product.guarantee}
-      </div>
-
-      <hr className="border-gray-200" />
-
-      <div className="flex flex-col items-end gap-1">
-        <div className="flex items-center gap-2">
-          <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+      {/* Price */}
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-end gap-2">
+          <span
+            className="
+            bg-red-500
+            text-white
+            text-xs
+            px-2
+            py-1
+            rounded-full
+            "
+          >
             {toFarsiNumber(product.pricing?.discountPercent)}٪
           </span>
 
@@ -52,13 +85,16 @@ export default function AmazingOfferAction({ product }) {
           </span>
         </div>
 
-        <div className="text-xl font-bold">
-          {formatPrice(product.pricing?.finalPrice)}
+        <div className="flex items-center justify-end">
+          <span className="text-2xl font-bold text-gray-900">
+            {formatPrice(product.pricing?.finalPrice)}
 
-          <span className="text-xs text-gray-500"> تومان</span>
+            <span className="text-xs text-gray-500 mr-1">تومان</span>
+          </span>
         </div>
       </div>
 
+      {/* Buy Button */}
       <button
         onClick={handleAddToCart}
         className="
@@ -74,6 +110,54 @@ export default function AmazingOfferAction({ product }) {
       >
         افزودن به سبد خرید
       </button>
-    </div>
+
+      {/* Guarantee */}
+      <div className="text-sm text-gray-700">
+        🛡️
+        <span className="mr-2">
+          {product.guarantee || "گارانتی ۱۸ ماهه شرکتی"}
+        </span>
+      </div>
+
+      <hr className="border-gray-200" />
+
+      {/* Shipping */}
+      <div className="flex flex-col gap-3 text-xs text-gray-600">
+        <div>
+          <p className="font-bold text-gray-800">روش و هزینه ارسال</p>
+
+          <p className="mt-2">🚚 توسط دیجی‌کالا • وابسته به سبد</p>
+        </div>
+
+        <div
+          className="
+        bg-green-50
+        rounded-xl
+        p-3
+        text-green-700
+        "
+        >
+          ارسال سریع و رایگان دیجی‌کالا
+          <br />
+          فقط تهران و کرج
+        </div>
+      </div>
+
+      <hr className="border-gray-200" />
+
+      {/* Digiclub */}
+      <div
+        className="
+        flex
+        items-center
+        justify-between
+        text-xs
+        "
+      >
+        <span className="font-bold text-gray-800">دیجی‌کلاب</span>
+
+        <span className="text-purple-600">⭐ ۱۵۰ امتیاز دیجی‌کلاب</span>
+      </div>
+    </aside>
   );
 }

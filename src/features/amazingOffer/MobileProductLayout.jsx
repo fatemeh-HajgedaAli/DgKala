@@ -2,6 +2,7 @@ import MobileIncredibleBanner from "./mobilePart/MobileIncredibleBanner";
 import MobileProductHeader from "./mobilePart/MobileProductHeader";
 import MobileFeaturesSlider from "./mobilePart/MobileFeaturesSlider";
 import MobileSellerSection from "./mobilePart/MobileSellerSection/MobileSellerSection";
+import MobileGallary from "./mobilePart/MobileGallary";
 
 export default function MobileProductLayout({ product }) {
   if (!product) return null;
@@ -29,36 +30,46 @@ export default function MobileProductLayout({ product }) {
         remainingPercent={product.remainingPercent || 63}
         duration={offerDuration}
       />
-
+      <MobileGallary product={product} />
       <MobileProductHeader product={product} />
 
       <hr className="h-px bg-gray-100 border-none my-2" />
 
       <div className="px-4 py-2 flex flex-col gap-2" dir="rtl">
-        <span className="text-xs font-bold text-gray-500">
-          رنگ: {product.color}
-        </span>
+        {/* colors */}
+        <div className="mt-4">
+          <span className="text-gray-700 font-bold text-sm">رنگ:</span>
 
-        <div
-          className="
-        w-6
-        h-6
+          <div className="flex gap-3 mt-3">
+            {product.colors?.map((color, index) => (
+              <button
+                key={index}
+                title={color.name}
+                className="
+        w-8
+        h-8
         rounded-full
         border-2
-        border-gray-900
-        bg-white
+        border-gray-300
+        p-1
+        hover:border-cyan-500
+        transition
         "
-        >
-          <div
-            className="
+              >
+                <span
+                  className="
+          block
           w-full
           h-full
           rounded-full
-          bg-white
-          border
-          border-gray-200
           "
-          />
+                  style={{
+                    backgroundColor: color.value,
+                  }}
+                />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
