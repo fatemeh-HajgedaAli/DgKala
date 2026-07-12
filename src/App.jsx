@@ -51,7 +51,7 @@ export default function App() {
         </Route>
 
         {/* fallback */}
-        <Route path="*" element={<h1>Page Not Found</h1>} />
+        <Route path="*" element={<h1>NOT FOUND - TEST</h1>} />
       </Routes>
     </>
   );
