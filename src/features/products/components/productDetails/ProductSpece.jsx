@@ -1,45 +1,24 @@
-// ABOUT-PRODUCTS
-// START
 export default function ProductSpece({ product }) {
-  const labels = {
-    language: "زبان",
-    pages: "تعداد صفحات",
-    publisher: "ناشر",
-    material: "جنس",
-    size: "اندازه",
-    weight: "وزن",
-    capacity: "ظرفیت",
-    volume: "حجم",
-    battery: "عمر باتری",
-    bluetooth: "بلوتوث",
-    glass: "جنس شیشه",
-    strap: "جنس بند",
-    skinType: "نوع پوست",
-    pieces: "تعداد قطعات",
-    diameter: "قطر",
-    fat: "درصد چربی",
-    sheets: "تعداد برگ",
-    layers: "تعداد لایه",
-    type: "نوع",
-    spf: "SPF",
-    inverter: "اینورتر",
-  };
-  // JSX
-  return (
-    <div className="border border-gray-300 rounded-b-xl p-5 shadow-sm mb-10 bg-gray-100 -mt-14">
-      <h2 className="font-bold text-2xl mb-5 text-gray-700">مشخصات محصول</h2>
+  if (!product?.specifications) return null;
 
-      <div className="space-y-3">
-        {Object.entries(product.specifications).map(([key, value]) => (
+  return (
+    <div className="py-6 border-t border-gray-200 w-full">
+      <h2 className="font-bold text-base mb-6 text-gray-800">مشخصات فنی</h2>
+
+      <div className="space-y-2 w-full">
+        {product.specifications.map((item, index) => (
           <div
-            key={key}
-            className="flex justify-between border-b border-gray-300 pb-2"
+            key={index}
+            className="flex flex-col sm:flex-row items-stretch text-xs border-b border-gray-100 pb-2 bg-gray-50/40 rounded-lg p-2"
           >
-            <span className="font-bold text-gray-800  ">
-              {labels[key] || key}
+            {/* عنوان کلید مشخصه */}
+            <span className="sm:w-1/4 text-gray-400 font-light py-1 pr-2">
+              {item.name}
             </span>
-            <span className="text-gray-500 text-sm font-bold ">
-              {String(value)}
+
+            {/* مقدار مشخصه */}
+            <span className="sm:w-3/4 text-gray-800 font-medium py-1 pr-2 sm:pr-6 border-r-0 sm:border-r border-gray-200">
+              {item.value}
             </span>
           </div>
         ))}
@@ -47,4 +26,3 @@ export default function ProductSpece({ product }) {
     </div>
   );
 }
-// FINISH

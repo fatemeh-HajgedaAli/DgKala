@@ -33,8 +33,8 @@ export default function ProductCard({ item }) {
 
         {/* title */}
 
-        <p className="text-sm font-meduim mb-2 text-gray-500 line-clamp-1">
-          {item.description.long}
+        <p className="text-sm text-gray-500 line-clamp-1">
+          {item?.description?.long ?? item.title}
         </p>
         {/* badge + stock */}
         <div className="flex justify-between mb-2">
@@ -78,7 +78,6 @@ export default function ProductCard({ item }) {
           )}
         </div>
       </Link>
-     
     </>
   );
 }

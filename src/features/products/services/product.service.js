@@ -1,10 +1,17 @@
-import { productsDetailsData } from "../../../data/categoriesData/productsDetails.data";
-
+import {
+  productsDetails,
+  productData,
+} from "../../../data/categoriesData/productsDetails.data";
 // همه محصولات
 export const getAllProducts = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(productsDetailsData);
+      const products = productsDetails.map((product) => ({
+        ...product,
+        ...productData[product.id],
+      }));
+
+      resolve(products);
     }, 200);
   });
 };
@@ -13,11 +20,17 @@ export const getAllProducts = async () => {
 export const getProductById = async (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const product = productsDetailsData.find(
-        (item) => item.id === Number(id),
-      );
+      const product = productsDetails.find((item) => item.id === Number(id));
 
-      resolve(product || null);
+      if (!product) {
+        resolve(null);
+        return;
+      }
+
+      resolve({
+        ...product,
+        ...productData[product.id],
+      });
     }, 200);
   });
 };

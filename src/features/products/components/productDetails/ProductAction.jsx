@@ -12,34 +12,42 @@ export default function ProductAction({ product }) {
       type: "ADD_TO_CART",
       payload: product,
     });
-// modal cart-box
     setIsOpen(true);
   };
 
   return (
-    <div className="bg-white h-[430px] border-t-8 border-gray-200 lg:flex lg:flex-col lg:border-2 lg:border-gray-300 lg:rounded-xl p-5 lg:shadow bg-gray-100">
-      {/* Seller info */}
-      <SellerCard product={product} />
+    <>
+      {/* نسخه دسکتاپ: باکس سایدبار سمت چپ */}
+      <div className="hidden lg:flex flex-col bg-gray-50/70 border border-gray-200 rounded-2xl p-5 shadow-sm w-full">
+        {/* اطلاعات فروشنده و قیمت */}
+        <SellerCard product={product} />
 
-      {/* Desktop button */}
-      <div className="hidden lg:flex items-center mt-4">
+        {/* دکمه خرید دسکتاپ */}
         <button
           onClick={addToCart}
-          className="w-full h-14 shadow-sm bg-rose-500 rounded-xl hover:bg-red-600 text-white text-xl font-bold cursor-pointer"
+          className="w-full h-12 mt-4 bg-rose-500 hover:bg-rose-600 text-white text-sm font-bold rounded-xl shadow-sm transition active:scale-[0.98] cursor-pointer"
         >
           افزودن به سبد خرید
         </button>
       </div>
 
-      {/* Mobile button */}
-      <div className="flex lg:hidden justify-center mt-4">
+      {/* نسخه موبایل: باکس چسبان خرید پایین صفحه گوشی */}
+      <div className="lg:hidden fixed bottom-0 right-0 left-0 bg-white border-t border-gray-200 z-50 p-3 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] flex items-center justify-between gap-4">
         <button
           onClick={addToCart}
-          className="bg-rose-500 text-white p-3 rounded-full shadow hover:bg-red-600 transition"
+          className="flex-1 h-12 bg-rose-500 text-white text-sm font-bold rounded-xl flex items-center justify-center gap-2"
         >
-          <BiCartAdd size={28} />
+          <BiCartAdd size={20} />
+          افزودن به سبد خرید
         </button>
+
+        {/* نمایش قیمت کوچک در سمت چپ نوار موبایل */}
+        <div className="flex flex-col items-end justify-center">
+          <span className="text-xs font-bold text-gray-800">
+            {product?.pricing?.finalPrice?.toLocaleString("fa-IR")} تومان
+          </span>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
