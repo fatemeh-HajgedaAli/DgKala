@@ -1,29 +1,28 @@
 // amazingDetailsData.js
 
-// ابتدا ایمپورت کردن تصاویر بر اساس آدرس‌های شما
-import camera1 from "../../assets/images/amazingProduct/camera1.webp";
-import camera2 from "../../assets/images/amazingProduct/camera2.webp";
+import camera1 from "../../../../assets/images/amazingProduct/camera1.webp";
+import camera2 from "../../../../assets/images/amazingProduct/camera2.webp";
 
-import headphone1 from "../../assets/images/amazingProduct/headPhone1.webp";
-import headphone2 from "../../assets/images/amazingProduct/headPhone2.webp";
-import headphone3 from "../../assets/images/amazingProduct/headphone3.webp";
-import headphone4 from "../../assets/images/amazingProduct/headphone4.webp";
+import headphone1 from "../../../../assets/images/amazingProduct/headPhone1.webp";
+import headphone2 from "../../../../assets/images/amazingProduct/headPhone2.webp";
+import headphone3 from "../../../../assets/images/amazingProduct/headphone3.webp";
+import headphone4 from "../../../../assets/images/amazingProduct/headphone4.webp";
 
-import laptop1 from "../../assets/images/amazingProduct/laptop1.webp";
-import keyboard1 from "../../assets/images/amazingProduct/keboard.webp";
-import chair1 from "../../assets/images/amazingProduct/chair.webp";
-import jeans1 from "../../assets/images/amazingProduct/jeans1.webp";
+import laptop1 from "../../../../assets/images/amazingProduct/laptop1.webp";
+import keyboard1 from "../../../../assets/images/amazingProduct/keboard.webp";
+import chair1 from "../../../../assets/images/amazingProduct/chair.webp";
+import jeans1 from "../../../../assets/images/amazingProduct/jeans1.webp";
 
-import powerBank1 from "../../assets/images/amazingProduct/powerBank1.webp";
-import powerBank2 from "../../assets/images/amazingProduct/powerBank2.webp";
+import powerBank1 from "../../../../assets/images/amazingProduct/powerBank1.webp";
+import powerBank2 from "../../../../assets/images/amazingProduct/powerBank2.webp";
 
-import watch1 from "../../assets/images/amazingProduct/watch1.webp";
-import tools1 from "../../assets/images/amazingProduct/tools1.webp";
-import welding1 from "../../assets/images/amazingProduct/zedJoosh.webp";
+import watch1 from "../../../../assets/images/amazingProduct/watch1.webp";
+import tools1 from "../../../../assets/images/amazingProduct/tools1.webp";
+import welding1 from "../../../../assets/images/amazingProduct/zedJoosh.webp";
 
 export const amazingDetailsData = {
   1: {
-    images: [camera1, camera2], // اتصال مستقیم عکس‌ها به محصول ۱
+    images: [camera1, camera2],
     description: `
 دوربین دیجیتال حرفه‌ای سونی مدل Alpha 7 IV یکی از محبوب‌ترین گزینه‌ها برای عکاسان و فیلم‌برداران حرفه‌ای است. 
 این دوربین با حسگر قدرتمند ۳۳ مگاپیکسلی و قابلیت فیلم‌برداری با کیفیت 4K60p، وضوح و پویایی بی‌نظیری را در ثبت تصاویر ارائه می‌دهد.
@@ -41,7 +40,7 @@ export const amazingDetailsData = {
   },
 
   2: {
-    images: [headphone1, headphone2, headphone3, headphone4], // اتصال به محصول ۲
+    images: [headphone1, headphone2, headphone3, headphone4],
     description: `
 هدفون بی‌سیم نویز کنسلینگ سونی مدل WH-1000XM5 اوج فناوری صوتی را به گوش شما می‌رساند. 
 با دو پردازنده هوشمند و ۸ میکروفون اختصاصی، این هدفون آرامشی بی‌نظیر را در شلوغ‌ترین محیط‌ها برای شما خلق می‌کند.

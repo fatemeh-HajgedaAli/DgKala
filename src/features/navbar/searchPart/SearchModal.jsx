@@ -1,6 +1,6 @@
 // saearch-modals
 import { useNavigate } from "react-router-dom";
-import { productsDetailsData } from "../../../data/categoriesData/productsDetails.data";
+import { amazingProducts } from "../../../data/categoriesData/amazingData";
 import { useSearch } from "../../../context/SearchContext";
 import { useDebounce } from "../../../hooks/useDebounce";
 // start
@@ -12,7 +12,7 @@ export default function SearchModal() {
 
   if (!showSearchModal) return null;
 
-  const results = productsDetailsData
+  const results = amazingProducts
     .filter((p) =>
       p.title.toLowerCase().includes(debouncedSearch.toLowerCase()),
     )
