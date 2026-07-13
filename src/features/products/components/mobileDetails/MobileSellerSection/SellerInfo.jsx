@@ -1,6 +1,6 @@
 import { FiChevronLeft } from "react-icons/fi";
-import { toFarsiNumber } from "../../../..//utils/number";
-import DigiLogo from "../../../../assets/logos/smile-favicon.webp";
+import { toFarsiNumber } from "../../../../../utils/number";
+import DigiLogo from "../../../../../assets/logos/smile-favicon.webp";
 
 export default function SellerInfo({ seller }) {
   return (
@@ -33,6 +33,7 @@ export default function SellerInfo({ seller }) {
         <div className="flex flex-wrap gap-2 mt-1">
           <div className="text-[11px] text-gray-500 border border-gray-100 rounded-lg pr-2 pl-1 py-0.5 flex gap-1.5 items-center">
             رضایت از کالا
+
             <span className="text-white text-[10px] font-bold rounded px-1.5 py-0.2 bg-emerald-500">
               {toFarsiNumber(seller?.satisfaction || "۹۳")}%
             </span>
@@ -40,6 +41,7 @@ export default function SellerInfo({ seller }) {
 
           <div className="text-[11px] text-gray-500 border border-gray-100 rounded-lg pr-2 pl-1 py-0.5 flex gap-1.5 items-center">
             عملکرد
+
             <span className="text-white text-[10px] font-bold rounded px-1.5 py-0.2 bg-emerald-500">
               {seller?.performance || "عالی"}
             </span>
