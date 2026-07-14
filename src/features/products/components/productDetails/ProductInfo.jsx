@@ -1,6 +1,5 @@
 // information
 // icons
-
 import { BsStars } from "react-icons/bs";
 import { RiArrowLeftSLine } from "react-icons/ri";
 import { IoInformationCircle } from "react-icons/io5";
@@ -50,7 +49,7 @@ export default function ProductInfo({ product }) {
           </span>
         </div>
 
-        {/* دکمه‌های ناوبری مینی‌مال دیجی‌کالایی */}
+        {/* readMore */}
         <div className="flex items-center gap-2 flex-wrap">
           <button className="flex items-center gap-1 bg-violet-100 text-gray-600 font-bold px-2 py-1 rounded-lg text-xs">
             <BsStars className="text-purple-600" />
@@ -69,7 +68,7 @@ export default function ProductInfo({ product }) {
         </div>
       </div>
 
-      {/* بخش انتخاب رنگ محصول */}
+      {/* colors */}
       {product?.colors && product.colors.length > 0 && (
         <div className="mt-4">
           <span className="text-gray-700 font-bold text-sm">رنگ:</span>

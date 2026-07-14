@@ -444,7 +444,7 @@ export const productsDetails = [
     englishTitle: "Premium Laundry Powder and Detergents Pack",
     dkp: "DKP-7710234",
     brand: "Detergents",
-    category: "tools",
+    category: "washer",
     pricing: { price: 380000, discountPercent: 18, finalPrice: 311600 },
     rating: {
       value: 4.5,
@@ -531,6 +531,6 @@ export const productsDetails = [
       { name: "محتویات سبد", value: "کنسروجات غذایی و ملزومات بهداشتی" },
       { name: "استاندارد", value: "دارای نشان سیب سلامت و بهداشت" },
     ],
-    images: productImages.premiumWatches,
+    images: productImages.premiumFoods,
   },
 ];

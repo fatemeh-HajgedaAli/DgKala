@@ -1,26 +1,26 @@
-// amazingDetailsData.js
+// Description-DetailsData.js
 
-import camera1 from "../../../../assets/images/amazingProduct/camera1.webp";
-import camera2 from "../../../../assets/images/amazingProduct/camera2.webp";
+import camera1 from "../../assets/images/amazingProduct/camera1.webp";
+import camera2 from "../../assets/images/amazingProduct/camera2.webp";
 
-import headphone1 from "../../../../assets/images/amazingProduct/headPhone1.webp";
-import headphone2 from "../../../../assets/images/amazingProduct/headPhone2.webp";
-import headphone3 from "../../../../assets/images/amazingProduct/headphone3.webp";
-import headphone4 from "../../../../assets/images/amazingProduct/headphone4.webp";
+import headphone1 from "../../assets/images/amazingProduct/headPhone1.webp";
+import headphone2 from "../../assets/images/amazingProduct/headPhone2.webp";
+import headphone3 from "../../assets/images/amazingProduct/headphone3.webp";
+import headphone4 from "../../assets/images/amazingProduct/headphone4.webp";
 
-import laptop1 from "../../../../assets/images/amazingProduct/laptop1.webp";
-import keyboard1 from "../../../../assets/images/amazingProduct/keboard.webp";
-import chair1 from "../../../../assets/images/amazingProduct/chair.webp";
-import jeans1 from "../../../../assets/images/amazingProduct/jeans1.webp";
+import laptop1 from "../../assets/images/amazingProduct/laptop1.webp";
+import keyboard1 from "../../assets/images/amazingProduct/keboard.webp";
+import chair1 from "../../assets/images/amazingProduct/chair.webp";
+import jeans1 from "../../assets/images/amazingProduct/jeans1.webp";
 
-import powerBank1 from "../../../../assets/images/amazingProduct/powerBank1.webp";
-import powerBank2 from "../../../../assets/images/amazingProduct/powerBank2.webp";
+import powerBank1 from "../../assets/images/amazingProduct/powerBank1.webp";
+import powerBank2 from "../../assets/images/amazingProduct/powerBank2.webp";
 
-import watch1 from "../../../../assets/images/amazingProduct/watch1.webp";
-import tools1 from "../../../../assets/images/amazingProduct/tools1.webp";
-import welding1 from "../../../../assets/images/amazingProduct/zedJoosh.webp";
+import watch1 from "../../assets/images/amazingProduct/watch1.webp";
+import tools1 from "../../assets/images/amazingProduct/tools1.webp";
+import welding1 from "../../assets/images/amazingProduct/zedJoosh.webp";
 
-export const amazingDetailsData = {
+export const descriptionData = {
   1: {
     images: [camera1, camera2],
     description: `

@@ -1,20 +1,18 @@
+// amazing-part
 import { Link, useParams } from "react-router-dom";
 
 import { amazingProducts } from "../../data/categoriesData/amazingData";
 // details-description-data
-import { amazingDetailsData } from "./amazingDetails/detailDescription/amazingDetailsData";
+import { descriptionData } from "../../data/categoriesData/amazingDescription.Data";
 // desktop
 import AmazingOfferAction from "./amazingDetails/AmazingOfferAction";
 import AmazingGallary from "./amazingDetails/AmazingGallary";
 import AmazingInfo from "./amazingDetails/AmazingInfo";
-import AmazingSpece from "./amazingDetails/AmazingSpece";
 import DetailsLink from "./amazingDetails/DetailsLink";
 import AmazingFeature from "./amazingDetails/AmazingFeature";
 
 // mobile
 import MobileProductLayout from "./MobileProductLayout";
-// detailsDescription
-import ProductTabs from "./amazingDetails/detailDescription/ProductTabs";
 // icons
 import { BiChevronLeft } from "react-icons/bi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
@@ -117,11 +115,6 @@ export default function AmazingDetails() {
             <AmazingOfferAction product={product} />
           </div>
         </section>
-
-        {/* Specifications  */}
-        <div className="mt-8">
-          <AmazingSpece product={product} />
-        </div>
       </div>
     </>
   );

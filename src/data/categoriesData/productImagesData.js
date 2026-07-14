@@ -55,7 +55,7 @@ export const productImages = {
   watches: [watch1, watch2, watch3, watch4],
   tools: [ojagh, belt1, belt2, fandak],
   washers: [SoftlanPowder, SevPkkonandeh, GolrangMayeh],
-  premiumWatches: [ananas, Rob, tonMahi],
+  premiumFoods: [ananas, Rob, tonMahi],
   babyProducts: [myBaby1, easyLife],
   tissu: [tissu],
 };

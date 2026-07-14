@@ -15,7 +15,7 @@ import AuthLayout from "./layouts/AuthLayout";
 
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
-import ProductTabs from "./features/amazingOffer/amazingDetails/detailDescription/ProductTabs";
+import ProductDescriptionPage from "./features/amazingOffer/ProductDescriptionPage";
 
 export default function App() {
   return (
@@ -32,7 +32,10 @@ export default function App() {
           <Route path="amazing" element={<MainAmazing />} />
 
           <Route path="amazing/:id" element={<AmazingDetails />} />
-          <Route path="amazing/:id/description" element={<ProductTabs />} />
+          <Route
+            path="/amazing/:id/description"
+            element={<ProductDescriptionPage />}
+          />
 
           {/* news */}
           <Route path="news/:id" element={<NewsDetail />} />
