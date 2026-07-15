@@ -1,11 +1,12 @@
+// read-more-btn
 import React, { useState } from "react";
 import { BiChevronLeft, BiChevronUp } from "react-icons/bi";
-
+// start
 export default function ReadMore({ text }) {
   const [expanded, setExpanded] = useState(false);
 
   if (!text) return null;
-
+  // jsx
   return (
     <div className="relative w-full" dir="rtl">
       <p

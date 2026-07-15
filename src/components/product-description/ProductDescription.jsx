@@ -1,9 +1,11 @@
+// Main-container
 import DescriptionSection from "./DescriptionSection";
 import ProductHighlights from "./ProductHighlights";
 import ProductSpecs from "./ProductSpecs";
 import StickyBuyBox from "./StickyBuyBox";
 import ReadMore from "./ReadMore";
-
+import ProductUserView from "./ProductUserView";
+// start
 export default function ProductDescription({ details, product }) {
   if (!details) return null;
 
@@ -11,7 +13,7 @@ export default function ProductDescription({ details, product }) {
     typeof details.description === "object"
       ? details.description.long
       : details.description;
-
+  // jsx
   return (
     <div
       dir="rtl"
@@ -38,7 +40,7 @@ export default function ProductDescription({ details, product }) {
         </section>
 
         <section id="reviews" className="scroll-mt-24">
-          {/* کامپوننت دیدگاه کاربران */}
+          <ProductUserView />
         </section>
 
         <ReadMore text={descriptionText} />
@@ -47,13 +49,11 @@ export default function ProductDescription({ details, product }) {
           <div
             className="
               bg-white
-              rounded-2xl
               p-6
-              shadow-sm
-              border
-              border-gray-100
+              border-t
+              border-gray-200
               leading-8
-              text-gray-700
+              text-gray-600
             "
           >
             <h3
@@ -66,7 +66,17 @@ export default function ProductDescription({ details, product }) {
             >
               بررسی تخصصی محصول
             </h3>
-
+            <span
+              className="
+    block
+    w-[170px]
+    h-[3px]
+    bg-red-500
+    rounded-full
+    mt-2
+    mb-4
+  "
+            />
             <p>{details.review}</p>
           </div>
         )}

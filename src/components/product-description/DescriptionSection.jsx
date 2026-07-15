@@ -1,19 +1,31 @@
+// معرفی کالا
 import { useState } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-
+// start
 export default function DescriptionSection({ description }) {
   const [expanded, setExpanded] = useState(false);
 
   if (!description) return null;
-
+  // jsx
   return (
-    <section className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+    <section className="bg-white overflow-hidden">
       {/* Header */}
 
-      <div className="px-7 pt-7 pb-5 border-b border-slate-100">
+      <div className="px-7 pt-7 pb-5">
         <h2 className="text-xl font-black text-slate-900">معرفی کالا</h2>
 
-        <p className="text-sm text-slate-500 mt-2">بررسی کامل محصول</p>
+        <span
+          className="
+    block
+    w-16
+    h-[3px]
+    bg-red-500
+    rounded-full
+    mt-3
+  "
+        />
+
+        <p className="text-sm text-slate-500 mt-3">بررسی کامل محصول</p>
       </div>
 
       {/* Content */}

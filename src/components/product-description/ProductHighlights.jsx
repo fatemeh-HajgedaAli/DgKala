@@ -1,3 +1,4 @@
+// ویژگی‌های برجسته
 import { FiCheck } from "react-icons/fi";
 
 export default function ProductHighlights({ specifications = [] }) {
@@ -7,12 +8,9 @@ export default function ProductHighlights({ specifications = [] }) {
 
   return (
     <section
-    id="highlights"
+      id="highlights"
       className="
       bg-white
-      rounded-2xl
-      border
-      border-slate-200
       overflow-hidden
       "
     >
@@ -22,8 +20,8 @@ export default function ProductHighlights({ specifications = [] }) {
         className="
         px-7
         py-5
-        border-b
-        border-slate-100
+        border-t
+        border-slate-200
         "
       >
         <h2
@@ -35,6 +33,16 @@ export default function ProductHighlights({ specifications = [] }) {
         >
           ویژگی‌های برجسته
         </h2>
+        <span
+          className="
+    block
+    w-[120px]
+    h-[3px]
+    bg-red-500
+    rounded-full
+    mt-3
+  "
+        />
       </div>
 
       {/* List */}
@@ -44,7 +52,7 @@ export default function ProductHighlights({ specifications = [] }) {
         px-7
         py-6
         grid
-        grid-cols-1
+        grid-cols-2
         md:grid-cols-2
         gap-4
         "
@@ -56,11 +64,9 @@ export default function ProductHighlights({ specifications = [] }) {
             flex
             items-center
             gap-3
-            bg-slate-50
-            rounded-xl
             px-4
             py-3
-            border
+            border-b
             border-slate-100
             "
           >
@@ -74,8 +80,8 @@ export default function ProductHighlights({ specifications = [] }) {
               w-7
               h-7
               rounded-full
-              bg-red-50
-              text-red-500
+              
+              text-gray-500
               shrink-0
               "
             >

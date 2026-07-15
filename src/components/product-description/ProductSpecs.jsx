@@ -1,14 +1,13 @@
+// مشخصات فنی
+// start
 export default function ProductSpecs({ specifications = [] }) {
   if (!specifications.length) return null;
-
+  // jsx
   return (
     <section
-    id="specs"
+      id="specs"
       className="
       bg-white
-      rounded-2xl
-      border
-      border-slate-200
       overflow-hidden
       "
     >
@@ -18,8 +17,8 @@ export default function ProductSpecs({ specifications = [] }) {
         className="
         px-7
         py-5
-        border-b
-        border-slate-100
+        border-t
+        border-slate-200
         "
       >
         <h2
@@ -31,6 +30,17 @@ export default function ProductSpecs({ specifications = [] }) {
         >
           مشخصات فنی
         </h2>
+
+        <span
+          className="
+    block
+    w-26
+    h-[3px]
+    bg-red-500
+    rounded-full
+    mt-3
+  "
+        />
       </div>
 
       {/* Table */}
@@ -46,7 +56,7 @@ export default function ProductSpecs({ specifications = [] }) {
             key={index}
             className="
             grid
-            grid-cols-1
+            grid-cols-2
             md:grid-cols-3
             text-sm
             "
@@ -55,7 +65,8 @@ export default function ProductSpecs({ specifications = [] }) {
 
             <div
               className="
-              bg-slate-50
+             border-l
+             border-gray-200
               px-6
               py-4
               text-slate-500
