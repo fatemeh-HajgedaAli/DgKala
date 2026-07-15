@@ -33,7 +33,8 @@ export const menuItems = [
     id: 1,
     icon: CgMenu,
     title: "دسته‌بندی کالاها",
-    path: "/products",
+    isMegaMenu: true,
+    divider: false,
   },
   {
     id: 2,
