@@ -1,22 +1,24 @@
+// APP.JS
 import { Routes, Route } from "react-router-dom";
-
-import MainLayout from "./layouts/MainLayout";
-
-import Home from "./pages/Home";
-import NewsDetail from "./pages/NewsDetail";
+// FEATURES
 import ProductDetailsPages from "./features/products/pages/ProductDetailsPages";
 import ProductsPage from "./features/products/pages/ProductsPage";
-import CartPage from "./pages/CartPage";
-import ScrollToTop from "./components/ui/ScrollToTop";
 import SearchModal from "./features/navbar/searchPart/SearchModal";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import AuthLayout from "./layouts/AuthLayout";
-
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
 import ProductDescriptionPage from "./features/amazingOffer/ProductDescriptionPage";
-
+// PAGES
+import Home from "./pages/Home";
+import NewsDetail from "./pages/NewsDetail";
+import CartPage from "./pages/CartPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import FAQ from "./pages/FAQ";
+// LAYOUT
+import AuthLayout from "./layouts/AuthLayout";
+import ScrollToTop from "./components/ui/ScrollToTop";
+import MainLayout from "./layouts/MainLayout";
+// START
 export default function App() {
   return (
     <>
@@ -53,6 +55,8 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
+        {/* questions */}
+        <Route path="/questions" element={<FAQ />} />
 
         <Route path="*" element={<h1>NOT FOUND - TEST</h1>} />
       </Routes>

@@ -63,7 +63,7 @@ export const menuItems = [
   {
     id: 6,
     title: "سوالی دارید؟",
-    path: "/categories",
+    path: "/questions",
     divider: true,
   },
   {
