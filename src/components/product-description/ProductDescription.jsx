@@ -13,9 +13,8 @@ export default function ProductDescription({ details, product }) {
       : details.description;
 
   return (
-    <section
+    <div
       dir="rtl"
-      id="description"
       className="
         mt-10
         grid
@@ -25,13 +24,22 @@ export default function ProductDescription({ details, product }) {
       "
     >
       {/* Content */}
-
       <div className="lg:col-span-8 space-y-10">
-        <DescriptionSection description={descriptionText} />
+        <section id="description" className="scroll-mt-24">
+          <DescriptionSection description={descriptionText} />
+        </section>
 
-        <ProductHighlights specifications={details.specifications} />
+        <section id="highlights" className="scroll-mt-24">
+          <ProductHighlights specifications={details.specifications} />
+        </section>
 
-        <ProductSpecs specifications={details.specifications} />
+        <section id="specs" className="scroll-mt-24">
+          <ProductSpecs specifications={details.specifications} />
+        </section>
+
+        <section id="reviews" className="scroll-mt-24">
+          {/* کامپوننت دیدگاه کاربران */}
+        </section>
 
         <ReadMore text={descriptionText} />
 
@@ -50,11 +58,11 @@ export default function ProductDescription({ details, product }) {
           >
             <h3
               className="
-              text-lg
-              font-bold
-              mb-4
-              text-gray-900
-            "
+                text-lg
+                font-bold
+                mb-4
+                text-gray-900
+              "
             >
               بررسی تخصصی محصول
             </h3>
@@ -65,10 +73,9 @@ export default function ProductDescription({ details, product }) {
       </div>
 
       {/* Sticky Buy Box */}
-
       <aside className="lg:col-span-4">
         <StickyBuyBox product={product} />
       </aside>
-    </section>
+    </div>
   );
 }

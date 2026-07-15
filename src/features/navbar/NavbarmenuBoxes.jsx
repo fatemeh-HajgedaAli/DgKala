@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MobileNavbarExtras from "./MobileNavbarExtras";
 import { CiLocationOn } from "react-icons/ci";
 import { boxItems } from "../../data/componentData/navbar.data";
@@ -11,9 +11,16 @@ export default function NavbarmenuBoxes() {
   const { address, setAddress } = useAddress();
   const [open, setOpen] = useState(false);
   // hide in amazing part
-  if (location.pathname === "/amazing") {
+  const location = useLocation();
+
+  if (
+    location.pathname === "/amazing" ||
+    location.pathname.startsWith("/amazing/") ||
+    location.pathname.startsWith("/product/")
+  ) {
     return null;
   }
+
   // jsx
   return (
     <>

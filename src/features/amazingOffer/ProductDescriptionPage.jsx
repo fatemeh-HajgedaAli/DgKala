@@ -6,6 +6,7 @@ import { productDescriptionData } from "../../data/categoriesData/productDescrip
 import { amazingProducts } from "../../data/categoriesData/amazingData";
 
 import ProductDescription from "../../components/product-description/ProductDescription";
+import ProductTabs from "../../components/product-description/ProductTabs";
 // start
 export default function ProductDescriptionPage() {
   const { id } = useParams();
@@ -18,6 +19,11 @@ export default function ProductDescriptionPage() {
     return <div className="p-10 text-center">محصول پیدا نشد</div>;
   }
 
-  return <ProductDescription details={details} product={product} />;
+  return (
+    <>
+      <ProductTabs />
+      <ProductDescription details={details} product={product} />;
+    </>
+  );
 }
 // finish

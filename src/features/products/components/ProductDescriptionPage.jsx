@@ -18,6 +18,11 @@ export default function ProductDescriptionPage() {
     return <div className="p-10 text-center">محصول پیدا نشد</div>;
   }
 
-  return <ProductDescription details={details} product={product} />;
+  return (
+    <>
+      <ProductTabs />
+      <ProductDescription details={details} product={product} />;
+    </>
+  );
 }
 // finish
