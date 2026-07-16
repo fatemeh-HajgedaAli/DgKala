@@ -97,25 +97,25 @@ export default function ProductInfo({ product }) {
         </div>
       </div>
       {/* moreFeatures */}
-      <div className="flex flex-col items-center w-full ">
-                  <Link
-                    to={`/amazing/${product.id}/description`}
-                    className="flex items-center justify-center w-full my-4 
+      <div className="hidden lg:flex flex-col items-center w-full ">
+        <Link
+          to={`/amazing/${product.id}/description`}
+          className="flex items-center justify-center w-full my-4 
                     text-sm font-medium text-gray-500 hover:text-gray-700 
                     transition-colors gap-4"
-                  >
-                    {/* right-line */}
-                    <span className="h-[1px] flex-1 bg-gray-100"></span>
-    
-                    {/* text+btn */}
-                    <span className="flex items-center gap-1 flex-shrink-0 border-1 border-gray-200 p-2 rounded-xl">
-                      مشاهده همه ویژگی‌ها
-                      <BiChevronLeft className="text-xl mt-0.5" />
-                    </span>
-    
-                    {/* left */}
-                    <span className="h-[1px] flex-1 bg-gray-100"></span>
-                  </Link>
+        >
+          {/* right-line */}
+          <span className="h-[1px] flex-1 bg-gray-100"></span>
+
+          {/* text+btn */}
+          <span className="flex items-center gap-1 flex-shrink-0 border-1 border-gray-200 p-2 rounded-xl">
+            مشاهده همه ویژگی‌ها
+            <BiChevronLeft className="text-xl mt-0.5" />
+          </span>
+
+          {/* left */}
+          <span className="h-[1px] flex-1 bg-gray-100"></span>
+        </Link>
       </div>
       {/* باکس اخطار/اطلاعیه مرجوعی کالا */}
       <div className="flex items-start gap-2.5 mt-5 p-3 bg-gray-50/50 border border-gray-100 rounded-xl">

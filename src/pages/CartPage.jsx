@@ -1,4 +1,4 @@
-// cartPage
+// main-cart-Page
 import { useCart } from "../context/CartContext";
 // component
 import EmptyCart from "../features/cartPart/EmtyCart";
@@ -11,10 +11,9 @@ import { useNavigate } from "react-router-dom";
 export default function CartPage() {
   const { state } = useCart();
   const navigate = useNavigate();
-
+  // jsx
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">سبد خرید</h1>
       <button
         onClick={() => navigate("/products")}
         className="p-2 rounded-lg hover:bg-gray-100 transition"
@@ -37,3 +36,4 @@ export default function CartPage() {
     </div>
   );
 }
+// finish
