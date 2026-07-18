@@ -1,28 +1,27 @@
-// amazing-product-description
 import { useParams } from "react-router-dom";
 
-import { descriptionData } from "../../../data/categoriesData/amazingDescription.Data";
-
-import { amazingProducts } from "../../../data/categoriesData/productsDetails.data";
+import { productDescriptionData } from "../../../data/categoriesData/productDescriptionData";
 
 import ProductDescription from "../../../components/product-description/ProductDescription";
-// start
-export default function ProductDescriptionPage() {
+
+export default function ProductDescriptionPage({ product }) {
   const { id } = useParams();
 
-  const details = descriptionData[id];
+  const details = productDescriptionData[id];
 
-  const product = amazingProducts.find((item) => item.id === Number(id));
-
-  if (!details || !product) {
-    return <div className="p-10 text-center">محصول پیدا نشد</div>;
+  if (!product || !details) {
+    return null;
   }
 
   return (
-    <>
-      <ProductTabs />
-      <ProductDescription details={details} product={product} />;
-    </>
+    <div
+      className="
+        bg-white
+        mt-4
+        pb-24
+      "
+    >
+      <ProductDescription details={details} product={product} />
+    </div>
   );
 }
-// finish

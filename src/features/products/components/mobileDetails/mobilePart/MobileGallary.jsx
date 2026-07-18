@@ -1,10 +1,11 @@
+// mobileImages
 import { useState } from "react";
-
+// start
 export default function MobileGallary({ product }) {
   const images = product?.images || [];
 
   const [selectedImage, setSelectedImage] = useState(images[0]);
-
+  // jsx
   return (
     <div className="bg-white rounded-2xl border border-gray-200 p-5">
       {/* Main Image */}

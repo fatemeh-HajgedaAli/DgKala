@@ -10,11 +10,11 @@ import DigiApplication from "./DigiApplication";
 export default function Footer() {
   return (
     <>
-      <footer className="relative w-full border-t-1 border-gray-200  mt-20 ">
+      <footer className="relative hidden md:block w-full border-t-1 border-gray-200  mt-20 ">
         {/* contactUs */}
         <FooterContact />
-          {/* digiApplication(phone) */}
-       <DigiApplication/>
+        {/* digiApplication(phone) */}
+        <DigiApplication />
         {/* features */}
         <FooterFeatures />
         {/* links */}
@@ -22,10 +22,9 @@ export default function Footer() {
         {/* apps */}
         <FooterApp />
         {/* aboutUs */}
-       <FooterAbout/>
-       {/* brands */}
-       <FooterBrands/>
-     
+        <FooterAbout />
+        {/* brands */}
+        <FooterBrands />
       </footer>
     </>
   );

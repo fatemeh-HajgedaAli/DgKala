@@ -31,7 +31,7 @@ export default function SubscriptionCard() {
       </div>
 
       {/* Content */}
-      {/* Content */}
+     
       <div
         className="
   flex flex-col

@@ -1,7 +1,7 @@
 // amazing-product-description
 import { useParams } from "react-router-dom";
 
-import { productDescriptionData } from "../../data/categoriesData/productDescriptionData";
+import { AmazingdescriptionData } from "../../data/categoriesData/amazingDescription.Data";
 
 import { amazingProducts } from "../../data/categoriesData/amazingData";
 
@@ -11,7 +11,7 @@ import ProductTabs from "../../components/product-description/ProductTabs";
 export default function ProductDescriptionPage() {
   const { id } = useParams();
 
-  const details = productDescriptionData[id];
+  const details = AmazingdescriptionData[id];
 
   const product = amazingProducts.find((item) => item.id === Number(id));
 

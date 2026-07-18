@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById } from "../services/product.service";
 
-// Desktop Components
+// Components
 import ProductGallery from "../components/productDetails/ProductsGallary";
 import ProductInfo from "../components/productDetails/ProductInfo";
 import ProductAction from "../components/productDetails/ProductAction";
@@ -10,19 +10,17 @@ import ProductsIcons from "../components/productDetails/ProductsIcons";
 import DetailsLink from "../components/productDetails/DetailsLink";
 import SubscriptionCard from "../components/productDetails/SubscriptionCard";
 
-// Mobile Component
 import MobileProduct from "./MobileProduct";
 
-// UI
 import LoadingScreen from "../../../components/ui/LoadingScreen";
 
+import { useCart } from "../../../context/CartContext";
+import CartPreview from "../../../features/cartPart/CartPreview";
+
 // Icons
-import { FaArrowRight, FaRegBell } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
-import { CiMenuKebab } from "react-icons/ci";
-import { IoHeartOutline, IoShareSocialOutline } from "react-icons/io5";
-import { TfiExchangeVertical } from "react-icons/tfi";
-import { RiPlayListAddLine } from "react-icons/ri";
+import ProductDescriptionPage from "../components/ProductDescriptionPage";
 
 export default function ProductDetailsPages() {
   const { id } = useParams();
@@ -32,126 +30,132 @@ export default function ProductDetailsPages() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [showCart, setShowCart] = useState(false);
+
+  const { state } = useCart();
+
+  const cartCount = state.items.reduce(
+    (sum, item) => sum + Number(item.qty || 0),
+    0,
+  );
+
   useEffect(() => {
-    let isMounted = true;
-
-    const loadProduct = async () => {
+    const load = async () => {
       try {
-        setLoading(true);
-        setError(null);
-
         const data = await getProductById(id);
-
-        if (isMounted) {
-          setProduct(data);
-        }
+        setProduct(data);
       } catch {
-        if (isMounted) {
-          setError("خطا در دریافت اطلاعات محصول");
-          setProduct(null);
-        }
+        setError("خطا در دریافت محصول");
       } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
-    loadProduct();
-
-    return () => {
-      isMounted = false;
-    };
+    load();
   }, [id]);
 
   if (loading) return <LoadingScreen />;
 
-  if (error) return <div className="p-6 text-center text-red-500">{error}</div>;
-
-  if (!product)
-    return <div className="p-6 text-center text-red-500">محصول پیدا نشد</div>;
+  if (error) return <div className="p-5 text-red-500">{error}</div>;
 
   return (
-    <div className="min-h-screen bg-white" dir="rtl">
-      {/* Header Mobile */}
-      <div className="lg:hidden sticky top-0 z-30 flex items-center justify-between bg-white p-3 border-b shadow-sm">
-        <button
-          onClick={() => navigate("/products")}
-          className="p-2 rounded-lg hover:bg-gray-100"
-        >
-          <FaArrowRight />
+    <div className="min-h-screen bg-white pb-10" dir="rtl">
+      {/* Cart Preview */}
+      {showCart && <CartPreview closeCart={() => setShowCart(false)} />}
+
+      {/* Mobile Header */}
+      <div
+        className="
+          lg:hidden
+          fixed
+          top-4
+          left-0
+          right-0
+          z-50
+          flex
+          justify-between
+          bg-white
+          shadow
+          px-3
+          py-2
+        "
+      >
+        <button onClick={() => navigate("/products")}>
+          <FaArrowRight size={18} />
         </button>
+        <button onClick={() => setShowCart(true)} className="relative">
+          <BsCart size={21} />
 
-        <div className="flex items-center gap-3 text-xl">
-          <button
-            onClick={() => navigate("/CartPage")}
-            className="p-2 rounded-lg hover:bg-gray-100"
-          >
-            <BsCart />
-          </button>
-
-          <button className="p-2 rounded-lg hover:bg-gray-100">
-            <CiMenuKebab />
-          </button>
-        </div>
+          {cartCount > 0 && (
+            <span
+              className="
+                absolute
+                -top-2
+                -left-2
+                bg-red-500
+                text-white
+                text-[10px]
+                w-5
+                h-5
+                rounded-full
+                flex
+                items-center
+                justify-center
+              "
+            >
+              {cartCount}
+            </span>
+          )}
+        </button>
       </div>
 
-      {/* ===================== Mobile ===================== */}
+      {/* Link همیشه بالا */}
+      <div className="max-w-[1440px] mx-auto px-5 pt-16 lg:pt-5">
+        <DetailsLink product={product} />
+      </div>
+
+      {/* Mobile */}
+
       <div className="lg:hidden">
         <MobileProduct product={product} />
+       <ProductDescriptionPage product={product}/>
       </div>
 
-      {/* ===================== Desktop ===================== */}
+      {/* Desktop */}
+
       <div className="hidden lg:block">
-        <div className="max-w-[1440px] mx-auto">
-          <DetailsLink product={product} />
-        </div>
-
-        <div className="grid grid-cols-12 gap-8 p-5 max-w-[1440px] mx-auto items-start">
+        <div
+          className="
+            grid
+            grid-cols-12
+            gap-8
+            p-5
+            max-w-[1440px]
+            mx-auto
+          "
+        >
           {/* Gallery */}
-          <div className="col-span-4 flex gap-4 sticky top-5">
-            <div className="flex flex-col items-center gap-6 text-gray-400 pl-2">
-              <button className="hover:text-rose-500">
-                <IoHeartOutline size={22} />
-              </button>
 
-              <button className="hover:text-gray-700">
-                <IoShareSocialOutline size={22} />
-              </button>
-
-              <button className="hover:text-gray-700">
-                <FaRegBell size={20} />
-              </button>
-
-              <button className="hover:text-gray-700">
-                <TfiExchangeVertical size={18} />
-              </button>
-
-              <button className="hover:text-gray-700">
-                <RiPlayListAddLine size={21} />
-              </button>
-            </div>
-
-            <div className="flex-1">
-              <ProductGallery product={product} />
-            </div>
+          <div className="col-span-4 sticky top-5">
+            <ProductGallery product={product} />
           </div>
 
           {/* Info */}
+
           <div className="col-span-5">
             <ProductInfo product={product} />
+
             <SubscriptionCard />
           </div>
 
-          {/* Action */}
+          {/* Seller */}
+
           <div className="col-span-3 sticky top-5">
             <ProductAction product={product} />
           </div>
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-5 pb-10">
-          <ProductsIcons />
-        </div>
+        <ProductsIcons />
       </div>
     </div>
   );

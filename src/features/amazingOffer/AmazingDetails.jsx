@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { amazingProducts } from "../../data/categoriesData/amazingData";
 // details-description-data
-import { descriptionData } from "../../data/categoriesData/amazingDescription.Data";
+import { AmazingdescriptionData } from "../../data/categoriesData/amazingDescription.Data";
 // desktop
 import AmazingOfferAction from "./amazingDetails/AmazingOfferAction";
 import AmazingGallary from "./amazingDetails/AmazingGallary";

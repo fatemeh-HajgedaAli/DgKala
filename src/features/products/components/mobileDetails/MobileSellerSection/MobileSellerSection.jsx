@@ -1,4 +1,4 @@
-// moblie SELLER Part
+// moblie- SELLER -Part
 import SellerHeader from "./SellerHeader";
 import SellerInfo from "./SellerInfo";
 import GuaranteeItem from "./GuaranteeItem";
@@ -6,7 +6,6 @@ import ShippingItem from "./ShippingItem";
 import PlusBenefits from "./PlusBenefits";
 import DigiclubItem from "./DigiclubItem";
 
-import PlusCard from "./PlusCard";
 // slider
 import ServicesSlider from "./ServicesSlider";
 
@@ -28,7 +27,6 @@ export default function MobileSellerSection({ seller, guarantee }) {
       <hr className="w-full bg-gray-100 border-none h-2 my-2" />
 
       <ServicesSlider />
-      <PlusCard />
     </div>
   );
 }

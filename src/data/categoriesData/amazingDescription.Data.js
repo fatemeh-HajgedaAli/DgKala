@@ -20,7 +20,7 @@ import watch1 from "../../assets/images/amazingProduct/watch1.webp";
 import tools1 from "../../assets/images/amazingProduct/tools1.webp";
 import welding1 from "../../assets/images/amazingProduct/zedJoosh.webp";
 
-export const descriptionData = {
+export const AmazingdescriptionData = {
   1: {
     images: [camera1, camera2],
     description: `

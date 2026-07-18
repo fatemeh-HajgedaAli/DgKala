@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatPrice } from "../../../utils/price";
 import { toFarsiNumber } from "../../../utils/number";
 import { GoChecklist } from "react-icons/go";
-import AddToCartButton from "./AddToCartButton";
+
 // start
 export default function ProductCard({ item }) {
   const price = item?.pricing?.price || 0;

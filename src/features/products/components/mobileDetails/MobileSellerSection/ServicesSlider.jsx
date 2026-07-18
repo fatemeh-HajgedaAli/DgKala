@@ -8,27 +8,22 @@ export default function ServicesSlider() {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  // شروع درگ با کلیک ماوس
   const handleMouseDown = (e) => {
     isDown.current = true;
     sliderRef.current.classList.add("active");
-    // محاسبه موقعیت اولیه ماوس
     startX.current = e.pageX - sliderRef.current.offsetLeft;
     scrollLeft.current = sliderRef.current.scrollLeft;
   };
 
-  // اتمام درگ زمانی که کلیک ماوس رها می‌شود
   const handleMouseLeaveOrUp = () => {
     isDown.current = false;
     sliderRef.current.classList.remove("active");
   };
 
-  // حرکت ماوس و اسکرول شدن اسلایدر
   const handleMouseMove = (e) => {
     if (!isDown.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    // ضریب ۲ برای روان‌تر شدن و سرعت حرکت اسلایدر است
     const walk = (x - startX.current) * 2;
     sliderRef.current.scrollLeft = scrollLeft.current - walk;
   };
@@ -50,10 +45,10 @@ export default function ServicesSlider() {
         onMouseMove={handleMouseMove}
         className="
           flex
-          
+          flex-row
           overflow-x-auto
           gap-3
-          px-4
+          px-2
           py-2
           snap-x
           snap-mandatory

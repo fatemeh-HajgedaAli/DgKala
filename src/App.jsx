@@ -6,7 +6,7 @@ import ProductsPage from "./features/products/pages/ProductsPage";
 import SearchModal from "./features/navbar/searchPart/SearchModal";
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
-import ProductDescriptionPage from "./features/amazingOffer/ProductDescriptionPage";
+import ProductDescriptionPage from "./features/amazingOffer/AmazingDescriptionPage";
 import CheckoutShipping from "./pages/CheckoutShipping";
 // PAGES
 import Home from "./pages/Home";

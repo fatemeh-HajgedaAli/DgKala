@@ -121,7 +121,7 @@ export default function AmazingOfferAction({ product }) {
           {/* متن عمودی سمت چپ */}
           <div className="flex flex-col items-end text-left justify-center flex-1">
             <span className="text-[11px] font-bold text-gray-800">
-              در sabad شما
+              در سبد شما
             </span>
             <button
               onClick={() => navigate("/cart")}
