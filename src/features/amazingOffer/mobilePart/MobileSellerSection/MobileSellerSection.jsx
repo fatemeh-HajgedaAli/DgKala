@@ -5,7 +5,7 @@ import ShippingItem from "./ShippingItem";
 import PlusBenefits from "./PlusBenefits";
 import DigiclubItem from "./DigiclubItem";
 
-import plusCard from "./PlusCard";
+import PlusCard from "./PlusCard";
 // slider
 import ServicesSlider from "./ServicesSlider";
 
@@ -27,7 +27,7 @@ export default function MobileSellerSection({ seller, guarantee }) {
       <hr className="w-full bg-gray-100 border-none h-2 my-2" />
 
       <ServicesSlider />
-      <plusCard />
+      <PlusCard />
     </div>
   );
 }

@@ -1,17 +1,15 @@
-// main-cart-Page
 import { useCart } from "../context/CartContext";
-// component
 import EmptyCart from "../features/cartPart/EmtyCart";
-import CartItems from "../features/cartPart/CartItems";
+import CartItem from "../features/cartPart/CartItem";
 import CartSummary from "../features/cartPart/CartSummary";
-// icons
+
 import { FaArrowRight } from "react-icons/fa";
-// cartNavigate
 import { useNavigate } from "react-router-dom";
+
 export default function CartPage() {
-  const { state } = useCart();
+  const { state, dispatch } = useCart();
   const navigate = useNavigate();
-  // jsx
+
   return (
     <div className="container mx-auto px-4 py-8">
       <button
@@ -20,15 +18,40 @@ export default function CartPage() {
       >
         <FaArrowRight />
       </button>
+
       {state.items.length === 0 ? (
         <EmptyCart />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <CartItems />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+          <div className="lg:col-span-2 border-1 border-gray-200 rounded-2xl mx-8 my-2">
+           
+            {state.items.map((item) => (
+              <CartItem
+                key={item.id || item._id}
+                item={item}
+                onIncrease={(id) =>
+                  dispatch({
+                    type: "INCREASE_QTY",
+                    payload: id,
+                  })
+                }
+                onDecrease={(id) =>
+                  dispatch({
+                    type: "DECREASE_QTY",
+                    payload: id,
+                  })
+                }
+                onRemove={(id) =>
+                  dispatch({
+                    type: "REMOVE_ITEM",
+                    payload: id,
+                  })
+                }
+              />
+            ))}
           </div>
 
-          <div>
+          <div >
             <CartSummary />
           </div>
         </div>
@@ -36,4 +59,3 @@ export default function CartPage() {
     </div>
   );
 }
-// finish

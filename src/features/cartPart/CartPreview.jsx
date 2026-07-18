@@ -1,83 +1,85 @@
-// CartPreview.jsx
-import { Link } from "react-router-dom";
+// src/features/cartPart/CartPreview.jsx
+import React from "react";
 import { useCart } from "../../context/CartContext";
+import handBasket from "../../assets/logos/hand-basket.svg";
 import { formatPrice } from "../../utils/price";
 import { toFarsiNumber } from "../../utils/number";
-import handBasket from "../../assets/logos/hand-basket.svg";
+import { Trash2, Plus, Minus } from "lucide-react";
 
-// Header
-function CartHeader({ count }) {
-  return (
-    <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-white">
-      <span className="font-bold text-sm text-slate-800">سبد خرید شما</span>
-      <span className="text-xs text-slate-500">
-        {toFarsiNumber(count)} کالا
-      </span>
-    </div>
-  );
-}
+// parts
+import CartHeader from "./CartHeader";
+import CartFooter from "./CartFooter";
 
-// Cart Item
-function CartItem({ item, onIncrease, onDecrease, onRemove }) {
-  if (!item) return null;
+// کامپوننت مینی‌مال آیتم بر اساس طرح دقیق دیجی‌کالا
+function MiniCartItem({ item, onIncrease, onDecrease, onRemove }) {
   const id = item.id || item._id || item.productId;
+  const hasDiscount = item.pricing?.discountPercent > 0;
 
   return (
-    <div dir="rtl" className="flex gap-3 py-3 border-b border-slate-100">
-      {/* Image */}
-      <div className="w-16 h-16 rounded-lg border border-slate-100 p-1 flex items-center justify-center shrink-0">
+    <div className="flex gap-3 py-4 border-b border-gray-100 last:border-0 items-start">
+      {/* سمت راست: تصویر محصول */}
+      <div className="w-20 h-20 shrink-0 border border-gray-100 rounded-xl p-1 bg-gray-50 flex items-center justify-center">
         <img
           src={item.images?.[0] || "/placeholder.png"}
           alt={item.title || "product"}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain mix-blend-multiply"
         />
       </div>
 
-      {/* Info */}
-      <div className="flex-1 min-w-0 flex flex-col justify-between">
-        <p className="text-xs font-bold text-slate-700 line-clamp-1">
+      {/* سمت چپ: عنوان، کنترلر و بخش قیمت‌ها */}
+      <div className="flex-1 min-w-0 flex flex-col justify-between min-h-[80px]">
+        {/* عنوان محصول */}
+        <h4 className="text-[13px] font-medium text-gray-700 line-clamp-2 leading-6 mb-2 pl-2">
           {item.title}
-        </p>
+        </h4>
 
-        <div className="flex items-center justify-between mt-2">
-          {/* Counter */}
-          <div className="flex items-center gap-3 border border-slate-200 rounded-md px-2 py-1">
+        {/* ردیف پایین: شمارنده در راست، قیمت‌ها در چپ */}
+        <div className="flex justify-between items-center w-full mt-auto">
+          {/* کنترلر تعداد (طرح مینی‌مال هدر) */}
+          <div className="flex items-center gap-2.5 border border-gray-200 rounded-lg px-2 py-1 bg-white shadow-sm">
             <button
               onClick={() => onIncrease(id)}
-              className="text-red-500 font-black"
+              className="text-red-500 hover:bg-red-50 p-0.5 rounded transition-colors"
             >
-              +
+              <Plus size={14} strokeWidth={2.5} />
             </button>
-            <span className="text-xs font-black">
+
+            <span className="text-xs font-bold text-gray-800 min-w-[10px] text-center">
               {toFarsiNumber(item.qty)}
             </span>
+
             {Number(item.qty) === 1 ? (
               <button
                 onClick={() => onRemove(id)}
-                className="text-red-500 text-sm"
+                className="text-red-500 hover:bg-red-50 p-0.5 rounded transition-colors"
               >
-                🗑
+                <Trash2 size={14} />
               </button>
             ) : (
               <button
                 onClick={() => onDecrease(id)}
-                className="text-red-500 font-black"
+                className="text-red-500 hover:bg-red-50 p-0.5 rounded transition-colors"
               >
-                -
+                <Minus size={14} strokeWidth={2.5} />
               </button>
             )}
           </div>
 
-          {/* Price */}
-          <div className="text-left">
-            {item.pricing?.discountPercent > 0 && (
-              <div className="text-[10px] text-slate-400 line-through">
-                {formatPrice(item.pricing.price)}
+          {/* بخش قیمت و تخفیف (تراز شده به چپ) */}
+          <div className="flex flex-col items-end gap-0.5">
+            {hasDiscount && (
+              <div className="flex items-center gap-1.5">
+                <span className="bg-red-500 text-white text-[9px] px-1 py-0.5 rounded-full font-black">
+                  {toFarsiNumber(item.pricing.discountPercent)}٪
+                </span>
+                <span className="text-[11px] text-gray-400 line-through">
+                  {formatPrice(item.pricing.price)}
+                </span>
               </div>
             )}
-            <div className="text-xs font-black text-slate-800">
+            <div className="text-[13px] font-black text-gray-900 flex items-center gap-0.5">
               {formatPrice(item.pricing?.finalPrice || 0)}
-              <span className="text-[10px] text-slate-500 mr-1 font-normal">
+              <span className="text-[9px] text-gray-500 font-normal mr-0.5">
                 تومان
               </span>
             </div>
@@ -88,29 +90,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
   );
 }
 
-// Footer
-function CartFooter({ totalPrice, closeCart }) {
-  return (
-    <div className="border-t border-slate-100 p-3 flex items-center justify-between bg-white">
-      <div>
-        <p className="text-[10px] text-slate-400">مبلغ قابل پرداخت</p>
-        <div className="font-black text-sm">
-          {formatPrice(totalPrice)}
-          <span className="text-xs text-slate-500 mr-1 font-normal">تومان</span>
-        </div>
-      </div>
-      <Link
-        to="/cart"
-        onClick={closeCart}
-        className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg text-xs font-bold"
-      >
-        ثبت سفارش
-      </Link>
-    </div>
-  );
-}
-
-// Main Component
+// کامپوننت اصلی پیش‌نمایش سبد خرید
 export default function CartPreview({ closeCart }) {
   const { state, dispatch } = useCart();
 
@@ -128,25 +108,25 @@ export default function CartPreview({ closeCart }) {
   return (
     <div
       dir="rtl"
-      className="absolute top-full left-0 mt-2 w-[320px] bg-white rounded-xl shadow-xl border border-slate-200 z-50 overflow-hidden"
+      className="absolute top-full left-0 mt-2 w-[380px] bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 overflow-hidden"
     >
       <CartHeader count={state.items.length} />
 
-      <div className="max-h-[260px] overflow-y-auto px-3">
+      <div className="max-h-[340px] overflow-y-auto px-4 dynamic-scroll">
         {state.items.length === 0 ? (
-          <div className="py-8 text-center">
+          <div className="py-10 text-center">
             <img
               src={handBasket}
               alt="empty"
               className="w-20 h-20 mx-auto mb-3"
             />
-            <h3 className="text-sm font-bold text-slate-700">
-              سبد دیجی‌کالایی شما خالی است!
+            <h3 className="text-xs font-bold text-slate-500">
+              سبد خرید شما خالی است!
             </h3>
           </div>
         ) : (
           state.items.map((item) => (
-            <CartItem
+            <MiniCartItem
               key={item.id || item._id || item.productId}
               item={item}
               onIncrease={handleIncrease}

@@ -1,10 +1,12 @@
+// headerAction
+import { useState } from "react";
 import { BsBell, BsCart2, BsDoorOpen } from "react-icons/bs";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { useCart } from "../../../context/CartContext";
-import { useState } from "react";
-import CartPreview from "../../cartPart/CartPreview";
 
+import CartPreview from "../../cartPart/CartPreview";
+// start
 export default function HeaderActions() {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
@@ -13,7 +15,7 @@ export default function HeaderActions() {
   const [showCart, setShowCart] = useState(false);
 
   const cartCount = state.items.reduce((total, item) => total + item.qty, 0);
-
+// jsx
   return (
     <div className="flex items-center gap-4">
       <button className="text-slate-500">

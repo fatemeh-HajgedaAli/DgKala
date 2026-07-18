@@ -14,7 +14,7 @@ export default function NavbarMenu() {
 
   return (
     <div className="hidden lg:flex">
-      <ul className="flex items-center gap-4 text-slate-500">
+      <ul className="flex  items-center gap-4 text-slate-500">
         {menuItems.map((item) => {
           const Icon = item.icon;
 
@@ -27,9 +27,11 @@ export default function NavbarMenu() {
               className={`
                 relative
                 flex
+                font-light
                 items-center
                 gap-2
-                cursor-pointer
+                cursor-pointer 
+                nth-1:font-bold
                 ${item.divider ? "border-r-2 border-gray-200 pr-3" : ""}
               `}
             >
@@ -61,7 +63,7 @@ export default function NavbarMenu() {
                   <motion.div
                     className="
                       absolute
-                      bottom-[-8px]
+                      bottom-[-7px]
                       left-0
                       h-[3px]
                       bg-red-600
