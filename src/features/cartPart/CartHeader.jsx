@@ -1,7 +1,7 @@
 // src/features/cartPart/CartHeader.jsx
-import React from "react";
-import { toFarsiNumber } from "../../utils/number";
 
+import { toFarsiNumber } from "../../utils/number";
+// start
 export default function CartHeader({ count }) {
   return (
     <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-white">

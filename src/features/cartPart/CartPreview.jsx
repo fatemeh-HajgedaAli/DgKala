@@ -9,15 +9,13 @@ import { Trash2, Plus, Minus } from "lucide-react";
 // parts
 import CartHeader from "./CartHeader";
 import CartFooter from "./CartFooter";
-
-// کامپوننت مینی‌مال آیتم بر اساس طرح دقیق دیجی‌کالا
+// start
 function MiniCartItem({ item, onIncrease, onDecrease, onRemove }) {
   const id = item.id || item._id || item.productId;
   const hasDiscount = item.pricing?.discountPercent > 0;
-
+  // jsx
   return (
-    <div className="flex gap-3 py-4 border-b border-gray-100 last:border-0 items-start">
-      {/* سمت راست: تصویر محصول */}
+    <div className="flex  gap-3 py-4 border-b border-gray-100 last:border-0 items-start">
       <div className="w-20 h-20 shrink-0 border border-gray-100 rounded-xl p-1 bg-gray-50 flex items-center justify-center">
         <img
           src={item.images?.[0] || "/placeholder.png"}
@@ -26,16 +24,12 @@ function MiniCartItem({ item, onIncrease, onDecrease, onRemove }) {
         />
       </div>
 
-      {/* سمت چپ: عنوان، کنترلر و بخش قیمت‌ها */}
       <div className="flex-1 min-w-0 flex flex-col justify-between min-h-[80px]">
-        {/* عنوان محصول */}
         <h4 className="text-[13px] font-medium text-gray-700 line-clamp-2 leading-6 mb-2 pl-2">
           {item.title}
         </h4>
 
-        {/* ردیف پایین: شمارنده در راست، قیمت‌ها در چپ */}
         <div className="flex justify-between items-center w-full mt-auto">
-          {/* کنترلر تعداد (طرح مینی‌مال هدر) */}
           <div className="flex items-center gap-2.5 border border-gray-200 rounded-lg px-2 py-1 bg-white shadow-sm">
             <button
               onClick={() => onIncrease(id)}
@@ -65,7 +59,6 @@ function MiniCartItem({ item, onIncrease, onDecrease, onRemove }) {
             )}
           </div>
 
-          {/* بخش قیمت و تخفیف (تراز شده به چپ) */}
           <div className="flex flex-col items-end gap-0.5">
             {hasDiscount && (
               <div className="flex items-center gap-1.5">
@@ -90,7 +83,6 @@ function MiniCartItem({ item, onIncrease, onDecrease, onRemove }) {
   );
 }
 
-// کامپوننت اصلی پیش‌نمایش سبد خرید
 export default function CartPreview({ closeCart }) {
   const { state, dispatch } = useCart();
 
@@ -100,15 +92,25 @@ export default function CartPreview({ closeCart }) {
     dispatch({ type: "DECREASE_QTY", payload: id });
   const handleRemove = (id) => dispatch({ type: "REMOVE_ITEM", payload: id });
 
+  // ۱. محاسبه مجموع قیمت نهایی سبد خرید
   const totalPrice = state.items.reduce(
     (sum, item) => sum + (item.pricing?.finalPrice || 0) * item.qty,
     0,
   );
 
+  // ۲. محاسبه مجموع تخفیف‌های سبد خرید (تفاوت قیمت اصلی و نهایی کالاها ضربدر تعداد)
+  const totalDiscount = state.items.reduce((sum, item) => {
+    const originalPrice = item.pricing?.price || item.pricing?.finalPrice || 0;
+    const finalPrice = item.pricing?.finalPrice || 0;
+    const discountAmount =
+      originalPrice > finalPrice ? originalPrice - finalPrice : 0;
+    return sum + discountAmount * item.qty;
+  }, 0);
+
   return (
     <div
       dir="rtl"
-      className="absolute top-full left-0 mt-2 w-[380px] bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 overflow-hidden"
+      className="absolute top-full left-0 mt-2 w-[480px] bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 overflow-hidden"
     >
       <CartHeader count={state.items.length} />
 
@@ -138,7 +140,11 @@ export default function CartPreview({ closeCart }) {
       </div>
 
       {state.items.length > 0 && (
-        <CartFooter totalPrice={totalPrice} closeCart={closeCart} />
+        <CartFooter
+          totalPrice={totalPrice}
+          totalDiscount={totalDiscount}
+          closeCart={closeCart}
+        />
       )}
     </div>
   );

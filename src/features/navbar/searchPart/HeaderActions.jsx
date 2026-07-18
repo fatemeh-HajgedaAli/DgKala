@@ -1,4 +1,4 @@
-// headerAction
+// header-Action(LogIn-CartPart)
 import { useState } from "react";
 import { BsBell, BsCart2, BsDoorOpen } from "react-icons/bs";
 import { useNavigate, Link } from "react-router-dom";
@@ -15,7 +15,7 @@ export default function HeaderActions() {
   const [showCart, setShowCart] = useState(false);
 
   const cartCount = state.items.reduce((total, item) => total + item.qty, 0);
-// jsx
+  // jsx
   return (
     <div className="flex items-center gap-4">
       <button className="text-slate-500">
@@ -23,7 +23,7 @@ export default function HeaderActions() {
       </button>
 
       {!user ? (
-        <div className="flex items-center gap-2 border rounded-xl px-3 py-2">
+        <div className="flex items-center gap-2 border-1 border-gray-300 rounded-xl px-3 py-2">
           <BsDoorOpen />
 
           <Link to="/login">ورود</Link>
