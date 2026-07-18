@@ -2,10 +2,11 @@
 import { useCart } from "../../context/CartContext";
 import { formatPrice } from "../../utils/price";
 import { toFarsiNumber } from "../../utils/number";
-
+import { useNavigate } from "react-router-dom";
+// start
 export default function CartSummary() {
   const { state } = useCart();
-
+  const navigate = useNavigate();
   const totalItems = state.items.reduce((sum, item) => sum + item.qty, 0);
 
   const totalOriginalPrice = state.items.reduce(
@@ -19,7 +20,7 @@ export default function CartSummary() {
   );
 
   const totalDiscount = totalOriginalPrice - totalFinalPrice;
-
+// jsx
   return (
     <div
       className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-5 w-full max-w-[360px]"
@@ -75,7 +76,10 @@ export default function CartSummary() {
       </div>
 
       {/* دکمه ثبت سفارش صورتی/قرمز دیجی‌کالا */}
-      <button className="w-full mt-5 bg-[#ef4056] hover:bg-[#e03147] active:scale-[0.99] text-white py-3 rounded-lg font-bold text-[13px] transition-all shadow-sm">
+      <button
+        onClick={() => navigate("/checkout/shipping")}
+        className="w-full mt-5 bg-[#ef4056] hover:bg-[#e03147] text-white py-3 rounded-lg font-bold text-[13px] transition-all"
+      >
         ثبت سفارش
       </button>
 

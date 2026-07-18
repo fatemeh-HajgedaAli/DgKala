@@ -7,6 +7,7 @@ import SearchModal from "./features/navbar/searchPart/SearchModal";
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
 import ProductDescriptionPage from "./features/amazingOffer/ProductDescriptionPage";
+import CheckoutShipping from "./pages/CheckoutShipping";
 // PAGES
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
@@ -16,8 +17,10 @@ import Register from "./pages/Register";
 import FAQ from "./pages/FAQ";
 // LAYOUT
 import AuthLayout from "./layouts/AuthLayout";
-import ScrollToTop from "./components/ui/ScrollToTop";
 import MainLayout from "./layouts/MainLayout";
+// ui
+import ScrollToTop from "./components/ui/ScrollToTop";
+
 // START
 export default function App() {
   return (
@@ -26,13 +29,13 @@ export default function App() {
       <SearchModal />
 
       <Routes>
+        {/* روت‌های دارای هدر و فوتر اصلی سایت */}
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
 
           {/* AMAZING */}
           <Route path="amazing" element={<MainAmazing />} />
-
           <Route path="amazing/:id" element={<AmazingDetails />} />
           <Route
             path="/amazing/:id/description"
@@ -50,11 +53,15 @@ export default function App() {
           <Route path="cart" element={<CartPage />} />
         </Route>
 
+        {/* 2. روت صفحه جدید - خارج از لایوت اصلی برای داشتن هدر اختصاصی */}
+        <Route path="checkout/shipping" element={<CheckoutShipping />} />
+
         {/* AUTH */}
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
+
         {/* questions */}
         <Route path="/questions" element={<FAQ />} />
 
