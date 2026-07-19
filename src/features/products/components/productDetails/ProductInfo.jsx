@@ -99,7 +99,7 @@ export default function ProductInfo({ product }) {
       {/* moreFeatures */}
       <div className="hidden lg:flex flex-col items-center w-full ">
         <Link
-          to={`/amazing/${product.id}/description`}
+          to={`/product/${product.id}/description`}
           className="flex items-center justify-center w-full my-4 
                     text-sm font-medium text-gray-500 hover:text-gray-700 
                     transition-colors gap-4"

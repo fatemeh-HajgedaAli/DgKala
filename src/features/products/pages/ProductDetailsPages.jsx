@@ -9,7 +9,8 @@ import ProductAction from "../components/productDetails/ProductAction";
 import ProductsIcons from "../components/productDetails/ProductsIcons";
 import DetailsLink from "../components/productDetails/DetailsLink";
 import SubscriptionCard from "../components/productDetails/SubscriptionCard";
-import ProductTabs from "../../../components/product-description/ProductTabs"; // فرض کردم اسم کامپوننت اینه
+import ProductTabs from "../../../components/product-description/ProductTabs"; 
+import ProductDescriptionPage from "../../../components/product-description/ProductDescriptionPage";
 
 import MobileProduct from "./MobileProduct";
 import LoadingScreen from "../../../components/ui/LoadingScreen";
@@ -19,7 +20,6 @@ import CartPreview from "../../../features/cartPart/CartPreview";
 // Icons
 import { FaArrowRight } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
-import ProductDescriptionPage from "../components/ProductDescriptionPage";
 // start
 export default function ProductDetailsPages() {
   const { id } = useParams();

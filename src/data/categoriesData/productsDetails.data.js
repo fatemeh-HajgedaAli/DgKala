@@ -1,4 +1,4 @@
-// productData.js
+// productsDetails.data.js
 import { productImages } from "./productImagesData";
 
 export const productData = {
@@ -16,7 +16,6 @@ export const productData = {
       { name: "زبان", value: "فارسی" },
     ],
   },
-
   2: {
     images: productImages.mobiles,
     description: {
@@ -31,9 +30,8 @@ export const productData = {
       { name: "فناوری ارتباطی", value: "5G" },
     ],
   },
-
   3: {
-    images: productImages.drugs, // متناسب با کرم‌های مراقبتی و ضدآفتاب ایمپورت شده
+    images: productImages.drugs,
     description: {
       short: "کرم ضد آفتاب و محصولات مراقبت از پوست و جوانسازی",
       long: `مجموعه تخصصی مراقبت از پوست شامل کرم‌های ضد آفتاب SPF 50، لایه‌بردار و سرم‌های جوانسازی پوست، تولید شده با بالاترین استانداردهای بهداشتی جهت حفظ شادابی و سلامت پوست صورت.`,
@@ -46,7 +44,6 @@ export const productData = {
       { name: "ویژگی خاص", value: "ضد لک و جوانساز" },
     ],
   },
-
   4: {
     images: productImages.covers,
     description: {
@@ -61,7 +58,6 @@ export const productData = {
       { name: "وزن", value: "۲۵ گرم" },
     ],
   },
-
   5: {
     images: productImages.headphones,
     description: {
@@ -76,9 +72,8 @@ export const productData = {
       { name: "رابط شارژ", value: "USB Type-C" },
     ],
   },
-
   6: {
-    images: productImages.tools, // متناسب با اجاق، فندک و لوازم خانگی ایمپورت شده
+    images: productImages.tools,
     description: {
       short: "لوازم پخت و پز و تجهیزات آشپزخانه و فندک",
       long: `مجموعه‌ای از اقلام کاربردی منزل و آشپزخانه شامل اجاق گازهای رومیزی سفری، تسمه و فندک‌های ابزاری با کیفیت ساخت بدنه بالا جهت استفاده روزمره و کمپینگ.`,
@@ -90,7 +85,6 @@ export const productData = {
       { name: "جنس بدنه", value: "فلز ضد زنگ و پلاستیک فشرده" },
     ],
   },
-
   7: {
     images: productImages.powerbank,
     description: {
@@ -105,7 +99,6 @@ export const productData = {
       { name: "جنس بدنه", value: "آلیاژ آلومینیوم" },
     ],
   },
-
   8: {
     images: productImages.watches,
     description: {
@@ -120,9 +113,8 @@ export const productData = {
       { name: "مقاومت در برابر آب", value: "5ATM (تا عمق ۵۰ متر)" },
     ],
   },
-
   9: {
-    images: productImages.washers, // متناسب با پودر شوینده و مایعات شوینده ایمپورت شده
+    images: productImages.washers,
     description: {
       short: "مجموعه شوینده‌های بهداشتی و پودر لباسشویی",
       long: `کیت محصولات شوینده و پاک‌کننده شامل مایع دستشویی و ظرفشویی گلرنگ، پودر ماشین لباسشویی سافتلن و مایع پاک‌کننده سطوح سیف با فرمولاسیون قدرتمند جهت لکه‌بری عمیق.`,
@@ -134,7 +126,6 @@ export const productData = {
       { name: "کاربرد", value: "پاک‌کنندگی سطوح و شستشوی لباس" },
     ],
   },
-
   10: {
     images: productImages.babyProducts,
     description: {
@@ -148,9 +139,8 @@ export const productData = {
       { name: "ویژگی خاص", value: "ضد حساسیت و دارای لایه لوسیون‌دار" },
     ],
   },
-
   11: {
-    images: productImages.premiumWatches, // متناسب با تصاویر آناناس، رب، تن ماهی و ایزی‌لایف
+    images: productImages.premiumFoods, // اصلاح شد به نام درست تصاویر
     description: {
       short: "کنسروجات، مواد غذایی و ملزومات بهداشتی حمایتی",
       long: `مجموعه سبد کالایی شامل کمپوت آناناس برتر، رب گوجه‌فرنگی غلیظ، کنسرو تن ماهی در روغن و پوشینه بزرگسالان ایزی‌لایف با کیفیت و استاندارد تضمین شده.`,
@@ -194,11 +184,9 @@ export const productsDetails = [
       { name: "نوع جلد", value: "شومیز / گالینگور" },
       { name: "تعداد صفحات", value: "دوره ۴ جلدی" },
       { name: "ناشر", value: "انتشارات برتر" },
-      { name: "زبان", value: "فارسی" },
     ],
     images: productImages.books,
   },
-
   {
     id: 2,
     title: "گوشی هوشمند پرچمدار نسل جدید",
@@ -230,11 +218,9 @@ export const productsDetails = [
     features: [
       { name: "حافظه داخلی", value: "۲۵۶ گیگابایت" },
       { name: "حافظه رم", value: "۸ گیگابایت" },
-      { name: "کیفیت دوربین", value: "۵۰ مگاپیکسل واقعی" },
     ],
     images: productImages.mobiles,
   },
-
   {
     id: 3,
     title: "کرم ضد آفتاب و محصولات مراقبت از پوست و جوانسازی",
@@ -263,11 +249,9 @@ export const productsDetails = [
     features: [
       { name: "نوع محصول", value: "کرم ضد آفتاب و سرم پوست" },
       { name: "SPF", value: "50" },
-      { name: "ویژگی خاص", value: "ضد لک و جوانساز" },
     ],
     images: productImages.drugs,
   },
-
   {
     id: 4,
     title: "کاور محافظ سیلیکونی ضد ضربه",
@@ -296,13 +280,9 @@ export const productsDetails = [
       { name: "مشکی", value: "#000000" },
       { name: "آبی", value: "#2563eb" },
     ],
-    features: [
-      { name: "جنس کاور", value: "سیلیکون مایع (Liquid Silicone)" },
-      { name: "ویژگی خاص", value: "ضد ضربه و لغزش" },
-    ],
+    features: [{ name: "جنس کاور", value: "سیلیکون مایع" }],
     images: productImages.covers,
   },
-
   {
     id: 5,
     title: "هدفون بی‌سیم نویز کنسلینگ سونی مدل WH-1000XM5",
@@ -331,14 +311,9 @@ export const productsDetails = [
       { name: "مشکی", value: "#000000" },
       { name: "سفید", value: "#ffffff" },
     ],
-    features: [
-      { name: "قابلیت نویز کنسلینگ", value: "فعال (ANC) هوشمند" },
-      { name: "عمر باتری", value: "تا ۳۰ ساعت پخش مداوم" },
-      { name: "نوع اتصال", value: "بلوتوث نسخه ۵.۲" },
-    ],
+    features: [{ name: "قابلیت نویز کنسلینگ", value: "فعال (ANC) هوشمند" }],
     images: productImages.headphones,
   },
-
   {
     id: 6,
     title: "لوازم پخت و پز و تجهیزات آشپزخانه و فندک",
@@ -364,13 +339,9 @@ export const productsDetails = [
     },
     guarantee: "7 روز ضمانت بازگشت کالا",
     colors: [{ name: "مشکی و نقره‌ای", value: "#4e5154" }],
-    features: [
-      { name: "نوع کالا", value: "ملزومات آشپزخانه و کمپینگ" },
-      { name: "جنس بدنه", value: "فلز ضد زنگ و پلاستیک فشرده" },
-    ],
+    features: [{ name: "نوع کالا", value: "ملزومات آشپزخانه" }],
     images: productImages.tools,
   },
-
   {
     id: 7,
     title: "پاوربانک فست شارژ باسئوس مدل Adaman 20000mAh",
@@ -396,13 +367,9 @@ export const productsDetails = [
     },
     guarantee: "12 ماه گارانتی ژیوان",
     colors: [{ name: "مشکی", value: "#000000" }],
-    features: [
-      { name: "ظرفیت اسمی", value: "۲۰۰۰۰ میلی‌آمپر ساعت" },
-      { name: "توان خروجی", value: "۲۲.۵ وات سوپر فست شارژ" },
-    ],
+    features: [{ name: "ظرفیت اسمی", value: "۲۰۰۰۰ میلی‌آمپر" }],
     images: productImages.powerbank,
   },
-
   {
     id: 8,
     title: "ساعت هوشمند اسپرت شیائومی مدل Redmi Watch 3",
@@ -431,13 +398,9 @@ export const productsDetails = [
       { name: "مشکی", value: "#000000" },
       { name: "سفید", value: "#ffffff" },
     ],
-    features: [
-      { name: "نوع صفحه نمایش", value: "AMOLED با سایز ۱.۷۵ اینچ" },
-      { name: "حسگرها", value: "سنجش اکسیژن خون (SpO2) و ضربان قلب" },
-    ],
+    features: [{ name: "نوع صفحه نمایش", value: "AMOLED" }],
     images: productImages.watches,
   },
-
   {
     id: 9,
     title: "مجموعه شوینده‌های بهداشتی و پودر لباسشویی",
@@ -463,13 +426,9 @@ export const productsDetails = [
     },
     guarantee: "ضمانت اصالت و کیفیت کالا",
     colors: [{ name: "مشکی", value: "#000000" }],
-    features: [
-      { name: "تعداد در بسته", value: "۳ پارچه کاربردی شوینده" },
-      { name: "کاربرد", value: "پاک‌کنندگی سطوح و شستشوی لباس" },
-    ],
+    features: [{ name: "تعداد در بسته", value: "۳ پارچه" }],
     images: productImages.washers,
   },
-
   {
     id: 10,
     title: "پوشاک و لوازم بهداشتی کودک مای‌بیبی",
@@ -495,13 +454,9 @@ export const productsDetails = [
     },
     guarantee: "اصالت فیزیکی و بهداشتی کالا",
     colors: [{ name: "سفید", value: "#ffffff" }],
-    features: [
-      { name: "نوع محصول", value: "پوشاک بهداشتی کودک" },
-      { name: "ویژگی خاص", value: "ضد حساسیت و دارای لایه لوسیون‌دار" },
-    ],
+    features: [{ name: "نوع محصول", value: "پوشاک کودک" }],
     images: productImages.babyProducts,
   },
-
   {
     id: 11,
     title: "کنسروجات، مواد غذایی و ملزومات بهداشتی حمایتی",
@@ -527,10 +482,7 @@ export const productsDetails = [
     },
     guarantee: "ضمانت اصالت و تاریخ مصرف معتبر",
     colors: [{ name: "طلایی/نقره‌ای", value: "#d4af37" }],
-    features: [
-      { name: "محتویات سبد", value: "کنسروجات غذایی و ملزومات بهداشتی" },
-      { name: "استاندارد", value: "دارای نشان سیب سلامت و بهداشت" },
-    ],
-    images: productImages.premiumFoods,
+    features: [{ name: "محتویات سبد", value: "کنسروجات غذایی" }],
+    images: productImages.premiumFoods, // اینجا هم با تصویر توضیحات هماهنگ شد
   },
 ];

@@ -14,7 +14,7 @@ import AmazingDetailsLink from "./amazingDetails/AmazingDetailsLink";
 // Components (Mobile & Shared)
 import MobileProductLayout from "./AmazingMobileProduct";
 import ProductTabs from "../../components/product-description/ProductTabs";
-import AmazingDescriptionPage from "./AmazingDescriptionPage";
+
 import { AmazingdescriptionData } from "../../data/categoriesData/amazingDescription.Data";
 
 // Context & Cart
@@ -25,6 +25,7 @@ import { toFarsiNumber } from "../../utils/number";
 // Icons
 import { FaArrowRight } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
+import ProductDescriptionPage from "../../components/product-description/ProductDescriptionPage";
 // start
 export default function AmazingDetails() {
   const { id } = useParams();
@@ -105,7 +106,7 @@ export default function AmazingDetails() {
         </div>
 
         <MobileProductLayout product={product} />
-        <AmazingDescriptionPage product={product} />
+        <ProductDescriptionPage product={product}/>
       </div>
 
       {/* ================= DESKTOP ================= */}

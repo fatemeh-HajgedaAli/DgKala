@@ -6,7 +6,7 @@ import ProductsPage from "./features/products/pages/ProductsPage";
 import SearchModal from "./features/navbar/searchPart/SearchModal";
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
-import ProductDescriptionPage from "./features/amazingOffer/AmazingDescriptionPage";
+import ProductDescriptionPage from "./components/product-description/ProductDescriptionPage";
 import CheckoutShipping from "./pages/CheckoutShipping";
 // PAGES
 import Home from "./pages/Home";
@@ -38,7 +38,11 @@ export default function App() {
           <Route path="amazing" element={<MainAmazing />} />
           <Route path="amazing/:id" element={<AmazingDetails />} />
           <Route
-            path="/amazing/:id/description"
+            path="amazing/:id/description"
+            element={<ProductDescriptionPage />}
+          />
+          <Route
+            path="product/:id/description"
             element={<ProductDescriptionPage />}
           />
 

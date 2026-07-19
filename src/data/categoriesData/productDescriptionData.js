@@ -16,7 +16,6 @@ export const productDescriptionData = {
       { name: "زبان", value: "فارسی" },
     ],
   },
-
   2: {
     images: productImages.mobiles,
     description: {
@@ -31,7 +30,6 @@ export const productDescriptionData = {
       { name: "شبکه", value: "5G" },
     ],
   },
-
   3: {
     images: productImages.drugs,
     description: {
@@ -46,7 +44,6 @@ export const productDescriptionData = {
       { name: "ویژگی", value: "ضد لک و جوانساز" },
     ],
   },
-
   4: {
     images: productImages.covers,
     description: {
@@ -60,7 +57,6 @@ export const productDescriptionData = {
       { name: "وزن", value: "۲۵ گرم" },
     ],
   },
-
   5: {
     images: productImages.headphones,
     description: {
@@ -75,7 +71,6 @@ export const productDescriptionData = {
       { name: "شارژ", value: "USB Type-C" },
     ],
   },
-
   6: {
     images: productImages.tools,
     description: {
@@ -89,7 +84,6 @@ export const productDescriptionData = {
       { name: "جنس بدنه", value: "فلز ضد زنگ و پلاستیک فشرده" },
     ],
   },
-
   7: {
     images: productImages.powerbank,
     description: {
@@ -104,7 +98,6 @@ export const productDescriptionData = {
       { name: "جنس بدنه", value: "آلیاژ آلومینیوم" },
     ],
   },
-
   8: {
     images: productImages.watches,
     description: {
@@ -119,7 +112,6 @@ export const productDescriptionData = {
       { name: "مقاومت در برابر آب", value: "مقاومت کامل 5ATM" },
     ],
   },
-
   9: {
     images: productImages.washers,
     description: {
@@ -133,7 +125,6 @@ export const productDescriptionData = {
       { name: "کاربرد", value: "پاک‌کنندگی سطوح و شستشوی البسه" },
     ],
   },
-
   10: {
     images: productImages.babyProducts,
     description: {
@@ -147,9 +138,8 @@ export const productDescriptionData = {
       { name: "ویژگی خاص", value: "ضد حساسیت و دارای لایه لوسیون‌دار" },
     ],
   },
-
   11: {
-    images: productImages.premiumFoods,
+    images: productImages.premiumFoods, // اینجا هم اصلاح شد
     description: {
       short: "کنسروجات، مواد غذایی و ملزومات بهداشتی حمایتی",
       long: `مجموعه ترکیبی فروشگاهی شامل تن ماهی در روغن، رب گوجه فرنگی غلیظ، کمپوت آناناس مرغوب و ملزومات بهداشتی حمایتی ایزی‌لایف بزرگسالان.`,
