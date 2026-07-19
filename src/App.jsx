@@ -14,7 +14,7 @@ import NewsDetail from "./pages/NewsDetail";
 import CartPage from "./pages/CartPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import FAQ from "./pages/FAQ";
+import FAQPage from "./pages/FAQPage";
 // LAYOUT
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
@@ -67,7 +67,7 @@ export default function App() {
         </Route>
 
         {/* questions */}
-        <Route path="/questions" element={<FAQ />} />
+        <Route path="/questions" element={<FAQPage />} />
 
         <Route path="*" element={<h1>NOT FOUND - TEST</h1>} />
       </Routes>
