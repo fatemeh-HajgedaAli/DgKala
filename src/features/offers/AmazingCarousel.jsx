@@ -3,41 +3,47 @@ import React, { useRef, useState, useEffect } from "react";
 import OfferArrow from "./OfferArrow";
 import OfferSlider from "./OfferSlider";
 import OffersText from "./OffersText";
-// start
-export default function AmazingCarousal() {
-  const sliderRef = useRef(null);
 
+export default function AmazingCarousal({ duration = 86400000 }) {
+  // دریافت زمان کل تخفیف اسلایدر
+  const sliderRef = useRef(null);
   const [showLeft, setShowLeft] = useState(true);
   const [showRight, setShowRight] = useState(false);
 
   const slide = (dir) => {
-    sliderRef.current?.scrollBy({
-      left: dir === "left" ? -300 : 300,
+    if (!sliderRef.current) return;
+
+    // در سیستم‌های RTL، مقدار اسکرول چپ ممکن است منفی باشد
+    const scrollAmount = dir === "left" ? -300 : 300;
+    sliderRef.current.scrollBy({
+      left: scrollAmount,
       behavior: "smooth",
     });
-    onScroll = { updateButtons };
   };
+
   const updateButtons = () => {
     const el = sliderRef.current;
     if (!el) return;
 
-    const isAtStart = el.scrollLeft === 0;
+    // بررسی دقیق موقعیت اسکرول
+    const isAtStart = Math.abs(el.scrollLeft) < 5;
+    const isAtEnd =
+      Math.abs(el.scrollLeft) + el.clientWidth >= el.scrollWidth - 5;
 
-    const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5;
-
-    setShowRight(!isAtStart && !isAtEnd);
+    setShowRight(!isAtStart);
+    setShowLeft(!isAtEnd);
   };
 
   useEffect(() => {
     updateButtons();
+    window.addEventListener("resize", updateButtons);
+    return () => window.removeEventListener("resize", updateButtons);
   }, []);
-  // jsx
+
   return (
-    <div
-      className="relative flex h-[280px] lg:h-[350px] bg-rose-500 
-    lg:rounded-3xl  overflow-hidden top-10  lg:mr-[100px] lg:mx-10 "
-    >
-      <OffersText />
+    <div className="relative flex h-[280px] lg:h-[350px] bg-rose-500 lg:rounded-3xl overflow-hidden top-10 lg:mr-[100px] lg:mx-10">
+      {/* پاس دادن زمان به کامپوننت متنی */}
+      <OffersText duration={duration} />
 
       {showRight && (
         <OfferArrow direction="right" onClick={() => slide("right")} />
@@ -51,8 +57,9 @@ export default function AmazingCarousal() {
         <OfferSlider className="flex items-center" />
       </div>
 
-      <OfferArrow direction="left" onClick={() => slide("left")} />
+      {showLeft && (
+        <OfferArrow direction="left" onClick={() => slide("left")} />
+      )}
     </div>
   );
 }
-// finish

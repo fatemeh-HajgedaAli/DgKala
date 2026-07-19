@@ -1,6 +1,7 @@
 // product-tabs
 import { useEffect, useState } from "react";
-// start
+import { motion } from "framer-motion";
+
 export default function ProductTabs() {
   const [active, setActive] = useState("description");
 
@@ -25,7 +26,8 @@ export default function ProductTabs() {
         });
       },
       {
-        rootMargin: "-100px 0px -60% 0px",
+        // تنظیم فاصله مناسب برای تشخیص دقیق سکشن در زمان اسکرول
+        rootMargin: "-140px 0px -50% 0px",
       },
     );
 
@@ -37,35 +39,47 @@ export default function ProductTabs() {
   }, []);
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      // افست لازم برای اینکه عنوان بخش‌ها زیر هدر فیکس پنهان نشود
+      const offset = 140;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
     <div
       className="
         sticky
-        top-4
+        top-[0px]
+        lg:top-[60px] 
         z-30
-        bg-white/90
-        backdrop-blur-xl
+        bg-white
         border-b
         border-slate-100
+        shadow-sm
+        w-full
       "
       dir="rtl"
     >
-      <div className="max-w-7xl mx-auto flex gap-8 overflow-x-auto px-5">
+      <div className="max-w-[1440px] mx-auto flex gap-8 overflow-x-auto px-5 scrollbar-hide">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => scrollToSection(tab.id)}
             className={`
-              relative whitespace-nowrap py-2 text-sm font-meduim transition
+              relative whitespace-nowrap py-4 text-sm font-medium transition-colors duration-200
               ${
                 active === tab.id
-                  ? "text-red-500"
+                  ? "text-[#ef4056]"
                   : "text-slate-500 hover:text-slate-900"
               }
             `}
@@ -73,11 +87,13 @@ export default function ProductTabs() {
             {tab.label}
 
             {active === tab.id && (
-              <span
+              <motion.span
+                layoutId="activeTabIndicator"
                 className="
                   absolute bottom-0 right-0 left-0 
-                  h-1 bg-red-500 rounded-full
+                  h-[3px] bg-[#ef4056] rounded-t-full
                 "
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
           </button>

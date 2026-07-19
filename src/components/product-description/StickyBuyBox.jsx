@@ -1,283 +1,186 @@
-// amazing-Description
-
-import { FiShield, FiCheckCircle, FiClock, FiUser } from "react-icons/fi";
-
+// Stick-Buy-Box
+// icons
+import { FiClock } from "react-icons/fi";
+import { GoShieldCheck } from "react-icons/go";
+import { GoChecklist } from "react-icons/go";
+// parts
 import { toFarsiNumber } from "../../utils/number";
+import OfferTimer from "../shared/OfferTimer";
+// image
+import IncredibleOffer from "../../assets/logos/IncredibleOffer-logo.svg";
+import smileLogo from "../../assets/logos/smile-favicon.webp";
 
+// start
 export default function StickyBuyBox({ product }) {
   if (!product) return null;
 
-  const { inventory, pricing, guarantee, seller, title, images } = product;
-  console.log("PRODUCT IMAGES:", product.images);
+  const { inventory, pricing, guarantee, seller } = product;
+
+  const targetDuration = pricing?.offerDuration || 86400000;
+  console.log("Product Data in BuyBox:", product);
+  // jsx
   return (
     <div
       className="
-      sticky
-     mx-12
-     lg:mx-6
-      lg:top-20
-top-2
-      bg-red-50
-      rounded-2xl
-      border
-      border-slate-100
-      p-5
-      shadow-sm
+        sticky 
+       hidden
+        lg:block
+        top-30
+        w-[350px] 
+        h-[420px]
+        bg-gray-50 
+        rounded-xl 
+        border-1
+        border-gray-200 
+        p-4
+        shadow-sm
       "
       dir="rtl"
     >
-      {/* Special Sale */}
-
-      <div className="flex items-center justify-between mb-4 pb-3">
-        <h3 className="text-red-500 font-black text-xl">فروش ویژه</h3>
+      {/* Top Section: Amazing Offer & Timer */}
+      <div className="flex items-center justify-between  pb-3 mb-4">
+        <img src={IncredibleOffer} alt="Amazings-Incredible-Offer" />
+        <div>
+          <OfferTimer duration={targetDuration} variant="product" />
+        </div>
       </div>
 
-      {/* Product Image + Title */}
-
-      <div
-        className="
-        flex
-        flex-row
-        sm:flex-row
-        items-center
-        gap-3
-        border-b
-        border-gray-300
-        "
-      >
-        {images?.[0] && (
+      {/* Product-details */}
+      <div className="flex flex-col gap-2 border-b border-gray-200/60 pb-2">
+        <div className="flex items-start gap-3">
           <img
-            src={images[0]}
-            alt={title}
-            className="
-            w-32
-            h-32
-            object-contain
-            mx-auto
-            mb-5
-            "
+            src={
+              // ۱. بررسی آرایه بودن تصاویر و برداشتن اولین عکس
+              Array.isArray(product?.images) && product.images[0]
+                ? product.images[0].startsWith("http") ||
+                  product.images[0].startsWith("data:")
+                  ? product.images[0]
+                  : new URL(product.images[0], import.meta.url).href
+                : "https://via.placeholder.com/60"
+            }
+            alt={product?.title || "Product"}
+            className="w-20 h-20 object-contain rounded-lg border border-gray-200 bg-white p-1 flex-shrink-0"
+            onError={(e) => {
+              e.target.src = "https://via.placeholder.com/60";
+            }}
           />
-        )}
-
-        <h3
-          className="
-          text-sm
-          font-medium
-          text-slate-800
-          leading-6
-          mb-5
-          text-justify
-          "
-        >
-          {title}
-        </h3>
+          <div className="flex flex-col gap-1 min-w-0">
+            <h4 className="text-xs font-bold text-gray-800 line-clamp-2 leading-5 break-words">
+              {product?.title || "عنوان محصول"}
+            </h4>
+            <p className="text-[11px] text-gray-400 line-clamp-1">
+              {product?.subtitle || product?.category || "توضیحات تکمیلی محصول"}
+            </p>
+            {/* color */}
+            <div className="flex items-center gap-2 mt-1">
+              {" "}
+              <div
+                className="w-5 h-5 rounded-full border border-gray-300 bg-white 
+               flex items-center justify-center mr-1"
+              >
+                <div
+                  className="w-3.5 h-3.5 rounded-full"
+                  style={{ backgroundColor: product?.color?.code || "#ffffff" }}
+                />
+              </div>
+              <span className="text-xs text-gray-800 font-bold">
+                {product?.color?.name || product?.color || "سفید"}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Product Information */}
-
-      <div
-        className="
-        space-y-4
-        mb-5
-        mt-4
-        border-b
-        border-slate-100
-        pb-5
-        "
-      >
+      {/* Product Info List */}
+      <div className="space-y-0 mt-2 text-gray-700 text-[10px]">
         {/* Seller */}
+        <div className="flex items-start gap-3">
+          <img
+            src={smileLogo}
+            alt="smileLogo"
+            className="w-8 h-8 rounded-full"
+          />
 
-        <div className="flex items-center gap-3 text-sm text-slate-700">
-          <span className="text-slate-400 text-lg">
-            <FiUser />
-          </span>
-
-          <div className="flex flex-col">
-            <span className="font-bold">{seller?.name || "مکمل فارماسی"}</span>
-
-            <span
-              className="
-              text-[11px]
-              text-emerald-600
-              font-medium
-              "
-            >
+          <div className="flex flex-col gap-0.5">
+            <span className="font-semibold text-gray-800">
+              {seller?.name || "دیجی‌کالا"}
+            </span>
+            <span className="text-[11px] text-gray-400">
               رضایت کالا: {seller?.satisfaction || "۹۷٪"}
             </span>
           </div>
         </div>
 
         {/* Guarantee */}
-
-        <div className="flex items-center gap-3 text-sm text-slate-600">
-          <span className="text-slate-400 text-lg">
-            <FiShield />
+        <div className="flex items-center gap-3 border-t border-gray-50 pt-3">
+          <span className="text-gray-800 text-lg">
+            <GoShieldCheck />
           </span>
-
-          <span>{guarantee || "ضمانت اصالت و سلامت فیزیکی کالا"}</span>
-        </div>
-
-        {/* Inventory */}
-
-        <div className="flex items-center gap-3 text-sm text-slate-600">
-          <span className="text-emerald-500 text-lg">
-            <FiCheckCircle />
-          </span>
-
-          <span>
-            {inventory?.inStock ? "موجود در انبار فروشنده" : "ناموجود"}
+          <span className="font-medium text-gray-600">
+            {guarantee || "گارانتی ۱۸ ماهه شرکتی"}
           </span>
         </div>
 
-        {/* Expire Notice */}
-
-        <div
-          className="
-          flex
-          items-center
-          gap-3
-          bg-amber-50/70
-          border
-          border-amber-200/60
-          rounded-xl
-          p-3
-          text-amber-800
-          "
-        >
-          <span className="text-amber-600 text-lg">
-            <FiClock />
+        {/* Inventory Status */}
+        <div className="flex items-start gap-3 border-t border-gray-50 pt-2">
+          <span className="text-cyan-500 text-lg mt-0.5">
+            <GoChecklist />
           </span>
-
-          <div className="flex flex-col gap-0.5">
-            <span className="font-bold text-xs">اطلاعیه مصرف کالا:</span>
-
-            <span
-              className="
-              text-[11px]
-              text-amber-700/90
-              font-medium
-              "
-            >
-              تاریخ انقضا بین دو تا سه ماه آینده می‌باشد.
+          <div className="flex flex-col gap-1">
+            <span className="font-medium text-gray-600">
+              {inventory?.inStock ? "موجود در انبار دیجی‌کالا" : "ناموجود"}
+            </span>
+            <span className="text-[11px] text-cyan-600 font-medium">
+              ارسال دیجی‌کالا از ۲ ساعت دیگر
             </span>
           </div>
         </div>
       </div>
 
-      {/* Price */}
-
-      <div className="flex flex-col gap-4">
-        <div
-          className="
-          flex
-          items-end
-          justify-end
-          gap-2
-          "
-        >
+      {/* Pricing Section */}
+      <div className="flex flex-col gap-1 mt-2">
+        {/* Discount & Original Price Row */}
+        <div className="flex items-center justify-end h-6 gap-2">
           {pricing?.price && (
-            <div
-              className="
-                text-xs
-                text-slate-400
-                line-through
-                font-medium
-                "
-            >
+            <span className="text-xs text-gray-400 line-through font-medium tracking-wide">
               {toFarsiNumber(pricing.price.toLocaleString())}
-            </div>
+            </span>
           )}
-
-          <span
-            className="
-            bg-red-500
-            text-white
-            px-2
-            py-0.5
-            rounded-md
-            text-xs
-            border
-            border-red-500
-            font-black
-            "
-          >
+          <span className="bg-[#ef4056] text-white px-1.5 py-0.5 rounded-full text-[11px] font-bold">
             {pricing?.discountPercent
               ? `٪${toFarsiNumber(pricing.discountPercent)}`
-              : "٪۷۹"}
+              : "٪۳۵"}
           </span>
         </div>
 
-        <div
-          className="
-          flex
-          items-center
-          justify-end
-          mt-1
-          "
-        >
-          <div
-            dir="rtl"
-            className="
-            flex
-            items-center
-            gap-1
-            "
-          >
-            <span
-              className="
-              text-2xl
-              font-black
-              text-slate-900
-              "
-            >
-              {pricing?.finalPrice
-                ? toFarsiNumber(pricing.finalPrice.toLocaleString())
-                : "۹۷,۰۲۰"}
-            </span>
-
-            <span
-              className="
-              text-[11px]
-              text-slate-500
-              font-bold
-              "
-            >
-              تومان
-            </span>
-          </div>
+        {/* Final Price Row */}
+        <div className="flex items-center justify-end gap-1 ">
+          <span className="text-xl font-bold text-gray-800 tracking-tight">
+            {pricing?.finalPrice
+              ? toFarsiNumber(pricing.finalPrice.toLocaleString())
+              : "۱۹,۵۹۹,۰۰۰"}
+          </span>
+          <span className="text-[10px] text-gray-600 font-bold">تومان</span>
         </div>
       </div>
 
       {/* Add To Cart Button */}
-
       <button
         disabled={inventory?.inStock === false}
         className={`
-        mt-6
-        w-full
-        py-3.5
-        rounded-xl
-        text-white
-        font-black
-        text-sm
-        transition-all
-        active:scale-95
-
-        ${
-          inventory?.inStock !== false
-            ? `
-          bg-red-500
-          hover:bg-red-600
-          shadow-md
-          shadow-red-500/10
-          hover:scale-[1.01]
-          `
-            : `
-          bg-slate-300
-          cursor-not-allowed
-          `
-        }
-
+          mt-2
+          w-full
+          py-3
+          rounded-xl
+          text-white
+          font-bold
+          text-sm
+          transition-colors
+          ${
+            inventory?.inStock !== false
+              ? "bg-[#ef4056] hover:bg-[#e03148]"
+              : "bg-gray-200 text-gray-400 cursor-not-allowed"
+          }
         `}
       >
         {inventory?.inStock !== false
