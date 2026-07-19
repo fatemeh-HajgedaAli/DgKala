@@ -9,11 +9,10 @@ import ProductAction from "../components/productDetails/ProductAction";
 import ProductsIcons from "../components/productDetails/ProductsIcons";
 import DetailsLink from "../components/productDetails/DetailsLink";
 import SubscriptionCard from "../components/productDetails/SubscriptionCard";
+import ProductTabs from "../../../components/product-description/ProductTabs"; // فرض کردم اسم کامپوننت اینه
 
 import MobileProduct from "./MobileProduct";
-
 import LoadingScreen from "../../../components/ui/LoadingScreen";
-
 import { useCart } from "../../../context/CartContext";
 import CartPreview from "../../../features/cartPart/CartPreview";
 
@@ -21,7 +20,7 @@ import CartPreview from "../../../features/cartPart/CartPreview";
 import { FaArrowRight } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
 import ProductDescriptionPage from "../components/ProductDescriptionPage";
-
+// start
 export default function ProductDetailsPages() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -29,8 +28,10 @@ export default function ProductDetailsPages() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const [showCart, setShowCart] = useState(false);
+
+  // وضعیت برای چک کردن اینکه کاربر اسکرول کرده یا نه
+  const [isSticky, setIsSticky] = useState(false);
 
   const { state } = useCart();
 
@@ -38,6 +39,23 @@ export default function ProductDetailsPages() {
     (sum, item) => sum + Number(item.qty || 0),
     0,
   );
+
+  // افکت برای گوش دادن به اسکرول صفحه
+  useEffect(() => {
+    const handleScroll = () => {
+      // اگر بیشتر از 150 پیکسل اسکرول شد، تب‌ها فیکس بشن
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const load = async () => {
@@ -55,7 +73,6 @@ export default function ProductDetailsPages() {
   }, [id]);
 
   if (loading) return <LoadingScreen />;
-
   if (error) return <div className="p-5 text-red-500">{error}</div>;
 
   return (
@@ -68,14 +85,14 @@ export default function ProductDetailsPages() {
         className="
           lg:hidden
           fixed
-          top-4
+          top-0
           left-0
           right-0
           z-50
+          h-12
           flex
           justify-between
           bg-white
-          shadow
           px-3
           py-2
         "
@@ -85,23 +102,11 @@ export default function ProductDetailsPages() {
         </button>
         <button onClick={() => setShowCart(true)} className="relative">
           <BsCart size={21} />
-
           {cartCount > 0 && (
             <span
-              className="
-                absolute
-                -top-2
-                -left-2
-                bg-red-500
-                text-white
-                text-[10px]
-                w-5
-                h-5
-                rounded-full
-                flex
-                items-center
-                justify-center
-              "
+              className="absolute -top-2 -left-2 bg-red-500 
+            text-white text-[10px] w-5 h-5 rounded-full flex items-center
+             justify-center"
             >
               {cartCount}
             </span>
@@ -109,53 +114,50 @@ export default function ProductDetailsPages() {
         </button>
       </div>
 
+      {/* Mobile Sticky Tabs Container */}
+      <div
+        className={`lg:hidden fixed left-0 right-0 z-40 
+          bg-white shadow-sm transition-all duration-300 ${
+            isSticky
+              ? "top-12 opacity-100 visible"
+              : "-top-10 opacity-0 invisible"
+          }`}
+      >
+        <ProductTabs product={product} />
+      </div>
       {/* Link همیشه بالا */}
-      <div className="max-w-[1440px] mx-auto px-5 pt-16 lg:pt-5">
+      <div id="details-link" className="flex px-3 py-4 ">
         <DetailsLink product={product} />
       </div>
-
-      {/* Mobile */}
-
       <div className="lg:hidden">
+        {/* Mobile Product Info */}
         <MobileProduct product={product} />
-       <ProductDescriptionPage product={product}/>
+
+        {/* بخش توضیحات و ویژگی‌ها */}
+        <ProductDescriptionPage product={product} />
       </div>
 
       {/* Desktop */}
-
       <div className="hidden lg:block">
-        <div
-          className="
-            grid
-            grid-cols-12
-            gap-8
-            p-5
-            max-w-[1440px]
-            mx-auto
-          "
-        >
+        <div className="grid grid-cols-12 gap-8 p-5 max-w-[1440px] mx-auto">
           {/* Gallery */}
-
           <div className="col-span-4 sticky top-5">
             <ProductGallery product={product} />
           </div>
 
           {/* Info */}
-
           <div className="col-span-5">
             <ProductInfo product={product} />
-
             <SubscriptionCard />
           </div>
 
           {/* Seller */}
-
           <div className="col-span-3 sticky top-5">
             <ProductAction product={product} />
           </div>
         </div>
-
         <ProductsIcons />
+        <ProductDescriptionPage product={product} />
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
+// ProductDescriptionPage
 import { useParams } from "react-router-dom";
 
 import { productDescriptionData } from "../../../data/categoriesData/productDescriptionData";
-
 import ProductDescription from "../../../components/product-description/ProductDescription";
-
+// start
 export default function ProductDescriptionPage({ product }) {
   const { id } = useParams();
 
@@ -12,7 +12,7 @@ export default function ProductDescriptionPage({ product }) {
   if (!product || !details) {
     return null;
   }
-
+  // jsx
   return (
     <div
       className="
@@ -25,3 +25,4 @@ export default function ProductDescriptionPage({ product }) {
     </div>
   );
 }
+// finish

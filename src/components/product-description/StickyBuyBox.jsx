@@ -8,13 +8,15 @@ export default function StickyBuyBox({ product }) {
   if (!product) return null;
 
   const { inventory, pricing, guarantee, seller, title, images } = product;
-
+  console.log("PRODUCT IMAGES:", product.images);
   return (
     <div
       className="
       sticky
-      mx-6
-      top-24
+     mx-12
+     lg:mx-6
+      lg:top-20
+top-2
       bg-red-50
       rounded-2xl
       border

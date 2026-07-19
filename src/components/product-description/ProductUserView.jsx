@@ -5,7 +5,7 @@ import { reviews } from "./productView/views.data";
 import ReviewHeader from "./productView/ReviewHeader";
 import ReviewSort from "./productView/ReviewSort";
 import ReviewCard from "./productView/ReviewCard";
-
+// start
 export default function ProductUserView() {
   const [reviewData, setReviewData] = useState(reviews);
   const [showSideHeader, setShowSideHeader] = useState(false);
@@ -66,7 +66,7 @@ export default function ProductUserView() {
       className="
         border-t
         border-slate-200
-        mt-10
+        mt-12
       "
     >
       {/* Header */}
@@ -94,7 +94,7 @@ export default function ProductUserView() {
           <div
             className="
               lg:sticky
-              lg:top-24
+              lg:top-28
             "
           >
             <ReviewHeader />
@@ -111,7 +111,7 @@ export default function ProductUserView() {
           <div
             className="
               sticky
-              top-16
+              top-18
               z-20
               bg-white
             "

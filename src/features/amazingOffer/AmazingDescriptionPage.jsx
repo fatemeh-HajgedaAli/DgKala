@@ -7,8 +7,10 @@ import { amazingProducts } from "../../data/categoriesData/amazingData";
 
 import ProductDescription from "../../components/product-description/ProductDescription";
 import ProductTabs from "../../components/product-description/ProductTabs";
+import StickyBuyBox from "../../components/product-description/StickyBuyBox";
+
 // start
-export default function ProductDescriptionPage() {
+export default function AmazingDescriptionPage() {
   const { id } = useParams();
 
   const details = AmazingdescriptionData[id];
@@ -23,6 +25,8 @@ export default function ProductDescriptionPage() {
     <>
       <ProductTabs />
       <ProductDescription details={details} product={product} />;
+      <StickyBuyBox/>
+
     </>
   );
 }

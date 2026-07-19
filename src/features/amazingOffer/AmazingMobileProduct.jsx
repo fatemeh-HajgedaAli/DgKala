@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
-import MobileIncredibleBanner from "../components/mobileDetails/mobilePart/MobileIncredibleBanner";
-import MobileProductHeader from "../components/mobileDetails/mobilePart/MobileProductHeader";
-import MobileFeaturesSlider from "../components/mobileDetails/mobilePart/MobileFeaturesSlider";
-import MobileSellerSection from "../components/mobileDetails/MobileSellerSection/MobileSellerSection";
-import MobileGallary from "../components/mobileDetails/mobilePart/MobileGallary";
-import MobileAddToCart from "../components/mobileDetails/mobilePart/MobileAddToCart";
+import MobileIncredibleBanner from "./mobilePart/MobileIncredibleBanner";
+import MobileProductHeader from "./mobilePart/MobileProductHeader";
+import MobileFeaturesSlider from "./mobilePart/MobileFeaturesSlider";
+import MobileSellerSection from "./mobilePart/MobileSellerSection/MobileSellerSection";
+import MobileGallary from "./mobilePart/MobileGallary";
+import MobileAddToCart from "./mobilePart/MobileAddToCart";
 
-import { useCart } from "../../../context/CartContext";
-import { useMiniCart } from "../../../context/MiniCartContext";
-// start
-export default function MobileProduct({ product }) {
+import { useCart } from "../../context/CartContext";
+import { useMiniCart } from "../../context/MiniCartContext";
+
+export default function AmazingMobileProduct({ product }) {
   const navigate = useNavigate();
 
   const { state, dispatch } = useCart();
@@ -54,9 +54,15 @@ export default function MobileProduct({ product }) {
     });
   // jsx
   return (
-    // main-Container
-    <div className="relative bg-gray-100 min-h-screen">
-      {/* Gallery */}
+    <div
+      className="
+        relative
+        bg-gray-100
+        min-h-screen
+
+      "
+    >
+      {/* Gallery Sticky */}
       <div
         className="
           sticky
@@ -69,7 +75,7 @@ export default function MobileProduct({ product }) {
         <MobileGallary product={product} />
       </div>
 
-      {/* Content */}
+      {/* White Content */}
       <div
         id="content"
         className="
@@ -78,8 +84,7 @@ export default function MobileProduct({ product }) {
           -mt-10
           bg-white
           rounded-t-3xl
-        border-b-1
-        border-gray-200
+          shadow-xl
           overflow-hidden
           pb-10
         "
@@ -96,7 +101,15 @@ export default function MobileProduct({ product }) {
         {/* Colors */}
         <div className="px-4 py-2" dir="rtl">
           <div className="mt-4">
-            <span className="text-gray-700 font-bold text-sm">رنگ:</span>
+            <span
+              className="
+                text-gray-700
+                font-bold
+                text-sm
+              "
+            >
+              رنگ:
+            </span>
 
             <div className="flex gap-3 mt-3">
               {product.colors?.map((color, index) => (
@@ -141,7 +154,7 @@ export default function MobileProduct({ product }) {
         />
       </div>
 
-      {/* Sticky Mobile Cart */}
+      {/* Fixed Add Cart */}
       <MobileAddToCart
         product={product}
         cartItem={cartItem}

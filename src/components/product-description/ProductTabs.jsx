@@ -1,29 +1,20 @@
+// product-tabs
 import { useEffect, useState } from "react";
-
+// start
 export default function ProductTabs() {
   const [active, setActive] = useState("description");
 
   const tabs = [
-    {
-      id: "description",
-      label: "معرفی کالا",
-    },
-    {
-      id: "highlights",
-      label: "ویژگی‌ها",
-    },
-    {
-      id: "specs",
-      label: "مشخصات فنی",
-    },
-    {
-      id: "reviews",
-      label: "دیدگاه کاربران",
-    },
+    { id: "description", label: "معرفی کالا" },
+    { id: "highlights", label: "ویژگی‌ها" },
+    { id: "specs", label: "مشخصات فنی" },
+    { id: "reviews", label: "دیدگاه کاربران" },
   ];
 
   useEffect(() => {
-    const sections = tabs.map((tab) => document.getElementById(tab.id));
+    const sections = tabs
+      .map((tab) => document.getElementById(tab.id))
+      .filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,26 +29,18 @@ export default function ProductTabs() {
       },
     );
 
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => {
-        if (section) observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -65,38 +48,21 @@ export default function ProductTabs() {
       className="
         sticky
         top-4
-        mt-2
         z-30
         bg-white/90
         backdrop-blur-xl
         border-b
-        border-slate-200
+        border-slate-100
       "
       dir="rtl"
     >
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-          flex
-          items-center
-          gap-8
-          overflow-x-auto
-          px-5
-        "
-      >
+      <div className="max-w-7xl mx-auto flex gap-8 overflow-x-auto px-5">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => scrollToSection(tab.id)}
             className={`
-              relative
-              whitespace-nowrap
-              py-4
-              text-sm
-              font-bold
-              transition
-
+              relative whitespace-nowrap py-2 text-sm font-meduim transition
               ${
                 active === tab.id
                   ? "text-red-500"
@@ -109,13 +75,8 @@ export default function ProductTabs() {
             {active === tab.id && (
               <span
                 className="
-                  absolute
-                  bottom-0
-                  right-0
-                  left-0
-                  h-1
-                  bg-red-500
-                  rounded-full
+                  absolute bottom-0 right-0 left-0 
+                  h-1 bg-red-500 rounded-full
                 "
               />
             )}
