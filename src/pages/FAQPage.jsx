@@ -35,13 +35,14 @@ export default function FAQPage() {
       <NavbarMenu/>
       <FAQBackground>
         <FAQSearch onSearch={handleSearch} />
+         </FAQBackground>
         <FAQCategories
           activeCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
         <FAQList faqs={filteredFaqs} />
         <Footer />
-      </FAQBackground>
+     
     </>
   );
 }

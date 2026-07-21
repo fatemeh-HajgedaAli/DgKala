@@ -7,7 +7,7 @@ import { categories } from "./faq.data";
 // start
 export default function FAQCategories({ activeCategory, onSelectCategory }) {
   return (
-    <div className="max-w-6xl mx-auto px-4" dir="rtl">
+    <div className="max-w-6xl mx-auto px-4 " dir="rtl">
       {/* tilte */}
       <div
         className="flex flex-col items-center justify-center
@@ -32,7 +32,7 @@ export default function FAQCategories({ activeCategory, onSelectCategory }) {
             onClick={() => onSelectCategory(cat.id)}
             className="flex flex-col items-center
              justify-center transition-all duration-200 
-             h-28  text-gray-600"
+             h-28 bg-white text-gray-600"
           >
             {/* آیکون کارت */}
             <div

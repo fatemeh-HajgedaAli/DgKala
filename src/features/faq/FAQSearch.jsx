@@ -8,10 +8,9 @@ import bestSellingPattern from "../../assets/logos/deal-pattern-amazing.svg";
 // start
 export default function FAQSearch({ onSearch }) {
   return (
-    <div className="relative w-full flex flex-col 
-    items-center text-center pt-16 pb-12 overflow-hidden">
+  <div>
       {/* محتوای اصلی */}
-      <div className="relative z-10 flex flex-col items-center w-full">
+      <div className="relative mt-16 z-40 flex flex-col items-center w-full">
         <div className="text-cyan-500 text-3xl mb-4 bg-white rounded-xl p-2.5 shadow-sm border border-slate-100">
           <CiSquareQuestion />
         </div>
