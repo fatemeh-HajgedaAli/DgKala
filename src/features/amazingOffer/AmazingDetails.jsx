@@ -13,7 +13,7 @@ import AmazingDetailsLink from "./amazingDetails/AmazingDetailsLink";
 
 // Components (Mobile & Shared)
 import MobileProductLayout from "./AmazingMobileProduct";
-import ProductTabs from "../../components/product-description/ProductTabs";
+import ProductTabs from "../../maincomponents/product-description/ProductTabs";
 
 import { AmazingdescriptionData } from "../../data/categoriesData/amazingDescription.Data";
 
@@ -25,7 +25,7 @@ import { toFarsiNumber } from "../../utils/number";
 // Icons
 import { FaArrowRight } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
-import ProductDescriptionPage from "../../components/product-description/ProductDescriptionPage";
+import ProductDescriptionPage from "../../maincomponents/product-description/ProductDescriptionPage";
 // start
 export default function AmazingDetails() {
   const { id } = useParams();

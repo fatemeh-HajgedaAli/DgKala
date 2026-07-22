@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { useSearch } from "../../../context/SearchContext";
 import { useFilteredProducts } from "../hooks/useFilteredProducts";
 
-import GalleryTitle from "../components/GallaryTitle";
+import GalleryTitle from "../components/ProductGallaryTitle";
 import ProductsGrid from "../components/productsPage/ProductsGrid";
-import FiltersSidebar from "../components/filters/FiltersSidebar";
-import LoadingScreen from "../../../components/ui/LoadingScreen";
+import FiltersSidebar from "../components/filters/ProductFiltersSidebar";
+import LoadingScreen from "../../../maincomponents/ui/LoadingScreen";
 
 import { getAllProducts } from "../services/product.service";
 // start

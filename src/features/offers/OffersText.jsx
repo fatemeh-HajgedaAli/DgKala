@@ -9,7 +9,7 @@ import Logo2 from "../../assets/logos/offer-icon.svg";
 import Logo3 from "../../assets/logos/shegeftaneh-sm.svg";
 
 // ایمپورت تایمر اصلاح‌شده
-import OfferTimer from "../../components/shared/OfferTimer";
+import OfferTimer from "../../maincomponents/shared/OfferTimer";
 
 export default function OffersText({ duration = 86400000 }) {
   return (

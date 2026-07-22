@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { translateText } from "../../components/services/translateApi";
+import { translateText } from "../../maincomponents/services/translateApi";
 
 // Start
 export default function ReadingCard({ article }) {

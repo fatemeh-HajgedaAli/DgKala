@@ -1,7 +1,7 @@
 import BestSellingItems from "./BestSellingItems";
 import { useRef, useState, useEffect } from "react";
 import { FaFire } from "react-icons/fa";
-import Button from "../../../components/shared/Button";
+import Button from "../../../maincomponents/shared/Button";
 import { Link } from "react-router";
 
 export default function MainBestSelling() {

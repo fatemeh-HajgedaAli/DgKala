@@ -6,7 +6,7 @@ import ProductsPage from "./features/products/pages/ProductsPage";
 import SearchModal from "./features/navbar/searchPart/SearchModal";
 import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
-import ProductDescriptionPage from "./components/product-description/ProductDescriptionPage";
+import ProductDescriptionPage from "./maincomponents/product-description/ProductDescriptionPage";
 import CheckoutShipping from "./pages/CheckoutShipping";
 // PAGES
 import Home from "./pages/Home";
@@ -19,7 +19,7 @@ import FAQPage from "./pages/FAQPage";
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
 // ui
-import ScrollToTop from "./components/ui/ScrollToTop";
+import ScrollToTop from "./maincomponents/ui/ScrollToTop";
 
 // START
 export default function App() {

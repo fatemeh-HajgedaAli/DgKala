@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../../components/shared/Button";
+import Button from "../../../../maincomponents/shared/Button";
 import AmazingBuySlider from "./AmazingBuySlider";
 // icon
 import { FaBullhorn } from "react-icons/fa";

@@ -6,7 +6,7 @@ import logo from "../assets/logos/dg-name-logo.svg";
 // icons
 import { FaArrowRight } from "react-icons/fa";
 // component
-import FloatingInput from "../components/shared/FloatingInput";
+import FloatingInput from "../maincomponents/shared/FloatingInput";
 // START
 export default function Login() {
   const [value, setValue] = useState("");

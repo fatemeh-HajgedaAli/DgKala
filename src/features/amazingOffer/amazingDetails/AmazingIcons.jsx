@@ -1,5 +1,5 @@
 // images
-import Icon1 from "../../../assets/logos/express-delivery (1)Box.svg";
+import Icon1 from "../../../assets/logos/express-deliveryBox.svg";
 import Icon2 from "../../../assets/logos/days-return-.svg";
 import Icon3 from "../../../assets/logos/original-products-medal.svg";
 import Icon4 from "../../../assets/logos/support.svg";

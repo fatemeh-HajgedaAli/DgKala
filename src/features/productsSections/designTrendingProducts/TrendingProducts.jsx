@@ -1,8 +1,8 @@
-// main 
+// main
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router";
 import { FaFire } from "react-icons/fa";
-import Button from "../../../components/shared/Button";
+import Button from "../../../maincomponents/shared/Button";
 
 import TrendingItems from "./TrendingItems";
 // START

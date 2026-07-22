@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../../components/services/newsApi";
+import { getArticles } from "../../maincomponents/services/newsApi";
 import ReadingCard from "./ReadingCards";
 
 export default function ReadingPart() {

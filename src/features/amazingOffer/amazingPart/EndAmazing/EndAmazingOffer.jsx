@@ -5,7 +5,7 @@ import { FaClock, FaStar } from "react-icons/fa6";
 // logo
 import bgPattern from "../../../../assets/logos/deal-pattern-amazing.svg";
 // components
-import Button from "../../../../components/shared/Button";
+import Button from "../../../../maincomponents/shared/Button";
 import AmazingSlider from "./EndAmazingSlider";
 
 // data

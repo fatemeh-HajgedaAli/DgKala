@@ -10,7 +10,7 @@ import { useFilteredProducts } from "../../hooks/useFilteredProducts";
 import { HiSortDescending } from "react-icons/hi";
 import { FiFilter } from "react-icons/fi";
 // filter
-import FiltersSidebar from "../../components/components/filters/FiltersSidebar";
+import FiltersSidebar from "./filters/AmazingFiltersSidebar";
 
 const SORTS = [
   "بیشترین تخفیف",

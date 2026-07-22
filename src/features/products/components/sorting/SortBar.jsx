@@ -1,3 +1,4 @@
+// SortBar
 export default function SortBar({ filters, setFilters }) {
   if (typeof setFilters !== "function") return null;
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import logo from "../assets/logos/dg-name-logo.svg";
-import FloatingInput from "../components/shared/FloatingInput";
+import FloatingInput from "../maincomponents/shared/FloatingInput";
 
 export default function Register() {
   const [value, setValue] = useState("");

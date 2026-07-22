@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import bgPattern from "../../../../assets/logos/bestSellingPattern-bg.svg";
 
 // components
-import Button from "../../../../components/shared/Button";
+import Button from "../../../../maincomponents/shared/Button";
 import AmazingSlider from "./AmazingDailySlider";
 
 // data

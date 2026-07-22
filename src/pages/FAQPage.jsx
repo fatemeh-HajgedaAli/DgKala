@@ -1,13 +1,16 @@
 // src/pages/FAQPage.jsx
 import { useState } from "react";
-import FAQBackground from "../features/faq/FAQBackground"; // امپورت کامپوننت پس‌زمینه
+// FAQ-parts
+import FAQBackground from "../features/faq/FAQBackground";
 import FAQSearch from "../features/faq/FAQSearch";
 import FAQCategories from "../features/faq/FAQCategories";
 import FAQList from "../features/faq/FAQList";
-import Footer from "../features/footer/Footer";
 import { faqData } from "../features/faq/faq.data";
-import NavbarMenu from "../features/navbar/NavbarMenu";
-
+// NavBar
+import Navbar from "../features/navbar/Navbar";
+// footer
+import Footer from "../features/footer/Footer";
+// start
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -29,20 +32,19 @@ export default function FAQPage() {
       faq.answer.replace(/\s+/g, " ").includes(cleanQuery.replace(/\s+/g, " "))
     );
   });
-
+  // jsx
   return (
     <>
-      <NavbarMenu/>
+      <Navbar />
       <FAQBackground>
         <FAQSearch onSearch={handleSearch} />
-         </FAQBackground>
-        <FAQCategories
-          activeCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
-        <FAQList faqs={filteredFaqs} />
-        <Footer />
-     
+      </FAQBackground>
+      <FAQCategories
+        activeCategory={selectedCategory}
+        onSelectCategory={setSelectedCategory}
+      />
+      <FAQList faqs={filteredFaqs} />
+      <Footer />
     </>
   );
 }

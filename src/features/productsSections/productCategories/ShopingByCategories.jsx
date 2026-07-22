@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import ProductsItems from "./ProductsItems";
 import { FaFire } from "react-icons/fa";
-import Button from "../../../components/shared/Button";
+import Button from "../../../maincomponents/shared/Button";
 
 export default function ShopingByCategories() {
   const sliderRef = useRef(null);
