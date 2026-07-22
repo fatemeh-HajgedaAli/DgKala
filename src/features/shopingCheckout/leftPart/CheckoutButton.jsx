@@ -1,6 +1,4 @@
 // src/features/shopingCheckout/leftPart/CheckoutButton.jsx
-import React from "react";
-
 const CheckoutButton = ({ text, onClick, disabled = false }) => {
   return (
     <button

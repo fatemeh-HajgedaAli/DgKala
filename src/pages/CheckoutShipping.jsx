@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // icons
 import { HiArrowRight } from "react-icons/hi";
@@ -17,13 +17,18 @@ import DeliveryTimePicker from "../features/shopingCheckout/rightPart/DeliveryTi
 import ShippingSummary from "../features/shopingCheckout/leftPart/ShippingSummary";
 
 export default function CheckoutShipping() {
+  // ۱. تعریف استیت برای ذخیره روز انتخابی ارسال
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
+
+  // ۲. استخراج قیمت ارسال (اگر تخفیف داشت، قیمت با تخفیف لحاظ میشه)
+  const shippingCost = selectedDelivery
+    ? selectedDelivery.discountPrice || selectedDelivery.price
+    : 0;
+
   return (
-    <div
-      className="min-h-screen bg-white py-4 px-4 md:px-8 "
-      dir="rtl"
-    >
+    <div className="min-h-screen bg-white py-4 px-4 md:px-8 " dir="rtl">
       <div className="max-w-[1280px] mx-auto space-y-4">
-        {/* 📍 ۱. هدر بالای صفحه (دقیقاً مشابه تصویر دیجی‌کالا) */}
+        {/* 📍 ۱. هدر بالای صفحه */}
         <header className="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 flex items-center justify-between relative shadow-sm">
           {/* سمت راست: دکمه بازگشت و عنوان */}
           <div className="flex items-center gap-3">
@@ -40,14 +45,10 @@ export default function CheckoutShipping() {
 
           {/* وسط: لوگوی دیجی‌کالا */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <img
-              src={dglogo}
-              alt="دیجی‌کالا"
-              className="h-5  object-contain"
-            />
+            <img src={dglogo} alt="دیجی‌کالا" className="h-5 object-contain" />
           </div>
 
-          {/* جهت حفظ تقارن (خالی) */}
+          {/* جهت حفظ تقارن */}
           <div className="w-8"></div>
         </header>
 
@@ -58,21 +59,23 @@ export default function CheckoutShipping() {
             {/* آدرس */}
             <AddressSection />
 
-            {/* بنر دیجی‌کالا پلاس (اختیاری) */}
+            {/* بنر دیجی‌کالا پلاس */}
             <DigikalaPlusBanner />
 
             {/* کارت مرسوله اصلی */}
             <div className="bg-white border border-gray-200 rounded-xl p-5 md:p-6 shadow-sm space-y-6">
               <ShipmentHeader />
               <ShipmentItemList />
-              <DeliveryTimePicker />
+              {/* ارسال تابع تغییر روز انتخاب شده به کامپوننت فرزند */}
+              <DeliveryTimePicker onSelectDeliveryDay={setSelectedDelivery} />
             </div>
           </section>
 
           {/* 🔴 سمت چپ (فاکتور و ثبت سفارش) */}
           <aside className="w-full lg:w-[320px] shrink-0">
             <div className="sticky top-4">
-              <ShippingSummary />
+              {/* پاس دادن هزینه ارسال محاسبه شده به فاکتور */}
+              <ShippingSummary shippingCost={shippingCost} />
             </div>
           </aside>
         </main>

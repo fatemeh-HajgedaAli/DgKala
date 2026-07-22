@@ -8,6 +8,7 @@ import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
 import ProductDescriptionPage from "./maincomponents/product-description/ProductDescriptionPage";
 import CheckoutShipping from "./pages/CheckoutShipping";
+import CheckoutPaymentPage from "./pages/CheckoutPaymentPage"; // 👈 ۱. اضافه شد
 // PAGES
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
@@ -56,19 +57,17 @@ export default function App() {
           {/* cart */}
           <Route path="cart" element={<CartPage />} />
         </Route>
-
-        {/* 2. روت صفحه جدید - خارج از لایوت اصلی برای داشتن هدر اختصاصی */}
+        {/* 2. روت‌های فرایند خرید - خارج از لایوت اصلی برای هدر اختصاصی */}
         <Route path="checkout/shipping" element={<CheckoutShipping />} />
-
+        <Route path="checkout/payment" element={<CheckoutPaymentPage />} />{" "}
+        {/* 👈 ۲. اضافه شد */}
         {/* AUTH */}
         <Route element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-
         {/* questions */}
         <Route path="/questions" element={<FAQPage />} />
-
         <Route path="*" element={<h1>NOT FOUND - TEST</h1>} />
       </Routes>
     </>

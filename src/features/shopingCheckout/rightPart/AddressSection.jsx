@@ -1,9 +1,11 @@
 // src/features/shopingCheckout/rightPart/AddressSection.jsx
-import React from "react";
+// ارسال به آدرس انتخاب شده
+// icons
 import { ChevronLeft } from "lucide-react";
 import { TfiTruck } from "react-icons/tfi";
+// comtext
 import { useAddress } from "../../../context/AddressContext";
-
+// start
 const AddressSection = () => {
   const { selectedAddress } = useAddress();
   // jsx
