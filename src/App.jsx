@@ -8,7 +8,8 @@ import MainAmazing from "./features/amazingOffer/MainAmazing";
 import AmazingDetails from "./features/amazingOffer/AmazingDetails";
 import ProductDescriptionPage from "./maincomponents/product-description/ProductDescriptionPage";
 import CheckoutShipping from "./pages/CheckoutShipping";
-import CheckoutPaymentPage from "./pages/CheckoutPaymentPage"; // 👈 ۱. اضافه شد
+import CheckoutPaymentPage from "./pages/CheckoutPaymentPage";
+import CategoriesPage from "./features/navbar/CategoriesPage";
 // PAGES
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
@@ -34,7 +35,8 @@ export default function App() {
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
-
+          {/* mobile-NavBar */}
+          <Route path="/categories" element={<CategoriesPage />} />
           {/* AMAZING */}
           <Route path="amazing" element={<MainAmazing />} />
           <Route path="amazing/:id" element={<AmazingDetails />} />

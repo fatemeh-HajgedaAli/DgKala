@@ -26,8 +26,8 @@ export default function OffersText({ duration = 86400000 }) {
         w-[100%]
         lg:w-auto
         h-auto 
-        my-8
-        mx-10 
+        my-2
+        mx-4
         lg:h-[85%] 
         lg:justify-evenly
       "
@@ -41,13 +41,16 @@ export default function OffersText({ duration = 86400000 }) {
       />
 
       {/* موبایل: لوگوهای کوچک چپ‌چین */}
-      <div className="flex lg:hidden items-center gap-2">
-        <img src={Logo2} alt="%Logo" className="w-8" />
+      <div className="flex lg:hidden items-center gap-2 ">
+        <img src={Logo2} alt="%Logo" className="w-12" />
         <img src={Logo3} alt="rowAmazing Logo" className="w-20" />
       </div>
 
       {/* بخش اختصاصی رندر تایمر شما با باکس سفید تمیز دیجی‌کالایی */}
-      <div className="text-gray-950 gap-2 px-2.5 py-1.5 rounded-lg  flex items-center justify-center min-w-[90px]">
+      <div
+        className="text-gray-950 gap-2 px-2.5 py-1.5 rounded-lg 
+       flex items-center justify-center min-w-[90px]"
+      >
         <OfferTimer duration={duration} variant="amazing" />
       </div>
 
@@ -63,7 +66,8 @@ export default function OffersText({ duration = 86400000 }) {
         {/* موبایل */}
         <Link
           to="/amazing"
-          className="text-xs font-bold flex lg:hidden items-center gap-0.5 hover:opacity-90"
+          className="text-xs font-bold ml-4  flex lg:hidden items-center
+           gap-0.5 hover:opacity-90"
         >
           <span>مشاهده همه</span>
           <MdKeyboardArrowLeft className="text-lg" />
@@ -72,7 +76,9 @@ export default function OffersText({ duration = 86400000 }) {
         {/* دسکتاپ */}
         <Link
           to="/amazing"
-          className="hidden lg:flex items-center text-sm font-bold gap-1 group border-b border-transparent hover:border-white pb-0.5 transition-all"
+          className="hidden lg:flex items-center text-sm 
+          font-bold gap-1 group border-b  
+          border-transparent hover:border-white pb-0.5 transition-all"
         >
           <span>مشاهده همه</span>
           <MdKeyboardArrowLeft className="text-lg transition-transform group-hover:-translate-x-1" />

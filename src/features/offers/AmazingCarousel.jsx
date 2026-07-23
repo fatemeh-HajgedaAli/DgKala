@@ -41,7 +41,10 @@ export default function AmazingCarousal({ duration = 86400000 }) {
   }, []);
 
   return (
-    <div className="relative flex h-[280px] lg:h-[350px] bg-rose-500 lg:rounded-3xl overflow-hidden top-10 lg:mr-[100px] lg:mx-10">
+    <div
+      className="relative flex h-[280px] lg:h-[350px] bg-rose-500 
+    lg:rounded-3xl overflow-hidden top-10 lg:mr-[100px] lg:mx-10"
+    >
       {/* پاس دادن زمان به کامپوننت متنی */}
       <OffersText duration={duration} />
 

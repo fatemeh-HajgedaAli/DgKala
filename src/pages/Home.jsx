@@ -39,7 +39,7 @@ import TrendingProductsMobile from "../features/productsSections/designTrendingP
 import Reading from "../features/readingPart/Reading";
 
 // footer
-import Footer from "../features/footer/Footer";
+import MobileFooter from "../features/footer/mobileFooter/MobileFooter";
 
 export default function Home() {
   const { search } = useSearch();
@@ -130,12 +130,12 @@ export default function Home() {
       </section>
 
       {/* READING */}
-      <section className="mt-6 px-3">
+      <section className="mt-6 px-3 mb-10">
         <Reading />
       </section>
-
-      {/* FOOTER */}
-      <Footer />
+      <section>
+        <MobileFooter />
+      </section>
     </div>
   );
 }

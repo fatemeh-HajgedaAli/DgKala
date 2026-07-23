@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { CgSearch } from "react-icons/cg";
-
+// image
 import mainLogo from "../../../assets/logos/dg-name-logo.svg";
+// context
 import { useSearch } from "../../../context/SearchContext";
-
+// start
 export default function SearchInput() {
   const { search, setSearch } = useSearch();
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function SearchInput() {
   const handleSearch = () => {
     navigate("/products");
   };
-
+  // jsx
   return (
     <div className="flex items-center gap-6 flex-1">
       {/* Logo */}

@@ -1,43 +1,57 @@
 @import "tailwindcss";
+
+/* 1. تعریف صحیح فونت‌های TTF */
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/ttf/Vazirmatn-Light.ttf") format("woff2");
+  src: url("./assets/fonts/ttf/Vazirmatn-Light.ttf") format("truetype");
   font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/ttf/Vazirmatn-Medium.ttf") format("woff2");
+  src: url("./assets/fonts/ttf/Vazirmatn-Medium.ttf") format("truetype");
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("./assets/fonts/ttf/Vazirmatn-Bold.ttf") format("woff2");
+  src: url("./assets/fonts/ttf/Vazirmatn-Bold.ttf") format("truetype");
   font-weight: 700;
+  font-display: swap;
 }
+
+/* 2. تنظیم فونت پیش‌فرض در Tailwind v4 */
 @theme {
   --default-font-family: "Vazirmatn", sans-serif;
 }
+
+/* 3. تعریف استاندارد کلاس مخفی‌کننده اسکرول‌بار برای Tailwind v4 */
+@utility no-scrollbar {
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* جهت پشتیبانی از نام قدیمی hide-scrollbar در صورت نیاز */
 @utility hide-scrollbar {
   &::-webkit-scrollbar {
     display: none;
   }
-
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
 
-.hide-scrollbar {
-  scrollbar-width: none;
-}
 body {
   overflow-x: hidden;
 }
 
-/* Chrome / Edge / Safari */
+/* 4. اسکرول‌بار سفارشی (Custom Scrollbar) */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -54,7 +68,3 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
-/* find style bugs */
-/* * {
-  outline: 1px solid red;
-} */

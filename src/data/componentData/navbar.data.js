@@ -102,13 +102,13 @@ export const bottemData = [
     icon: PiTriangleLight,
     activeIcon: PiTriangleFill,
     title: "مگنت",
-    path: "/categories",
+    path: "https://www.digikala.com/magnet/feed/?activeTab=community",
   },
   {
     id: 5,
     icon: IoPersonOutline,
     activeIcon: IoPerson,
     title: "دیجی کالای من",
-    path: "/categories",
+    path: "/login",
   },
 ];

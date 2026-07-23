@@ -1,55 +1,76 @@
-import { useState } from "react";
+// about-Digi-Kala
+import React, { useState } from "react";
 import { digikalaAboutText } from "../../data/componentData/digikalaAbout";
-// icons
-import { MdKeyboardArrowLeft } from "react-icons/md";
-// brands
-import brand1 from "../../assets/logos/footer-brand.webp";
-import brand2 from "../../assets/logos/kasbokar-brand.webp";
-import brand3 from "../../assets/logos/rezi-brand.webp";
-import brand4 from "../../assets/logos/logo-brand.png";
-
+import { HiOutlineChevronUp } from "react-icons/hi";
+import { HiOutlineChevronRight } from "react-icons/hi2";
+// start
 export default function FooterAbout() {
-  const [open, setOpen] = useState(false);
-
-  const shortText = digikalaAboutText.description.slice(0, 250) + "...";
-
+  const [isExpanded, setIsExpanded] = useState(false);
+  // jsx
   return (
-    <div className=" mx-10 py-6 text-sm text-gray-600 leading-7">
-      {/* Title */}
-      <h2 className="font-bold text-gray-800 mb-3 text-xl">
-        {digikalaAboutText.title}
-      </h2>
-
-      {/* Text */}
-      <p className="whitespace-pre-line">
-        {open ? digikalaAboutText.description : shortText}
-      </p>
-
-      {/* Button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className=" flex flex-row items-center mt-3 text-gray-400 
-        hover:text-gray-700 lg:text-blue-600 transition font-medium"
+    <div className="bg-white p-4 text-sm leading-7 text-right dir-rtl relative">
+      {/* باکس حاوی متن با محدودیت ارتفاع در حالت بسته */}
+      <div
+        className={`relative overflow-hidden transition-all duration-300 ${
+          isExpanded ? "max-h-[3000px]" : "max-h-24"
+        }`}
       >
-        {open ? (
-          <>
-            <span>بستن</span>
-            <MdKeyboardArrowLeft />
-          </>
-        ) : (
-          <>
-            <span>مشاهده بیشتر</span>
-            <MdKeyboardArrowLeft />
-          </>
-        )}
-      </button>
+        {/* تیتر اصلی */}
+        <h1 className="text-base font-bold text-gray-700 mb-2">
+          {digikalaAboutText.title}
+        </h1>
 
-      {/* Brand section  */}
-      <div className="flex items-center gap-6 mt-6 flex-wrap">
-        <img src={brand1} alt="brand 1" className="h-12 object-contain" />
-        <img src={brand2} alt="brand 2" className="h-12 object-contain" />
-        <img src={brand3} alt="brand 3" className="h-12 object-contain" />
-        <img src={brand4} alt="brand 4" className="h-12 object-contain" />
+        {/* بخش‌های مختلف متن */}
+        <div className="space-y-3">
+          {digikalaAboutText.sections.map((section, index) => (
+            <div key={index}>
+              {section.title && (
+                <h2 className="text-sm font-semibold text-gray-700 mt-3 mb-1">
+                  {section.title}
+                </h2>
+              )}
+              <p className="text-justify text-gray-500 text-xs leading-6">
+                {Array.isArray(section.content)
+                  ? section.content.map((item, itemIdx) =>
+                      typeof item === "string" ? (
+                        item
+                      ) : item.keyword ? (
+                        <span
+                          key={itemIdx}
+                          className="text-blue-500 font-medium hover:underline cursor-pointer px-0.5"
+                        >
+                          {item.text}
+                        </span>
+                      ) : (
+                        item.text
+                      ),
+                    )
+                  : section.content}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* لایه محو شونده (Gradient Overlay) - فقط وقتی متن بسته است نمایش داده می‌شود */}
+        {!isExpanded && (
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+        )}
+      </div>
+
+      {/* دکمه مشاهده بیشتر / بستن */}
+      <div className="mt-2">
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center gap-1 text-xs text-gray-400 font-medium
+           hover:text-gray-600 transition"
+        >
+          <span>{isExpanded ? "بستن" : "مشاهده بیشتر"}</span>
+          {isExpanded ? (
+            <HiOutlineChevronUp className="w-4 h-4" />
+          ) : (
+            <HiOutlineChevronRight className="w-4 h-4 rotate-180" />
+          )}
+        </button>
       </div>
     </div>
   );
